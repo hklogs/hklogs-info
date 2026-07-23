@@ -403,7 +403,7 @@ export const staticProjects: LocalProject[] = [
     desc: "A customer-facing home services marketplace allowing homeowners to post project requirements, search trades, and book appointments.",
     url: "https://github.com/hklogs/referralclose-home-service-marketplace",
     tech: ["TypeScript", "Next.js", "Tailwind CSS", "Framer Motion"],
-    thumbnail: "/referralclose_marketplace_thumb.png",
+    thumbnail: "/referralclose_home_service_marketplace_thumb.png",
     usecase: "Allows homeowners to find local contractors for repairs and renovations without manual cold calling.",
     working: "Builds interactive multi-step project request wizard, saves details in database, and notifies matched trades using notification webhooks."
   },
