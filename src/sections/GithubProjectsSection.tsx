@@ -239,17 +239,17 @@ export default function GithubProjectsSection({
             <div 
               key={idx}
               onClick={() => setSelectedProject(project)}
-              className="project-3d-card group relative bg-[#0a1535]/30 hover:bg-[#0a1535]/60 border border-white/10 hover:border-[#0096ff]/40 rounded-3xl overflow-hidden transition-all duration-300 shadow-xl flex flex-col transform-gpu w-full text-left cursor-pointer"
+              className="project-3d-card group relative bg-[#121212] border border-neutral-800 hover:border-[#E50914]/40 rounded-none overflow-hidden transition-all duration-300 shadow-xl flex flex-col transform-gpu w-full text-left cursor-pointer"
               style={{ 
                 transformStyle: 'preserve-3d',
-                boxShadow: '0 15px 30px rgba(0,0,0,0.2)'
+                boxShadow: '0 15px 30px rgba(0,0,0,0.4)'
               }}
             >
               {/* Visual Glow Effect inside Card */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-[#0096ff]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-tr from-[#E50914]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
               {/* Card Screenshot */}
-              <div className="relative aspect-[16/10] overflow-hidden bg-slate-950 border-b border-white/10 flex items-center justify-center">
+              <div className="relative aspect-[16/10] overflow-hidden bg-neutral-900 border-b border-neutral-800 flex items-center justify-center rounded-none">
                 {project.thumbnail ? (
                   <img 
                     src={project.thumbnail} 
@@ -260,40 +260,45 @@ export default function GithubProjectsSection({
                     }}
                   />
                 ) : (
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#0a1535] to-[#050a1f] flex flex-col items-center justify-center p-6 text-center group-hover:scale-105 transition-all duration-700 ease-out">
-                    <FolderGit className="w-8 h-8 text-[#0096ff]/40 mb-2 group-hover:text-[#ff3232]/60 transition-colors" />
-                    <span className="text-[10px] font-mono uppercase tracking-widest text-[#0096ff]/60 group-hover:text-[#ff3232]/80 transition-colors font-bold">
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#121212] to-[#0D0D0D] flex flex-col items-center justify-center p-6 text-center group-hover:scale-105 transition-all duration-700 ease-out">
+                    <FolderGit className="w-8 h-8 text-neutral-700 mb-2 group-hover:text-[#E50914] transition-colors" />
+                    <span className="text-[10px] font-mono uppercase tracking-widest text-neutral-500 group-hover:text-[#E50914] transition-colors font-bold">
                       {project.name}
                     </span>
                   </div>
                 )}
                 {/* HUD markings */}
-                <div className="absolute top-2 left-2 w-2 h-2 border-t border-l border-white/30" />
-                <div className="absolute top-2 right-2 w-2 h-2 border-t border-r border-white/30" />
-                <div className="absolute bottom-2 left-2 w-2 h-2 border-b border-l border-white/30" />
-                <div className="absolute bottom-2 right-2 w-2 h-2 border-b border-r border-white/30" />
+                <div className="absolute top-2 left-2 w-2 h-2 border-t border-l border-neutral-700" />
+                <div className="absolute top-2 right-2 w-2 h-2 border-t border-r border-neutral-700" />
+                <div className="absolute bottom-2 left-2 w-2 h-2 border-b border-l border-neutral-700" />
+                <div className="absolute bottom-2 right-2 w-2 h-2 border-b border-r border-neutral-700" />
               </div>
 
               {/* Card Summary Information */}
               <div className="p-6 flex flex-col justify-between flex-1 relative z-10">
                 <div className="space-y-2">
-                  <span className="text-[8px] font-mono text-[#0096ff] uppercase tracking-widest font-bold">
-                    Featured Project
-                  </span>
-                  <h3 className="font-heading font-bold text-white text-base tracking-wide leading-snug">
+                  <div className="flex justify-between items-center">
+                    <span className="text-[10px] font-mono text-[#E50914] tracking-widest font-bold">
+                      0{idx + 1}. FEATURED NODE
+                    </span>
+                    <span className="text-xs text-[#E50914] translate-x-[-4px] opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-300">
+                      Explore →
+                    </span>
+                  </div>
+                  <h3 className="font-heading font-bold text-white text-lg tracking-wide leading-snug">
                     {project.name}
                   </h3>
-                  <p className="text-xs text-gray-400 leading-relaxed font-light font-sans line-clamp-2">
+                  <p className="text-xs text-neutral-400 leading-relaxed font-light font-sans line-clamp-2">
                     {project.desc}
                   </p>
                 </div>
 
-                {/* Tech Stack badges */}
-                <div className="flex flex-wrap gap-1.5 pt-3 mt-4 border-t border-white/5">
+                {/* Tech Stack badges: style as minimal outlined pill components with dark backgrounds and bright text */}
+                <div className="flex flex-wrap gap-1.5 pt-3 mt-4 border-t border-neutral-800">
                   {project.tech.map((t, i) => (
                     <span 
                       key={i} 
-                      className="px-2 py-0.5 bg-white/5 rounded-md font-mono text-[8px] text-gray-400 border border-white/5"
+                      className="px-2.5 py-0.5 bg-[#181818] rounded-none font-mono text-[9px] text-neutral-300 border border-neutral-800 uppercase"
                     >
                       {t}
                     </span>
@@ -307,12 +312,12 @@ export default function GithubProjectsSection({
 
         {/* See All Projects Trigger Button */}
         <div className="mt-12 text-center flex flex-col items-center">
-          <div className="w-full max-w-md h-px bg-gradient-to-r from-transparent via-white/10 to-transparent mb-8" />
+          <div className="w-full max-w-md h-px bg-gradient-to-r from-transparent via-neutral-800 to-transparent mb-8" />
           <button
             onClick={() => setIsAllProjectsOpen(true)}
-            className="px-8 py-3.5 bg-[#0a1535]/50 hover:bg-[#0a1535]/80 border border-white/10 hover:border-[#0096ff]/50 text-white font-bold font-mono text-xs uppercase tracking-widest rounded-2xl transition-all shadow-[0_0_30px_rgba(0,150,255,0.1)] hover:shadow-[0_0_35px_rgba(0,150,255,0.3)] hover:scale-105 cursor-pointer flex items-center gap-2 group animate-pulse hover:animate-none"
+            className="px-8 py-3.5 bg-[#121212] border border-neutral-800 hover:border-[#E50914]/50 text-white font-bold font-mono text-xs uppercase tracking-widest rounded-none transition-all shadow-[0_0_30px_rgba(0,0,0,0.3)] hover:shadow-[0_0_35px_rgba(229,9,20,0.15)] hover:scale-105 cursor-pointer flex items-center gap-2 group"
           >
-            <LayoutGrid className="w-4 h-4 text-[#0096ff] group-hover:text-[#ff3232] transition-colors" />
+            <LayoutGrid className="w-4 h-4 text-[#E50914] group-hover:text-white transition-colors" />
             <span>Explore All {staticProjects.length} Projects</span>
           </button>
         </div>
@@ -321,23 +326,23 @@ export default function GithubProjectsSection({
 
       {/* Detailed Project Modal */}
       <Dialog open={!!selectedProject} onOpenChange={(open) => !open && setSelectedProject(null)}>
-        <DialogContent className="bg-[#050a1f] border border-white/10 text-slate-300 max-w-2xl rounded-3xl backdrop-blur-xl p-6 sm:p-8 overflow-y-auto max-h-[90vh]">
+        <DialogContent className="bg-[#0D0D0D] border border-neutral-800 text-slate-300 max-w-2xl rounded-none p-6 sm:p-8 overflow-y-auto max-h-[90vh] shadow-[0_0_50px_rgba(0,0,0,0.8)]">
           {selectedProject && (
             <div className="space-y-6">
-              <DialogHeader className="text-left border-b border-white/5 pb-4">
-                <span className="text-[9px] font-mono text-gray-500 uppercase tracking-widest block font-bold">
+              <DialogHeader className="text-left border-b border-neutral-800 pb-4">
+                <span className="text-[9px] font-mono text-[#E50914] uppercase tracking-widest block font-bold">
                   PROJECT SPECIFICATIONS
                 </span>
                 <DialogTitle className="font-heading font-bold text-2xl text-white tracking-wide mt-1">
                   {selectedProject.name}
                 </DialogTitle>
-                <DialogDescription className="text-xs text-gray-400 font-light mt-2 leading-relaxed">
+                <DialogDescription className="text-xs text-neutral-400 font-light mt-2 leading-relaxed font-sans">
                   {selectedProject.desc}
                 </DialogDescription>
               </DialogHeader>
 
               {/* Project Image */}
-              <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-950 border border-white/10 rounded-2xl flex items-center justify-center">
+              <div className="relative aspect-[16/10] w-full overflow-hidden bg-neutral-900 border border-neutral-800 rounded-none flex items-center justify-center">
                 {selectedProject.thumbnail ? (
                   <img 
                     src={selectedProject.thumbnail} 
@@ -345,53 +350,53 @@ export default function GithubProjectsSection({
                     className="w-full h-full object-cover"
                   />
                 ) : (
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#0a1535] to-[#050a1f] flex flex-col items-center justify-center p-6 text-center">
-                    <FolderGit className="w-12 h-12 text-[#0096ff]/40 mb-2" />
-                    <span className="text-xs font-mono uppercase tracking-widest text-[#0096ff]/60 font-bold">
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#121212] to-[#0D0D0D] flex flex-col items-center justify-center p-6 text-center">
+                    <FolderGit className="w-12 h-12 text-[#E50914]/40 mb-2" />
+                    <span className="text-xs font-mono uppercase tracking-widest text-[#E50914]/60 font-bold">
                       {selectedProject.name}
                     </span>
                   </div>
                 )}
                 {/* HUD markings */}
-                <div className="absolute top-3 left-3 w-4 h-4 border-t-2 border-l-2 border-white/30" />
-                <div className="absolute top-3 right-3 w-4 h-4 border-t-2 border-r-2 border-white/30" />
-                <div className="absolute bottom-3 left-3 w-4 h-4 border-b-2 border-l-2 border-white/30" />
-                <div className="absolute bottom-3 right-3 w-4 h-4 border-b-2 border-r-2 border-white/30" />
+                <div className="absolute top-3 left-3 w-4 h-4 border-t-2 border-l-2 border-neutral-700" />
+                <div className="absolute top-3 right-3 w-4 h-4 border-t-2 border-r-2 border-neutral-700" />
+                <div className="absolute bottom-3 left-3 w-4 h-4 border-b-2 border-l-2 border-neutral-700" />
+                <div className="absolute bottom-3 right-3 w-4 h-4 border-b-2 border-r-2 border-neutral-700" />
               </div>
 
               {/* Project Details Columns */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
                 {/* Left Side: Working */}
                 <div className="space-y-2">
-                  <h4 className="text-[10px] font-mono uppercase tracking-widest text-[#0096ff] font-bold">
+                  <h4 className="text-[10px] font-mono uppercase tracking-widest text-[#E50914] font-bold">
                     SYSTEM WORKING
                   </h4>
-                  <p className="text-xs text-gray-300 font-light leading-relaxed font-sans">
+                  <p className="text-xs text-neutral-300 font-light leading-relaxed font-sans">
                     {selectedProject.working}
                   </p>
                 </div>
 
                 {/* Right Side: Usecase */}
                 <div className="space-y-2">
-                  <h4 className="text-[10px] font-mono uppercase tracking-widest text-[#ff3232] font-bold">
+                  <h4 className="text-[10px] font-mono uppercase tracking-widest text-[#E50914] font-bold">
                     USE CASE & IMPACT
                   </h4>
-                  <p className="text-xs text-gray-300 font-light leading-relaxed font-sans">
+                  <p className="text-xs text-neutral-300 font-light leading-relaxed font-sans">
                     {selectedProject.usecase}
                   </p>
                 </div>
               </div>
 
               {/* Tech Stack used */}
-              <div className="space-y-2 text-left border-t border-white/5 pt-4">
-                <h4 className="text-[10px] font-mono uppercase tracking-widest text-gray-400 font-bold">
+              <div className="space-y-2 text-left border-t border-neutral-800 pt-4">
+                <h4 className="text-[10px] font-mono uppercase tracking-widest text-neutral-500 font-bold">
                   TECHNOLOGY INDEX
                 </h4>
                 <div className="flex flex-wrap gap-2">
                   {selectedProject.tech.map((t, i) => (
                     <span 
                       key={i} 
-                      className="px-2.5 py-1 bg-white/5 rounded-md font-mono text-[9px] text-gray-300 border border-white/5"
+                      className="px-2.5 py-1 bg-[#121212] rounded-none font-mono text-[9px] text-neutral-300 border border-neutral-800"
                     >
                       {t}
                     </span>
@@ -400,14 +405,14 @@ export default function GithubProjectsSection({
               </div>
 
               {/* Action Buttons */}
-              <div className="flex justify-end gap-3 pt-4 border-t border-white/5">
+              <div className="flex justify-end gap-3 pt-4 border-t border-neutral-800">
                 <a 
                   href={selectedProject.url} 
                   target="_blank" 
                   rel="noreferrer" 
-                  className="px-5 py-2.5 bg-white/5 hover:bg-white/10 border border-white/10 text-white rounded-xl text-xs font-mono font-bold flex items-center gap-2 transition-all"
+                  className="px-5 py-2.5 bg-[#121212] border border-neutral-800 hover:bg-neutral-800 text-white rounded-none text-xs font-mono font-bold flex items-center gap-2 transition-all cursor-pointer"
                 >
-                  <Github className="w-4 h-4" />
+                  <Github className="w-4 h-4 text-neutral-400" />
                   <span>GitHub Repository</span>
                 </a>
                 {selectedProject.vercelUrl && (
@@ -415,7 +420,7 @@ export default function GithubProjectsSection({
                     href={selectedProject.vercelUrl} 
                     target="_blank" 
                     rel="noreferrer" 
-                    className="px-5 py-2.5 bg-gradient-to-r from-[#0096ff] to-[#ff3232] hover:opacity-90 text-white rounded-xl text-xs font-mono font-bold flex items-center gap-2 transition-all shadow-[0_0_20px_rgba(0,150,255,0.2)]"
+                    className="px-5 py-2.5 bg-[#E50914] hover:bg-[#b01e1e] text-white rounded-none text-xs font-mono font-bold flex items-center gap-2 transition-all shadow-[0_0_20px_rgba(229,9,20,0.2)] cursor-pointer"
                   >
                     <ExternalLink className="w-4 h-4" />
                     <span>Live Web Console</span>
@@ -429,30 +434,30 @@ export default function GithubProjectsSection({
 
       {/* See All Projects Databank Modal */}
       <Dialog open={isAllProjectsOpen} onOpenChange={setIsAllProjectsOpen}>
-        <DialogContent className="bg-[#050a1f]/98 border border-white/10 text-slate-300 max-w-5xl rounded-3xl backdrop-blur-2xl p-6 sm:p-8 overflow-y-auto max-h-[90vh]">
-          <DialogHeader className="text-left border-b border-white/5 pb-4">
-            <span className="text-[9px] font-mono text-[#0096ff] uppercase tracking-widest block font-bold">
+        <DialogContent className="bg-[#0D0D0D]/98 border border-neutral-800 text-slate-300 max-w-5xl rounded-none p-6 sm:p-8 overflow-y-auto max-h-[90vh] shadow-[0_0_50px_rgba(0,0,0,0.9)]">
+          <DialogHeader className="text-left border-b border-neutral-800 pb-4">
+            <span className="text-[9px] font-mono text-[#E50914] uppercase tracking-widest block font-bold">
               DATABANK SEARCH
             </span>
             <DialogTitle className="font-heading font-bold text-2xl text-white tracking-wide mt-1">
               ALL CODEBASE ARCHIVES
             </DialogTitle>
-            <DialogDescription className="text-xs text-gray-400 font-light mt-1">
+            <DialogDescription className="text-xs text-neutral-400 font-light mt-1 font-sans">
               Search and filter across all {staticProjects.length} validated codebase registries.
             </DialogDescription>
           </DialogHeader>
 
           {/* Search and Filters Bar */}
-          <div className="flex flex-col sm:flex-row gap-4 my-4 items-center">
+          <div className="flex flex-col sm:flex-row gap-4 my-4 items-center w-full">
             {/* Search Input */}
             <div className="relative flex-1 w-full">
-              <Search className="absolute left-3 top-2.5 w-4 h-4 text-gray-500" />
+              <Search className="absolute left-3 top-3 w-4 h-4 text-neutral-500" />
               <input
                 type="text"
                 placeholder="Search by project name, tech stack, or description..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full bg-[#0a1535]/50 border border-white/10 hover:border-white/20 focus:border-[#0096ff]/50 rounded-xl pl-10 pr-4 py-2 text-xs text-white outline-none transition-all placeholder:text-gray-500 font-mono"
+                className="w-full bg-[#121212] border border-neutral-800 hover:border-neutral-700 focus:border-[#E50914]/50 rounded-none pl-10 pr-4 py-2.5 text-xs text-white outline-none transition-all placeholder:text-neutral-500 font-mono"
               />
             </div>
 
@@ -462,10 +467,10 @@ export default function GithubProjectsSection({
                 <button
                   key={cat}
                   onClick={() => setSelectedCategory(cat)}
-                  className={`px-3 py-1.5 rounded-lg border text-[10px] font-mono font-bold tracking-wide transition-all cursor-pointer whitespace-nowrap ${
+                  className={`px-3 py-1.5 rounded-none border text-[10px] font-mono font-bold tracking-wide transition-all cursor-pointer whitespace-nowrap ${
                     selectedCategory === cat
-                      ? 'bg-[#0096ff]/20 border-[#0096ff] text-[#0096ff] shadow-[0_0_10px_rgba(0,150,255,0.2)]'
-                      : 'bg-white/5 border-white/10 text-gray-400 hover:text-white hover:bg-white/10'
+                      ? 'bg-[#E50914]/20 border-[#E50914] text-[#E50914] shadow-[0_0_10px_rgba(229,9,20,0.2)]'
+                      : 'bg-[#121212] border-neutral-800 text-neutral-400 hover:text-white hover:bg-neutral-800'
                   }`}
                 >
                   {cat}
@@ -483,31 +488,31 @@ export default function GithubProjectsSection({
                   setSelectedProject(project);
                   setIsAllProjectsOpen(false);
                 }}
-                className="bg-[#0a1535]/30 hover:bg-[#0a1535]/60 border border-white/5 hover:border-[#0096ff]/30 rounded-2xl p-4 transition-all duration-200 cursor-pointer flex flex-col justify-between text-left h-[180px] hover:shadow-[0_0_15px_rgba(0,150,255,0.1)] animate-fade-in"
+                className="bg-[#121212] hover:bg-neutral-900 border border-neutral-800 hover:border-[#E50914]/30 rounded-none p-4 transition-all duration-200 cursor-pointer flex flex-col justify-between text-left h-[180px] hover:shadow-[0_0_15px_rgba(229,9,20,0.1)] animate-fade-in"
               >
                 <div className="space-y-2">
                   <div className="flex justify-between items-start">
-                    <span className="text-[8px] font-mono text-gray-500 font-bold uppercase tracking-wider">
+                    <span className="text-[8px] font-mono text-neutral-500 font-bold uppercase tracking-wider">
                       {project.name.toLowerCase().includes('llc') || project.name.toLowerCase().includes('home') || project.name.toLowerCase().includes('cbo') ? 'Featured Node' : 'Library Node'}
                     </span>
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#0096ff]" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#E50914]" />
                   </div>
                   <h4 className="font-heading font-bold text-white text-xs tracking-wide line-clamp-1">
                     {project.name}
                   </h4>
-                  <p className="text-[10px] text-gray-400 leading-relaxed line-clamp-3">
+                  <p className="text-[10px] text-neutral-400 leading-relaxed line-clamp-3 font-sans">
                     {project.desc}
                   </p>
                 </div>
                 
-                <div className="flex flex-wrap gap-1 pt-2 border-t border-white/5 mt-2">
+                <div className="flex flex-wrap gap-1 pt-2 border-t border-neutral-800 mt-2">
                   {project.tech.slice(0, 3).map((t, i) => (
-                    <span key={i} className="px-1 py-0.5 bg-white/5 rounded font-mono text-[7px] text-gray-400 border border-white/5">
+                    <span key={i} className="px-2 py-0.5 bg-[#181818] rounded-none font-mono text-[7px] text-neutral-300 border border-neutral-800 uppercase">
                       {t}
                     </span>
                   ))}
                   {project.tech.length > 3 && (
-                    <span className="text-[7px] font-mono text-gray-500 self-center">
+                    <span className="text-[7px] font-mono text-neutral-500 self-center">
                       +{project.tech.length - 3}
                     </span>
                   )}
@@ -515,8 +520,8 @@ export default function GithubProjectsSection({
               </div>
             ))}
             {filteredProjects.length === 0 && (
-              <div className="col-span-full py-12 flex flex-col items-center justify-center text-center text-gray-500 space-y-2 font-mono">
-                <AlertCircle className="w-8 h-8 text-[#ff3232]/50 animate-pulse" />
+              <div className="col-span-full py-12 flex flex-col items-center justify-center text-center text-neutral-500 space-y-2 font-mono">
+                <AlertCircle className="w-8 h-8 text-[#E50914]/50 animate-pulse" />
                 <span className="text-xs">Zero codebase records matched query parameters.</span>
               </div>
             )}

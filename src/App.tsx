@@ -53,7 +53,7 @@ function App() {
   }
 
   return (
-    <div className="relative min-h-screen bg-[#050a1f] overflow-x-hidden text-slate-300">
+    <div className="relative min-h-screen bg-[#0D0D0D] overflow-x-hidden text-neutral-300">
       
       {/* Sticky navigation with active indicator */}
       <Navigation
@@ -89,7 +89,7 @@ function App() {
             }}
           />
         </section>
-
+ 
         {/* 2. Education & Experience */}
         <section id="experience" className="relative z-15">
           <ExperienceSection />
@@ -104,12 +104,12 @@ function App() {
             setGithubToken={setGithubToken}
           />
         </section>
-
+ 
         {/* 3.5 SQA Playgrounds */}
         <section id="playgrounds" className="relative z-22">
           <PlaygroundsSection geminiKey={geminiKey} />
         </section>
-
+ 
         {/* 4. Skills Section (LinkedIn stats & Workspace tools) */}
         <section id="skills" className="relative z-25">
           <TechStackSection />
@@ -119,7 +119,7 @@ function App() {
         <section id="publications" className="relative z-30">
           <PublicationsSection />
         </section>
-
+ 
         {/* 5.5 AI Oracle */}
         <section id="oracle" className="relative z-32">
           <OracleSection />
@@ -131,26 +131,26 @@ function App() {
         </section>
         
         {/* Footer */}
-        <footer className="relative z-30 py-12 bg-[#050a1f] border-t border-white/5">
+        <footer className="relative z-30 py-12 bg-[#0D0D0D] border-t border-neutral-800">
           <div className="max-w-7xl mx-auto px-6 text-center">
-            <p className="text-gray-400 text-xs">
-              <span className="text-[#0096ff]">&lt;/&gt;</span> with 
-              <span className="text-[#ff3232]"> &lt;3</span> by Hassaan Abdullah Kiyani
+            <p className="text-neutral-400 text-xs">
+              <span className="text-[#E50914]">&lt;/&gt;</span> with 
+              <span className="text-[#E50914]"> &lt;3</span> by Hassaan Abdullah Kiyani
             </p>
-            <p className="text-gray-500 text-[10px] mt-2 font-mono uppercase tracking-widest">
+            <p className="text-neutral-500 text-[10px] mt-2 font-mono uppercase tracking-widest">
               Intelligent Software Engineering &bull; 2026
             </p>
           </div>
         </footer>
       </main>
-
-      {/* Floating AI Twin Button in bottom right corner */}
+ 
+      {/* Floating AI Twin Button in bottom right corner: style as rectangular red flat button */}
       <button
         onClick={() => setIsChatOpen(true)}
-        className="fixed bottom-6 right-6 z-[180] w-12 h-12 bg-gradient-to-r from-[#0096ff] to-[#ff3232] rounded-full flex items-center justify-center border border-white/10 shadow-[0_0_20px_rgba(0,150,255,0.3)] hover:shadow-[0_0_30px_rgba(255,50,50,0.5)] transition-all active:scale-95 group cursor-pointer"
+        className="fixed bottom-6 right-6 z-[180] w-12 h-12 bg-[#E50914] hover:bg-[#b01e1e] rounded-none flex items-center justify-center border border-neutral-800 shadow-[0_0_20px_rgba(229,9,20,0.3)] transition-all active:scale-95 group cursor-pointer"
         title="Chat with Hassaan's AI Twin"
       >
-        <span className="absolute inset-0 rounded-full bg-[#0096ff]/20 animate-ping group-hover:bg-[#ff3232]/20" />
+        <span className="absolute inset-0 bg-[#E50914]/20 animate-ping group-hover:bg-[#E50914]/35" />
         <MessageSquare className="w-5 h-5 text-white relative z-10" />
       </button>
 

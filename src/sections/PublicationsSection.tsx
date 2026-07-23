@@ -3,15 +3,15 @@ import { publications } from '../data/hassaanData';
 
 export default function PublicationsSection() {
   return (
-    <section id="publications" className="py-20 border-t border-white/5 relative">
+    <section id="publications" className="py-20 border-t border-neutral-800 relative bg-[#0D0D0D]">
       <div className="max-w-6xl mx-auto px-6">
         
         {/* Title */}
         <div className="mb-12 text-center">
-          <h2 className="font-heading text-3xl md:text-4xl font-bold mb-3 text-white">
-            RESEARCH & <span className="bg-gradient-to-r from-[#0096ff] to-[#ff3232] bg-clip-text text-transparent">PUBLICATIONS</span>
+          <h2 className="font-heading text-4xl md:text-5xl font-bold mb-3 text-white">
+            RESEARCH & <span className="text-[#E50914]">PUBLICATIONS</span>
           </h2>
-          <p className="text-gray-400 text-sm md:text-base font-light max-w-xl mx-auto">
+          <p className="text-neutral-400 text-sm md:text-base font-light max-w-xl mx-auto font-sans">
             Essays, architectural breakdowns, and theses published on Medium.
           </p>
         </div>
@@ -24,31 +24,31 @@ export default function PublicationsSection() {
               href={pub.link}
               target="_blank"
               rel="noreferrer"
-              className="group p-6 bg-white/[0.01] hover:bg-white/[0.03] border border-white/5 hover:border-white/10 rounded-3xl flex flex-col justify-between transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,255,255,0.02)] decoration-none text-left"
+              className="group p-6 bg-[#121212] hover:bg-neutral-900 border border-neutral-800 hover:border-[#E50914]/30 rounded-none flex flex-col justify-between transition-all duration-300 shadow-md text-left"
             >
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
-                  <span className="text-[9px] tracking-wider uppercase font-bold text-[#0096ff] bg-[#0096ff]/10 px-2.5 py-1 border border-[#0096ff]/15 rounded-lg">
+                  <span className="text-[9px] tracking-wider uppercase font-bold text-[#E50914] bg-[#181818] px-2.5 py-1 border border-neutral-800 rounded-none">
                     {pub.category}
                   </span>
-                  <FileText className="w-4 h-4 text-gray-500 group-hover:text-[#0096ff] transition-colors" />
+                  <FileText className="w-4 h-4 text-neutral-500 group-hover:text-[#E50914] transition-colors" />
                 </div>
                 
-                <h3 className="font-heading font-bold text-white text-base md:text-lg group-hover:text-[#0096ff] transition-colors leading-snug">
+                <h3 className="font-heading font-bold text-white text-base md:text-lg group-hover:text-[#E50914] transition-colors leading-snug">
                   {pub.title}
                 </h3>
                 
-                <p className="text-[11px] text-gray-400 font-mono font-medium leading-relaxed">
+                <p className="text-[11px] text-neutral-400 font-mono font-medium leading-relaxed uppercase">
                   {pub.sub}
                 </p>
                 
-                <p className="text-xs text-gray-500 font-light leading-relaxed pt-1">
+                <p className="text-xs text-neutral-400 font-light leading-relaxed pt-1 font-sans">
                   {pub.desc}
                 </p>
               </div>
 
-              <div className="flex items-center gap-1.5 text-xs font-bold text-[#0096ff] pt-6 group-hover:gap-2.5 transition-all">
-                <span>Read Publication</span>
+              <div className="flex items-center gap-1.5 text-xs font-bold text-[#E50914] pt-6 group-hover:gap-2.5 transition-all">
+                <span>Read Publication →</span>
                 <ExternalLink className="w-3.5 h-3.5" />
               </div>
             </a>
