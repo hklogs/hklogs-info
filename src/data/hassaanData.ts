@@ -322,7 +322,7 @@ export const staticProjects: LocalProject[] = [
     desc: "A geographic information analyzer designed for environmental surveyors. It processes satellite imagery layers, maps terrain coordinates, and identifies geological anomalies. Utilizing Gemini semantic descriptions, it generates text reports based on spatial coordinates.",
     url: "https://github.com/hklogs/geoengineai",
     tech: ["React", "Leaflet Maps", "Gemini API", "Python"],
-    thumbnail: "/geoengineai_thumb.jpg",
+    thumbnail: "/geoengineai_thumb.png",
     usecase: "Assists geologists in scanning coordinates and generating immediate geological survey summaries using AI.",
     working: "Integrates Leaflet Maps to render geo-referenced imagery layers. Users mark coordinates, sending terrain vectors to Gemini API to yield geo-location description logs."
   },
