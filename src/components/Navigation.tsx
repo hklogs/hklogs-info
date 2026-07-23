@@ -25,7 +25,7 @@ export default function Navigation() {
       >
         <div className="w-2.5 h-2.5 bg-[#E50914] group-hover:scale-125 transition-transform" />
         <span className="text-white font-mono text-[10px] sm:text-xs uppercase tracking-widest font-bold">
-          HASSAAN KIYANI <span className="hidden sm:inline text-neutral-500 font-normal">| SQA & AI ENGINEER</span>
+          SOFTWARE QUALITY ASSURANCE &amp; AI ENGINEER
         </span>
       </div>
 
