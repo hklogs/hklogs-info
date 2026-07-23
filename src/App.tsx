@@ -8,13 +8,13 @@ import LoadingScreen from './sections/LoadingScreen';
 import Navigation from './components/Navigation';
 import HeroSection from './sections/HeroSection';
 import ExperienceSection from './sections/ExperienceSection';
+import CoursesSection from './sections/CoursesSection';
+import VolunteerSection from './sections/VolunteerSection';
 import TechStackSection from './sections/TechStackSection';
 import GithubProjectsSection from './sections/GithubProjectsSection';
 import PublicationsSection from './sections/PublicationsSection';
 import ChatbotSection from './sections/ChatbotSection';
 import PortalsSection from './sections/PortalsSection';
-import PlaygroundsSection from './sections/PlaygroundsSection';
-import OracleSection from './sections/OracleSection';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -39,12 +39,26 @@ function App() {
 
   useEffect(() => {
     if (!isLoading && mainRef.current) {
-      const ctx = gsap.context(() => {
-        // Refresh ScrollTrigger when sections mount
-        ScrollTrigger.refresh();
-      }, mainRef);
-
-      return () => ctx.revert();
+      const sections = mainRef.current.querySelectorAll('section');
+      sections.forEach((section, index) => {
+        const direction = index % 2 === 0 ? -60 : 60;
+        gsap.fromTo(
+          section,
+          { opacity: 0, x: direction, y: 30 },
+          {
+            opacity: 1,
+            x: 0,
+            y: 0,
+            duration: 0.8,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: section,
+              start: 'top 85%',
+              toggleActions: 'play none none reverse',
+            },
+          }
+        );
+      });
     }
   }, [isLoading]);
 
@@ -61,10 +75,9 @@ function App() {
       {/* Main Content */}
       <main ref={mainRef} className="relative z-10 pt-16">
         
-        {/* 1. Basic Profile (Hero Section) */}
+        {/* 1. Basic Profile (Hero Section with Zoom/Fade on scroll & cursor sensitivity) */}
         <section id="about" className="relative z-10">
           <HeroSection
-            selectedPath="operator" // Default to Operator/SQA layout styling
             onExploreProjects={() => {
               const el = document.getElementById('projects');
               if (el) {
@@ -78,12 +91,12 @@ function App() {
           />
         </section>
  
-        {/* 2. Education & Experience */}
+        {/* 2. Education & Experience (Primus Leads LLC, Tritanium Global, Cloudwave Innovations) */}
         <section id="experience" className="relative z-15">
           <ExperienceSection />
         </section>
         
-        {/* 3. Projects (GitHub Repos & Vercel links) */}
+        {/* 3. Engineered Architectures & Projects (GitHub Repos & Vercel links) */}
         <section id="projects" className="relative z-20">
           <GithubProjectsSection
             geminiKey={geminiKey}
@@ -92,37 +105,37 @@ function App() {
             setGithubToken={setGithubToken}
           />
         </section>
- 
-        {/* 3.5 SQA Playgrounds */}
-        <section id="playgrounds" className="relative z-22">
-          <PlaygroundsSection geminiKey={geminiKey} />
+
+        {/* 4. Core Coursework & Academics */}
+        <section id="courses" className="relative z-22">
+          <CoursesSection />
+        </section>
+
+        {/* 5. Volunteer & Community Leadership */}
+        <section id="volunteer" className="relative z-24">
+          <VolunteerSection />
         </section>
  
-        {/* 4. Skills Section (LinkedIn stats & Workspace tools) */}
+        {/* 6. Skills Section (LinkedIn stats & Workspace tools) */}
         <section id="skills" className="relative z-25">
           <TechStackSection />
         </section>
         
-        {/* 5. Medium Publications */}
+        {/* 7. Medium Publications */}
         <section id="publications" className="relative z-30">
           <PublicationsSection />
         </section>
- 
-        {/* 5.5 AI Oracle */}
-        <section id="oracle" className="relative z-32">
-          <OracleSection />
-        </section>
         
-        {/* 6. Contact Gateway & Footer Section */}
+        {/* 8. Contact Gateway & Footer Section */}
         <section id="gateway" className="relative z-35">
           <PortalsSection />
         </section>
       </main>
  
-      {/* Floating AI Twin Button in bottom right corner: style as rectangular red flat button */}
+      {/* Floating AI Twin Button in bottom right corner */}
       <button
         onClick={() => setIsChatOpen(true)}
-        className="fixed bottom-6 right-6 z-[180] w-12 h-12 bg-[#E50914] hover:bg-[#b01e1e] rounded-none flex items-center justify-center border border-neutral-800 shadow-[0_0_20px_rgba(229,9,20,0.3)] transition-all active:scale-95 group cursor-pointer"
+        className="fixed bottom-6 right-6 z-[180] w-12 h-12 bg-[#E50914] hover:bg-[#b01e1e] rounded-none flex items-center justify-center border border-neutral-800 shadow-[0_0_20px_rgba(229,9,20,0.3)] transition-all hover:scale-105 active:scale-95 group cursor-pointer"
         title="Chat with Hassaan's AI Twin"
       >
         <span className="absolute inset-0 bg-[#E50914]/20 animate-ping group-hover:bg-[#E50914]/35" />

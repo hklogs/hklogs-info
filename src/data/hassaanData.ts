@@ -17,6 +17,13 @@ export interface LocalProject {
   working: string;
 }
 
+export interface CourseItem {
+  code: string;
+  name: string;
+  university: string;
+  category: string;
+}
+
 export const personalInfo = {
   name: "Hassaan Abdullah Kiyani",
   title: "AI Engineer & SQA Specialist",
@@ -47,6 +54,21 @@ export const personalInfo = {
     "Deep Learning & Computer Vision Application"
   ]
 };
+
+export const detailedCourses: CourseItem[] = [
+  { code: "SE-301", name: "Software Quality Assurance & Auditing", university: "UIIT PMAS-Arid Agriculture University", category: "Core SQA" },
+  { code: "CS-402", name: "Human-Computer Interaction (HCI)", university: "UIIT PMAS-Arid Agriculture University", category: "UX Architecture" },
+  { code: "DB-201", name: "Database Management Systems (SQL & MongoDB)", university: "UIIT PMAS-Arid Agriculture University", category: "Data Systems" },
+  { code: "SE-102", name: "Object-Oriented Programming & Software Design", university: "UIIT PMAS-Arid Agriculture University", category: "Software Engineering" },
+  { code: "AI-405", name: "Deep Learning & Computer Vision Application", university: "UIIT PMAS-Arid Agriculture University", category: "Artificial Intelligence" },
+  { code: "CS-101", name: "Programming Fundamentals (C++ / Python)", university: "UIIT PMAS-Arid Agriculture University", category: "Computer Science" },
+  { code: "SE-204", name: "Software Requirement Engineering", university: "UIIT PMAS-Arid Agriculture University", category: "Software Engineering" },
+  { code: "CS-303", name: "Data Structures & Algorithm Analysis", university: "UIIT PMAS-Arid Agriculture University", category: "Computer Science" },
+  { code: "SE-308", name: "Software Architecture & Design Patterns", university: "UIIT PMAS-Arid Agriculture University", category: "Software Engineering" },
+  { code: "AI-301", name: "Artificial Intelligence & Expert Systems", university: "UIIT PMAS-Arid Agriculture University", category: "Artificial Intelligence" },
+  { code: "CS-205", name: "Operating Systems & Linux Kernel Basics", university: "UIIT PMAS-Arid Agriculture University", category: "Systems" },
+  { code: "SE-401", name: "Software Project Management", university: "UIIT PMAS-Arid Agriculture University", category: "Management" }
+];
 
 export const statsList = [
   { value: "40+", label: "QA Audits & Builds" },

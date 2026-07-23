@@ -102,34 +102,18 @@ export default function ExperienceSection() {
               </div>
 
               {/* Step 03 */}
-              <div className="relative text-left">
+              <div className="relative text-left group hover:-translate-y-1 transition-all duration-300 cursor-pointer">
                 <div className="absolute -left-[45px] top-0 w-6 h-6 rounded-full bg-[#E50914] text-white flex items-center justify-center font-mono text-[10px] font-bold shadow-md">
                   03
                 </div>
                 <span className="text-[10px] font-mono text-[#8E8E93] uppercase tracking-widest font-bold block mb-1">
                   Sept 2024 - Feb 2025
                 </span>
-                <h4 className="font-heading font-bold text-white text-base leading-snug uppercase">
+                <h4 className="font-heading font-bold text-white text-base leading-snug uppercase group-hover:text-[#E50914] transition-colors">
                   Team Lead &amp; Ops Manager @ Cloudwave Innovations
                 </h4>
                 <p className="text-xs text-[#8E8E93] leading-relaxed font-light mt-1">
-                  Supervised inward operations, hiring channels, and operational SQA frameworks.
-                </p>
-              </div>
-
-              {/* Step 04 */}
-              <div className="relative text-left">
-                <div className="absolute -left-[45px] top-0 w-6 h-6 rounded-full bg-[#E50914] text-white flex items-center justify-center font-mono text-[10px] font-bold shadow-md">
-                  04
-                </div>
-                <span className="text-[10px] font-mono text-[#8E8E93] uppercase tracking-widest font-bold block mb-1">
-                  Leadership Track
-                </span>
-                <h4 className="font-heading font-bold text-white text-base leading-snug uppercase">
-                  VP (PDS Rawalpindi) &bull; Core Team (Al Khidmat) &bull; Ambassador (GDG Cloud)
-                </h4>
-                <p className="text-xs text-[#8E8E93] leading-relaxed font-light mt-1">
-                  Leading tech communities, student ambassadors, and humanitarian volunteer ops.
+                  Supervised inward operations workflows, managed recruiting and hiring channels, coordinated cross-functional project delivery, and established operational SQA frameworks.
                 </p>
               </div>
             </div>
