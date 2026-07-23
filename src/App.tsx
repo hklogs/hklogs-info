@@ -8,8 +8,6 @@ import LoadingScreen from './sections/LoadingScreen';
 import Navigation from './components/Navigation';
 import HeroSection from './sections/HeroSection';
 import ExperienceSection from './sections/ExperienceSection';
-import CoursesSection from './sections/CoursesSection';
-import VolunteerSection from './sections/VolunteerSection';
 import TechStackSection from './sections/TechStackSection';
 import GithubProjectsSection from './sections/GithubProjectsSection';
 import PublicationsSection from './sections/PublicationsSection';
@@ -41,7 +39,7 @@ function App() {
     if (!isLoading && mainRef.current) {
       const sections = mainRef.current.querySelectorAll('section');
       sections.forEach((section, index) => {
-        const direction = index % 2 === 0 ? -60 : 60;
+        const direction = index % 2 === 0 ? -50 : 50;
         gsap.fromTo(
           section,
           { opacity: 0, x: direction, y: 30 },
@@ -75,7 +73,7 @@ function App() {
       {/* Main Content */}
       <main ref={mainRef} className="relative z-10 pt-16">
         
-        {/* 1. Basic Profile (Hero Section with Zoom/Fade on scroll & cursor sensitivity) */}
+        {/* 1. Basic Profile (Hero Section) */}
         <section id="about" className="relative z-10">
           <HeroSection
             onExploreProjects={() => {
@@ -91,12 +89,12 @@ function App() {
           />
         </section>
  
-        {/* 2. Education & Experience (Primus Leads LLC, Tritanium Global, Cloudwave Innovations) */}
+        {/* 2. Experience, Education, Coursework & Volunteer Track */}
         <section id="experience" className="relative z-15">
           <ExperienceSection />
         </section>
         
-        {/* 3. Engineered Architectures & Projects (GitHub Repos & Vercel links) */}
+        {/* 3. Engineered Architectures & Projects */}
         <section id="projects" className="relative z-20">
           <GithubProjectsSection
             geminiKey={geminiKey}
@@ -105,34 +103,24 @@ function App() {
             setGithubToken={setGithubToken}
           />
         </section>
-
-        {/* 4. Core Coursework & Academics */}
-        <section id="courses" className="relative z-22">
-          <CoursesSection />
-        </section>
-
-        {/* 5. Volunteer & Community Leadership */}
-        <section id="volunteer" className="relative z-24">
-          <VolunteerSection />
-        </section>
  
-        {/* 6. Skills Section (LinkedIn stats & Workspace tools) */}
+        {/* 4. Skills & Workspace Tools */}
         <section id="skills" className="relative z-25">
           <TechStackSection />
         </section>
         
-        {/* 7. Medium Publications */}
+        {/* 5. Medium Publications */}
         <section id="publications" className="relative z-30">
           <PublicationsSection />
         </section>
         
-        {/* 8. Contact Gateway & Footer Section */}
+        {/* 6. Contact Gateway & Linktree Footer */}
         <section id="gateway" className="relative z-35">
           <PortalsSection />
         </section>
       </main>
  
-      {/* Floating AI Twin Button in bottom right corner */}
+      {/* Floating AI Twin Button */}
       <button
         onClick={() => setIsChatOpen(true)}
         className="fixed bottom-6 right-6 z-[180] w-12 h-12 bg-[#E50914] hover:bg-[#b01e1e] rounded-none flex items-center justify-center border border-neutral-800 shadow-[0_0_20px_rgba(229,9,20,0.3)] transition-all hover:scale-105 active:scale-95 group cursor-pointer"
