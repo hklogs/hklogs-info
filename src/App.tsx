@@ -20,7 +20,13 @@ gsap.registerPlugin(ScrollTrigger);
 function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [isChatOpen, setIsChatOpen] = useState(false);
-  const [pageView, setPageView] = useState<'home' | 'projects-vault'>('home');
+
+  // Initialize page view based on initial URL path
+  const [pageView, setPageView] = useState<'home' | 'projects-vault'>(() => {
+    return typeof window !== 'undefined' && window.location.pathname.startsWith('/projects')
+      ? 'projects-vault'
+      : 'home';
+  });
 
   // Read credentials from localStorage
   const [geminiKey, setGeminiKey] = useState(() => localStorage.getItem('GEMINI_API_KEY') || '');
@@ -35,6 +41,20 @@ function App() {
     }, 1800);
 
     return () => clearTimeout(timer);
+  }, []);
+
+  // Listen to browser Back/Forward popstate events for URL routing
+  useEffect(() => {
+    const handlePopState = () => {
+      if (window.location.pathname.startsWith('/projects')) {
+        setPageView('projects-vault');
+      } else {
+        setPageView('home');
+      }
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
   }, []);
 
   useEffect(() => {
@@ -62,22 +82,33 @@ function App() {
     }
   }, [isLoading, pageView]);
 
+  const navigateToVault = () => {
+    if (typeof window !== 'undefined') {
+      window.history.pushState({}, '', '/projects/');
+    }
+    setPageView('projects-vault');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const navigateToHome = () => {
+    if (typeof window !== 'undefined') {
+      window.history.pushState({}, '', '/');
+    }
+    setPageView('home');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   if (isLoading) {
     return <LoadingScreen />;
   }
 
-  // Render Dedicated Standalone Projects Vault Page
+  // Render Dedicated Standalone Projects Vault Page at /projects/
   if (pageView === 'projects-vault') {
     return (
       <div className="relative min-h-screen bg-[#0D0D0D]">
         <Navigation />
         <div className="pt-16">
-          <ProjectsVaultPage
-            onBack={() => {
-              setPageView('home');
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }}
-          />
+          <ProjectsVaultPage onBack={navigateToHome} />
         </div>
       </div>
     );
@@ -107,7 +138,7 @@ function App() {
             }}
           />
         </section>
- 
+
         {/* 2. Experience, Education, Coursework & Volunteer Track */}
         <section id="experience" className="relative z-15">
           <ExperienceSection />
@@ -120,13 +151,10 @@ function App() {
             setGeminiKey={setGeminiKey}
             githubToken={githubToken}
             setGithubToken={setGithubToken}
-            onOpenVault={() => {
-              setPageView('projects-vault');
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }}
+            onOpenVault={navigateToVault}
           />
         </section>
- 
+
         {/* 4. Skills & Workspace Tools */}
         <section id="skills" className="relative z-25">
           <TechStackSection />
@@ -142,7 +170,7 @@ function App() {
           <PortalsSection />
         </section>
       </main>
- 
+
       {/* Floating AI Twin Button */}
       <button
         onClick={() => setIsChatOpen(true)}
