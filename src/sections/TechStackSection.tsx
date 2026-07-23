@@ -80,7 +80,7 @@ export default function TechStackSection() {
       id="skills"
       className="relative py-20 overflow-hidden border-t border-neutral-800 bg-[#0D0D0D] select-none"
     >
-      <div className="max-w-6xl mx-auto px-6 relative z-10">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
         
         {/* Title */}
         <div ref={titleRef} className="text-center mb-16">

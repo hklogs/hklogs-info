@@ -171,13 +171,13 @@ export default function HeroSection({ onExploreProjects }: HeroSectionProps) {
         </div>
 
         {/* LAYER 4: Right Column Metrics with cursor lift */}
-        <div className="flex flex-col gap-8 w-full justify-center pl-0 lg:pl-6 border-l-0 lg:border-l border-neutral-800/60">
+        <div className="grid grid-cols-2 lg:flex lg:flex-col gap-6 lg:gap-8 w-full justify-center pl-0 lg:pl-6 border-l-0 lg:border-l border-neutral-800/60 pt-4 lg:pt-0">
           {statsList.map((stat, i) => (
             <div key={i} className="hero-fade text-left space-y-1 group hover:-translate-y-1 hover:scale-[1.04] transition-all duration-300 cursor-pointer">
-              <div className="text-5xl sm:text-6xl font-bold font-heading text-[#E50914] leading-none group-hover:text-white transition-colors">
+              <div className="text-4xl sm:text-5xl md:text-6xl font-bold font-heading text-[#E50914] leading-none group-hover:text-white transition-colors">
                 {stat.value}
               </div>
-              <div className="text-xs uppercase font-mono tracking-widest text-[#8E8E93] font-bold">
+              <div className="text-[10px] sm:text-xs uppercase font-mono tracking-widest text-[#8E8E93] font-bold">
                 {stat.label}
               </div>
             </div>

@@ -4,7 +4,7 @@ import { volunteerHistory } from '../data/hassaanData';
 export default function ExperienceSection() {
   return (
     <section id="experience" className="py-20 border-t border-neutral-800 relative bg-[#0D0D0D] text-left select-none">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
         
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 items-start">
           

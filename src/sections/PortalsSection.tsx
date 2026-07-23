@@ -4,7 +4,7 @@ import { personalInfo } from '../data/hassaanData';
 export default function PortalsSection() {
   return (
     <section id="gateway" className="py-24 border-t border-neutral-800 relative bg-[#0D0D0D] text-left select-none">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           

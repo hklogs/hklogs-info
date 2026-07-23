@@ -165,7 +165,7 @@ export default function GithubProjectsSection({
       {/* Visual background details */}
       <div className="absolute top-1/4 left-0 w-80 h-80 bg-[#E50914]/5 rounded-full blur-[120px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
         
         {/* Top Bar */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-10 pb-4 border-b border-neutral-800 text-left">

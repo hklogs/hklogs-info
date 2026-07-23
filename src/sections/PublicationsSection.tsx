@@ -4,7 +4,7 @@ import { publications } from '../data/hassaanData';
 export default function PublicationsSection() {
   return (
     <section id="publications" className="py-20 border-t border-neutral-800 relative bg-[#0D0D0D]">
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
         
         {/* Title */}
         <div className="mb-12 text-center">
