@@ -55,23 +55,11 @@ function App() {
   return (
     <div className="relative min-h-screen bg-[#0D0D0D] overflow-x-hidden text-neutral-300">
       
-      {/* Sticky navigation with active indicator */}
-      <Navigation
-        onBackToGateway={() => {
-          const el = document.getElementById('gateway');
-          if (el) {
-            const offset = 80;
-            const bodyRect = document.body.getBoundingClientRect().top;
-            const elementRect = el.getBoundingClientRect().top;
-            const position = elementRect - bodyRect - offset;
-            window.scrollTo({ top: position, behavior: 'smooth' });
-          }
-        }}
-        onToggleChat={() => setIsChatOpen(true)}
-      />
+      {/* Top Fixed Clean Navigation Bar */}
+      <Navigation />
       
       {/* Main Content */}
-      <main ref={mainRef} className="relative z-10">
+      <main ref={mainRef} className="relative z-10 pt-16">
         
         {/* 1. Basic Profile (Hero Section) */}
         <section id="about" className="relative z-10">
@@ -125,23 +113,10 @@ function App() {
           <OracleSection />
         </section>
         
-        {/* 6. Services Gateway Section (At the bottom of the page) */}
+        {/* 6. Contact Gateway & Footer Section */}
         <section id="gateway" className="relative z-35">
           <PortalsSection />
         </section>
-        
-        {/* Footer */}
-        <footer className="relative z-30 py-12 bg-[#0D0D0D] border-t border-neutral-800">
-          <div className="max-w-7xl mx-auto px-6 text-center">
-            <p className="text-neutral-400 text-xs">
-              <span className="text-[#E50914]">&lt;/&gt;</span> with 
-              <span className="text-[#E50914]"> &lt;3</span> by Hassaan Abdullah Kiyani
-            </p>
-            <p className="text-neutral-500 text-[10px] mt-2 font-mono uppercase tracking-widest">
-              Intelligent Software Engineering &bull; 2026
-            </p>
-          </div>
-        </footer>
       </main>
  
       {/* Floating AI Twin Button in bottom right corner: style as rectangular red flat button */}

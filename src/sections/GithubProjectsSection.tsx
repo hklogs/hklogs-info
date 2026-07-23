@@ -163,165 +163,80 @@ export default function GithubProjectsSection({
       {/* Visual background details */}
       <div className="absolute top-1/4 left-0 w-80 h-80 bg-[#E50914]/5 rounded-full blur-[120px] pointer-events-none" />
 
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6 md:px-12">
         
-        {/* Title and Console Row */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12 items-stretch text-left">
+        {/* Top Bar */}
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-10 pb-4 border-b border-neutral-800 text-left">
+          <h2 className="font-heading text-4xl md:text-5xl font-bold text-white uppercase tracking-tight">
+            SELECTED <span className="text-[#E50914]">PROJECTS</span>
+          </h2>
           
-          {/* Left 2 columns: Title & Description */}
-          <div className="lg:col-span-2 flex flex-col justify-center bg-[#121212] border border-neutral-800 rounded-none p-8 backdrop-blur-sm space-y-4">
-            <div className="flex justify-between items-center w-full">
-              <span className="text-[10px] font-mono text-[#E50914] uppercase tracking-widest font-bold">
-                SYSTEM PORTFOLIO: COMPILED
-              </span>
-              <button 
-                onClick={() => setIsAllProjectsOpen(true)}
-                className="text-[10px] font-mono uppercase text-[#E50914] tracking-widest font-bold hover:underline cursor-pointer flex items-center gap-1 shrink-0"
-              >
-                VIEW ALL {staticProjects.length} PROJECTS →
-              </button>
-            </div>
-            <h2 className="font-heading text-4xl md:text-5xl font-bold text-white leading-tight uppercase select-none">
-              SELECTED <span className="text-[#E50914]">PROJECTS</span>
-            </h2>
-            <p className="text-neutral-400 text-xs md:text-sm font-light font-mono max-w-2xl leading-relaxed">
-              {`> Every card represents a validated, functional codebase. Click any card to inspect architecture specifications, SQA workflows, execution steps, and live console nodes.`}
-            </p>
-            <div className="flex flex-wrap gap-4 items-center pt-2">
-              <div className="flex items-center gap-1.5 text-[10px] sm:text-xs text-neutral-500 font-mono">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                <span>Log Analyzer: Online</span>
-              </div>
-              <div className="flex items-center gap-1.5 text-[10px] sm:text-xs text-neutral-500 font-mono">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#E50914] animate-pulse" />
-                <span>Vercel Nodes: Active</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Right 1 column: Compact System Console */}
-          <div className="bg-[#121212] border border-neutral-800 rounded-none p-6 backdrop-blur-md flex flex-col justify-between space-y-4">
-            <div className="flex items-center gap-2 border-b border-neutral-800 pb-2">
-              <FolderGit className="w-4 h-4 text-[#E50914]" />
-              <h3 className="text-xs font-bold uppercase tracking-wider text-white font-mono">
-                System Console
-              </h3>
-            </div>
-            
-            <form onSubmit={handleSaveKeys} className="space-y-3 text-left">
-              <div className="space-y-1">
-                <label className="text-[8px] font-mono uppercase tracking-widest text-gray-400 block font-bold">
-                  Gemini API Key
-                </label>
-                <input
-                  type="password"
-                  value={tempGeminiKey}
-                  onChange={(e) => setTempGeminiKey(e.target.value)}
-                  placeholder="Paste Gemini API Key..."
-                  className="w-full bg-[#050a1f] border border-white/10 hover:border-white/20 rounded-lg px-3 py-1.5 text-[11px] text-white outline-none transition-all placeholder:text-gray-600 font-mono"
-                />
-              </div>
-
-              <div className="space-y-1">
-                <label className="text-[8px] font-mono uppercase tracking-widest text-gray-400 block font-bold">
-                  GitHub Token
-                </label>
-                <input
-                  type="password"
-                  value={tempGithubToken}
-                  onChange={(e) => setTempGithubToken(e.target.value)}
-                  placeholder="Increase API rate limits..."
-                  className="w-full bg-[#050a1f] border border-white/10 hover:border-white/20 rounded-lg px-3 py-1.5 text-[11px] text-white outline-none transition-all placeholder:text-gray-600 font-mono"
-                />
-              </div>
-
-              <button
-                type="submit"
-                className="w-full py-1.5 bg-gradient-to-r from-[#0096ff]/20 to-[#ff3232]/20 hover:from-[#0096ff]/30 hover:to-[#ff3232]/30 border border-white/10 hover:border-white/20 text-white font-bold text-xs rounded-lg transition-all flex items-center justify-center gap-1.5 cursor-pointer"
-              >
-                {saveSuccess ? (
-                  <>
-                    <Check className="w-3.5 h-3.5 text-emerald-400" />
-                    <span className="text-emerald-400 text-[10px]">Applied</span>
-                  </>
-                ) : (
-                  <>
-                    <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
-                    <span className="text-[10px]">Configure System</span>
-                  </>
-                )}
-              </button>
-            </form>
-          </div>
+          <button 
+            onClick={() => setIsAllProjectsOpen(true)}
+            className="text-xs font-mono uppercase text-[#E50914] hover:text-white tracking-widest font-bold transition-colors cursor-pointer flex items-center gap-1.5 w-fit"
+          >
+            <span>VIEW ALL {staticProjects.length} PROJECTS</span>
+            <span>→</span>
+          </button>
         </div>
 
-        {/* Featured Projects Grid (Top 4) */}
-        <div ref={cardsRef} className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {/* Monolithic Horizontal Grid (Separated ONLY by 1px dark hairline borders) */}
+        <div ref={cardsRef} className="grid grid-cols-1 md:grid-cols-3 border border-neutral-800 bg-[#121212] rounded-none divide-y md:divide-y-0 md:divide-x divide-neutral-800">
           {topProjects.map((project, idx) => (
             <div 
               key={idx}
               onClick={() => setSelectedProject(project)}
-              className="project-3d-card group relative bg-[#121212] border border-neutral-800 hover:border-[#E50914]/40 rounded-none overflow-hidden transition-all duration-300 shadow-xl flex flex-col transform-gpu w-full text-left cursor-pointer"
-              style={{ 
-                transformStyle: 'preserve-3d',
-                boxShadow: '0 15px 30px rgba(0,0,0,0.4)'
-              }}
+              className="group relative bg-[#121212] hover:bg-neutral-900 transition-colors duration-300 flex flex-col w-full text-left cursor-pointer p-0"
             >
-              {/* Visual Glow Effect inside Card */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-[#E50914]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-
-              {/* Card Screenshot */}
-              <div className="relative aspect-[16/10] overflow-hidden bg-neutral-900 border-b border-neutral-800 flex items-center justify-center rounded-none">
+              {/* 16:9 Dark Mockup Thumbnail */}
+              <div className="relative aspect-video overflow-hidden bg-neutral-950 border-b border-neutral-800 flex items-center justify-center">
                 {project.thumbnail ? (
                   <img 
                     src={project.thumbnail} 
                     alt={project.name}
-                    className="w-full h-full object-cover transition-all duration-700 ease-out group-hover:scale-105"
+                    className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
                     onError={(e) => {
                       (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80';
                     }}
                   />
                 ) : (
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#121212] to-[#0D0D0D] flex flex-col items-center justify-center p-6 text-center group-hover:scale-105 transition-all duration-700 ease-out">
+                  <div className="absolute inset-0 bg-neutral-900 flex flex-col items-center justify-center p-6 text-center">
                     <FolderGit className="w-8 h-8 text-neutral-700 mb-2 group-hover:text-[#E50914] transition-colors" />
-                    <span className="text-[10px] font-mono uppercase tracking-widest text-neutral-500 group-hover:text-[#E50914] transition-colors font-bold">
+                    <span className="text-[10px] font-mono uppercase tracking-widest text-neutral-500 font-bold">
                       {project.name}
                     </span>
                   </div>
                 )}
-                {/* HUD markings */}
-                <div className="absolute top-2 left-2 w-2 h-2 border-t border-l border-neutral-700" />
-                <div className="absolute top-2 right-2 w-2 h-2 border-t border-r border-neutral-700" />
-                <div className="absolute bottom-2 left-2 w-2 h-2 border-b border-l border-neutral-700" />
-                <div className="absolute bottom-2 right-2 w-2 h-2 border-b border-r border-neutral-700" />
               </div>
 
-              {/* Card Summary Information */}
-              <div className="p-6 flex flex-col justify-between flex-1 relative z-10">
+              {/* Information below thumbnail */}
+              <div className="p-6 flex flex-col justify-between flex-1 space-y-4">
                 <div className="space-y-2">
                   <div className="flex justify-between items-start">
                     <div className="flex flex-col">
-                      <span className="text-sm font-bold font-mono text-[#E50914] leading-none mb-1">
+                      <span className="text-base font-bold font-mono text-[#E50914] leading-none mb-1">
                         0{idx + 1}
                       </span>
-                      <span className="text-[9px] font-mono text-neutral-400 uppercase tracking-widest leading-none font-bold">
+                      <span className="text-[9px] font-mono text-neutral-500 uppercase tracking-widest leading-none font-bold">
                         {getProjectSubtitle(project.name)}
                       </span>
                     </div>
-                    <span className="text-xs text-[#E50914] translate-x-[-4px] opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-300">
-                      Explore →
+                    <span className="text-sm text-[#E50914] group-hover:translate-x-1 transition-transform duration-300 font-bold">
+                      →
                     </span>
                   </div>
-                  <h3 className="font-heading font-bold text-white text-lg tracking-wide leading-snug">
+
+                  <h3 className="font-heading font-bold text-white text-xl tracking-wide uppercase leading-tight pt-1">
                     {project.name}
                   </h3>
-                  <p className="text-xs text-neutral-400 leading-relaxed font-light font-sans line-clamp-2">
+
+                  <p className="text-xs text-[#8E8E93] leading-relaxed font-light font-sans line-clamp-3">
                     {project.desc}
                   </p>
                 </div>
 
-                {/* Tech Stack badges: style as minimal outlined pill components with dark backgrounds and bright text */}
-                <div className="flex flex-wrap gap-1.5 pt-3 mt-4 border-t border-neutral-800">
+                {/* Tech Stack badges */}
+                <div className="flex flex-wrap gap-1.5 pt-3 border-t border-neutral-800/80">
                   {project.tech.map((t, i) => (
                     <span 
                       key={i} 

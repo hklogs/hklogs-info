@@ -1,69 +1,50 @@
-import { Briefcase, GraduationCap, Heart } from 'lucide-react';
-import { educationHistory, experienceHistory, volunteerHistory } from '../data/hassaanData';
-
 export default function ExperienceSection() {
   return (
-    <section id="experience" className="py-20 border-t border-neutral-800 relative">
-      <div className="max-w-6xl mx-auto px-6">
+    <section id="experience" className="py-20 border-t border-neutral-800 relative bg-[#0D0D0D] text-left">
+      <div className="max-w-7xl mx-auto px-6 md:px-12">
         
-        {/* Title */}
-        <div className="mb-16 text-center">
-          <h2 className="font-heading text-4xl md:text-5xl font-bold mb-3 text-white">
-            QUALIFICATION & <span className="text-[#E50914]">TIMELINE</span>
-          </h2>
-          <p className="text-neutral-400 text-sm md:text-base font-light max-w-xl mx-auto font-sans">
-            Academic credentials, professional AI engineer engagements, and campus leadership tracks.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 items-stretch">
           
-          {/* Left Column: Education & Skills */}
-          <div className="space-y-8 text-left">
-            {/* Education Sub-section */}
-            <div className="space-y-6">
-              <div className="flex items-center gap-3 border-b border-neutral-800 pb-4">
-                <div className="w-8 h-8 rounded-none bg-[#E50914]/10 border border-[#E50914]/20 flex items-center justify-center text-[#E50914]">
-                  <GraduationCap className="w-4 h-4" />
-                </div>
-                <h3 className="font-heading text-lg font-bold text-white uppercase tracking-wider">
-                  Education Track
-                </h3>
+          {/* LEFT COLUMN: Education & Skills */}
+          <div className="space-y-8 flex flex-col justify-between">
+            {/* EDUCATION */}
+            <div className="space-y-4">
+              <div className="text-[#E50914] font-mono text-xs uppercase font-bold tracking-widest border-b border-neutral-800 pb-2">
+                EDUCATION
               </div>
-
-              <div className="space-y-4">
-                <div className="p-4 bg-[#121212] border border-neutral-800 rounded-none">
-                  <span className="text-[9px] font-mono text-neutral-500 uppercase tracking-widest block font-bold mb-1">
-                    2022 - Present
-                  </span>
-                  <h4 className="font-heading font-bold text-white text-sm leading-snug">
+              <div className="space-y-4 font-sans">
+                <div>
+                  <h4 className="font-heading font-bold text-white text-base leading-snug">
                     BS Software Engineering (Final Year)
                   </h4>
-                  <h5 className="text-xs text-[#E50914] font-semibold font-mono mt-1 uppercase">
+                  <div className="text-xs text-[#8E8E93] mt-1 font-mono">
                     UIIT PMAS-Arid Agriculture University, Pakistan
-                  </h5>
+                  </div>
+                  <div className="text-[10px] text-neutral-500 font-mono mt-0.5">
+                    2022 - Present
+                  </div>
                 </div>
 
-                <div className="p-4 bg-[#121212] border border-neutral-800 rounded-none">
-                  <span className="text-[9px] font-mono text-neutral-500 uppercase tracking-widest block font-bold mb-1">
-                    Prior to 2022
-                  </span>
-                  <h4 className="font-heading font-bold text-white text-sm leading-snug">
-                    Matric & Intermediate (Computer Science Track)
+                <div>
+                  <h4 className="font-heading font-bold text-white text-base leading-snug">
+                    Matric &amp; Intermediate (CS Track)
                   </h4>
-                  <h5 className="text-xs text-[#E50914] font-semibold font-mono mt-1 uppercase">
+                  <div className="text-xs text-[#8E8E93] mt-1 font-mono">
                     Army Public School and College, Jhelum Cantt
-                  </h5>
+                  </div>
+                  <div className="text-[10px] text-neutral-500 font-mono mt-0.5">
+                    Prior to 2022
+                  </div>
                 </div>
               </div>
             </div>
 
-            {/* Skills Sub-section */}
+            {/* SKILLS */}
             <div className="space-y-4 pt-4 border-t border-neutral-800">
-              <h3 className="font-heading text-sm font-bold text-white uppercase tracking-wider">
-                Skills & Badges
-              </h3>
-              <div className="flex flex-wrap gap-1.5">
+              <div className="text-[#E50914] font-mono text-xs uppercase font-bold tracking-widest">
+                SKILLS
+              </div>
+              <div className="flex flex-wrap gap-2">
                 {[
                   "Software Quality Assurance", "Manual & Automated Testing", "Boundary Value Analysis", 
                   "Predictive Log Auditing", "Python", "Java", "C++", "SQL", "TypeScript", 
@@ -72,7 +53,7 @@ export default function ExperienceSection() {
                 ].map((skill, idx) => (
                   <span 
                     key={idx}
-                    className="px-2.5 py-0.5 bg-[#121212] border border-neutral-800 text-neutral-300 font-mono text-[9px] uppercase rounded-none"
+                    className="border border-white/20 bg-transparent text-gray-300 rounded-full px-3 py-1 text-xs font-mono"
                   >
                     {skill}
                   </span>
@@ -81,124 +62,92 @@ export default function ExperienceSection() {
             </div>
           </div>
 
-          {/* Center Column: Work Track Timeline */}
-          <div className="space-y-8 text-left">
-            <div className="flex items-center gap-3 border-b border-neutral-800 pb-4">
-              <div className="w-8 h-8 rounded-none bg-[#E50914]/10 border border-[#E50914]/20 flex items-center justify-center text-[#E50914]">
-                <Briefcase className="w-4 h-4" />
-              </div>
-              <h3 className="font-heading text-lg font-bold text-white uppercase tracking-wider">
-                Work Track & Timeline
-              </h3>
-            </div>
+          {/* MIDDLE COLUMN: Work Track / Timeline */}
+          <div className="space-y-6">
+            <h3 className="font-heading font-bold text-2xl text-white uppercase tracking-wide border-b border-neutral-800 pb-2">
+              WORK TRACK &amp; TIMELINE
+            </h3>
 
-            <div className="space-y-6 relative border-l border-neutral-800 pl-6 ml-4">
+            <div className="relative border-l border-neutral-800 ml-3 pl-8 space-y-8 font-sans">
               {/* Step 01 */}
-              <div className="relative group text-left">
-                <span className="absolute -left-[29px] top-1.5 w-2 h-2 bg-[#E50914] group-hover:scale-125 transition-transform" />
-                <div className="p-5 bg-[#121212] border border-neutral-800 hover:border-[#E50914]/25 rounded-none transition-all duration-300">
-                  <span className="text-[9px] font-mono text-neutral-500 uppercase tracking-widest block font-bold mb-1">
-                    June 2026 - Present (STEP 01)
-                  </span>
-                  <h4 className="font-heading font-bold text-white text-sm leading-snug">
-                    AI Engineer
-                  </h4>
-                  <h5 className="text-xs text-[#E50914] font-semibold font-mono mt-1 uppercase">
-                    Tritanium Global
-                  </h5>
-                  <p className="text-xs text-neutral-400 leading-relaxed font-light mt-3 font-sans">
-                    Developing autonomous agentic AI systems & automated database pipelines.
-                  </p>
+              <div className="relative text-left">
+                <div className="absolute -left-[45px] top-0 w-6 h-6 rounded-full bg-[#E50914] text-white flex items-center justify-center font-mono text-[10px] font-bold shadow-md">
+                  01
                 </div>
+                <span className="text-[10px] font-mono text-[#8E8E93] uppercase tracking-widest font-bold block mb-1">
+                  June 2026 - Present
+                </span>
+                <h4 className="font-heading font-bold text-white text-base leading-snug uppercase">
+                  AI Engineer @ Tritanium Global
+                </h4>
+                <p className="text-xs text-[#8E8E93] leading-relaxed font-light mt-1">
+                  Developing autonomous agentic AI systems &amp; automated database pipelines.
+                </p>
               </div>
 
               {/* Step 02 */}
-              <div className="relative group text-left">
-                <span className="absolute -left-[29px] top-1.5 w-2 h-2 bg-[#E50914] group-hover:scale-125 transition-transform" />
-                <div className="p-5 bg-[#121212] border border-neutral-800 hover:border-[#E50914]/25 rounded-none transition-all duration-300">
-                  <span className="text-[9px] font-mono text-neutral-500 uppercase tracking-widest block font-bold mb-1">
-                    June 2026 - Present (STEP 02)
-                  </span>
-                  <h4 className="font-heading font-bold text-white text-sm leading-snug">
-                    Executive Member - R&D
-                  </h4>
-                  <h5 className="text-xs text-[#E50914] font-semibold font-mono mt-1 uppercase">
-                    Primus Leads LLC
-                  </h5>
-                  <p className="text-xs text-neutral-400 leading-relaxed font-light mt-3 font-sans">
-                    R&D on automated lead generation algorithms & scraping pipelines.
-                  </p>
+              <div className="relative text-left">
+                <div className="absolute -left-[45px] top-0 w-6 h-6 rounded-full bg-[#E50914] text-white flex items-center justify-center font-mono text-[10px] font-bold shadow-md">
+                  02
                 </div>
+                <span className="text-[10px] font-mono text-[#8E8E93] uppercase tracking-widest font-bold block mb-1">
+                  June 2026 - Present
+                </span>
+                <h4 className="font-heading font-bold text-white text-base leading-snug uppercase">
+                  Executive Member - R&amp;D @ Primus Leads LLC
+                </h4>
+                <p className="text-xs text-[#8E8E93] leading-relaxed font-light mt-1">
+                  R&amp;D on automated lead generation algorithms &amp; scraping pipelines.
+                </p>
               </div>
 
               {/* Step 03 */}
-              <div className="relative group text-left">
-                <span className="absolute -left-[29px] top-1.5 w-2 h-2 bg-[#E50914] group-hover:scale-125 transition-transform" />
-                <div className="p-5 bg-[#121212] border border-neutral-800 hover:border-[#E50914]/25 rounded-none transition-all duration-300">
-                  <span className="text-[9px] font-mono text-neutral-500 uppercase tracking-widest block font-bold mb-1">
-                    Sept 2024 - Feb 2025 (STEP 03)
-                  </span>
-                  <h4 className="font-heading font-bold text-white text-sm leading-snug">
-                    Team Lead & Operations Manager
-                  </h4>
-                  <h5 className="text-xs text-[#E50914] font-semibold font-mono mt-1 uppercase">
-                    Cloudwave Innovations
-                  </h5>
-                  <p className="text-xs text-neutral-400 leading-relaxed font-light mt-3 font-sans">
-                    Supervised inward operations, hiring channels, and operational SQA frameworks.
-                  </p>
+              <div className="relative text-left">
+                <div className="absolute -left-[45px] top-0 w-6 h-6 rounded-full bg-[#E50914] text-white flex items-center justify-center font-mono text-[10px] font-bold shadow-md">
+                  03
                 </div>
+                <span className="text-[10px] font-mono text-[#8E8E93] uppercase tracking-widest font-bold block mb-1">
+                  Sept 2024 - Feb 2025
+                </span>
+                <h4 className="font-heading font-bold text-white text-base leading-snug uppercase">
+                  Team Lead &amp; Ops Manager @ Cloudwave Innovations
+                </h4>
+                <p className="text-xs text-[#8E8E93] leading-relaxed font-light mt-1">
+                  Supervised inward operations, hiring channels, and operational SQA frameworks.
+                </p>
               </div>
 
               {/* Step 04 */}
-              <div className="relative group text-left">
-                <span className="absolute -left-[29px] top-1.5 w-2 h-2 bg-[#E50914] group-hover:scale-125 transition-transform" />
-                <div className="p-5 bg-[#121212] border border-neutral-800 hover:border-[#E50914]/25 rounded-none transition-all duration-300">
-                  <span className="text-[9px] font-mono text-neutral-500 uppercase tracking-widest block font-bold mb-1">
-                    Leadership & Community (STEP 04)
-                  </span>
-                  <h4 className="font-heading font-bold text-white text-sm leading-snug">
-                    Vice President & Ambassador
-                  </h4>
-                  <h5 className="text-xs text-[#E50914] font-semibold font-mono mt-1 uppercase">
-                    GDG Cloud Islamabad / Al Khidmat / PDS Rawalpindi
-                  </h5>
-                  <p className="text-xs text-neutral-400 leading-relaxed font-light mt-3 font-sans">
-                    Vice President (PDS Rawalpindi), Core Team (Al Khidmat), Student Ambassador (GDG Cloud Islamabad).
-                  </p>
+              <div className="relative text-left">
+                <div className="absolute -left-[45px] top-0 w-6 h-6 rounded-full bg-[#E50914] text-white flex items-center justify-center font-mono text-[10px] font-bold shadow-md">
+                  04
                 </div>
+                <span className="text-[10px] font-mono text-[#8E8E93] uppercase tracking-widest font-bold block mb-1">
+                  Leadership Track
+                </span>
+                <h4 className="font-heading font-bold text-white text-base leading-snug uppercase">
+                  VP (PDS Rawalpindi) &bull; Core Team (Al Khidmat) &bull; Ambassador (GDG Cloud)
+                </h4>
+                <p className="text-xs text-[#8E8E93] leading-relaxed font-light mt-1">
+                  Leading tech communities, student ambassadors, and humanitarian volunteer ops.
+                </p>
               </div>
             </div>
           </div>
 
-          {/* Right Column: Quote / Callout Box */}
-          <div className="space-y-8 w-full">
-            <div className="flex items-center gap-3 border-b border-neutral-800 pb-4">
-              <div className="w-8 h-8 rounded-none bg-[#E50914]/10 border border-[#E50914]/20 flex items-center justify-center text-[#E50914]">
-                <Heart className="w-4 h-4" />
-              </div>
-              <h3 className="font-heading text-lg font-bold text-white uppercase tracking-wider">
-                Ecosystem Vision
-              </h3>
-            </div>
-
-            <div className="p-6 bg-[#E50914] text-white rounded-none shadow-xl border border-[#b01e1e] flex flex-col justify-between aspect-[3/4] relative overflow-hidden group">
-              {/* Subtle grid watermark */}
-              <div className="absolute inset-0 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:16px_16px] opacity-10 pointer-events-none" />
-              
-              <div className="space-y-4 relative z-10">
-                <span className="text-5xl font-serif text-white/30 block leading-none select-none">“</span>
-                <p className="text-sm md:text-base font-medium leading-relaxed font-sans text-white/95">
+          {/* RIGHT COLUMN: Quote Callout Box */}
+          <div className="h-full flex flex-col">
+            <div className="bg-gradient-to-br from-[#800000] to-[#3A0000] p-8 rounded-none flex flex-col justify-between h-full border border-[#800000]/60 relative overflow-hidden min-h-[360px]">
+              <div className="space-y-4 relative z-10 text-left">
+                <span className="text-6xl font-serif text-[#E50914] block leading-none select-none">“</span>
+                <p className="text-white text-base md:text-lg font-light leading-relaxed font-sans">
                   Moving beyond rigid, fragile assertions toward semantic inference. Testing edge cases dynamically with machine cognition.
                 </p>
               </div>
 
-              <div className="space-y-2 pt-6 relative z-10 border-t border-white/20 mt-4">
-                <div className="font-script text-white text-2xl font-bold">
+              <div className="pt-8 relative z-10 text-left border-t border-white/10 mt-6">
+                <div className="font-script text-white text-3xl font-normal select-none">
                   Hassaan Abdullah
-                </div>
-                <div className="text-[9px] font-mono tracking-widest text-white/80 font-bold uppercase leading-none">
-                  BUILDING RESILIENT DIGITAL ARCHITECTURE
                 </div>
               </div>
             </div>
