@@ -12,6 +12,7 @@ interface GithubProjectsSectionProps {
   setGeminiKey: (key: string) => void;
   githubToken: string;
   setGithubToken: (token: string) => void;
+  onOpenVault?: () => void;
 }
 
 export default function GithubProjectsSection({
@@ -19,6 +20,7 @@ export default function GithubProjectsSection({
   setGeminiKey,
   githubToken,
   setGithubToken,
+  onOpenVault,
 }: GithubProjectsSectionProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const cardsRef = useRef<HTMLDivElement>(null);
@@ -172,7 +174,7 @@ export default function GithubProjectsSection({
           </h2>
           
           <button 
-            onClick={() => setIsAllProjectsOpen(true)}
+            onClick={() => onOpenVault ? onOpenVault() : setIsAllProjectsOpen(true)}
             className="text-xs font-mono uppercase text-[#E50914] hover:text-white tracking-widest font-bold transition-all hover:-translate-y-0.5 cursor-pointer flex items-center gap-1.5 w-fit"
           >
             <span>EXPLORE ALL {staticProjects.length} ARCHITECTURES</span>

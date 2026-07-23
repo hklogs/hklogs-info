@@ -3,7 +3,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { MessageSquare } from 'lucide-react';
 
-// Import sections
+// Import sections & pages
 import LoadingScreen from './sections/LoadingScreen';
 import Navigation from './components/Navigation';
 import HeroSection from './sections/HeroSection';
@@ -13,12 +13,14 @@ import GithubProjectsSection from './sections/GithubProjectsSection';
 import PublicationsSection from './sections/PublicationsSection';
 import ChatbotSection from './sections/ChatbotSection';
 import PortalsSection from './sections/PortalsSection';
+import ProjectsVaultPage from './pages/ProjectsVaultPage';
 
 gsap.registerPlugin(ScrollTrigger);
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [isChatOpen, setIsChatOpen] = useState(false);
+  const [pageView, setPageView] = useState<'home' | 'projects-vault'>('home');
 
   // Read credentials from localStorage
   const [geminiKey, setGeminiKey] = useState(() => localStorage.getItem('GEMINI_API_KEY') || '');
@@ -36,7 +38,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    if (!isLoading && mainRef.current) {
+    if (!isLoading && pageView === 'home' && mainRef.current) {
       const sections = mainRef.current.querySelectorAll('section');
       sections.forEach((section, index) => {
         const direction = index % 2 === 0 ? -50 : 50;
@@ -58,10 +60,27 @@ function App() {
         );
       });
     }
-  }, [isLoading]);
+  }, [isLoading, pageView]);
 
   if (isLoading) {
     return <LoadingScreen />;
+  }
+
+  // Render Dedicated Standalone Projects Vault Page
+  if (pageView === 'projects-vault') {
+    return (
+      <div className="relative min-h-screen bg-[#0D0D0D]">
+        <Navigation />
+        <div className="pt-16">
+          <ProjectsVaultPage
+            onBack={() => {
+              setPageView('home');
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+          />
+        </div>
+      </div>
+    );
   }
 
   return (
@@ -101,6 +120,10 @@ function App() {
             setGeminiKey={setGeminiKey}
             githubToken={githubToken}
             setGithubToken={setGithubToken}
+            onOpenVault={() => {
+              setPageView('projects-vault');
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
           />
         </section>
  

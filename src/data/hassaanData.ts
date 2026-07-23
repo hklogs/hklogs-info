@@ -201,7 +201,7 @@ export const staticProjects: LocalProject[] = [
     desc: "A luxury real-estate listing marketplace designed for property dealers and home buyers. It showcases properties in a responsive grid, processes dynamic price filtrations, and coordinates agent tour schedules. It prevents overlapping calendar reservations and validates address listings using Google Maps API overlays.",
     url: "https://github.com/hklogs/ultd-realestate",
     tech: ["Next.js", "React", "Supabase", "Tailwind CSS"],
-    thumbnail: "/ultd_realestate_thumb.png",
+    thumbnail: "/ultd_llc_real_estate_thumb.png",
     usecase: "Allows luxury real estate brokers to showcase properties and coordinate customer visits without overlapping appointments or manual geolocation mapping.",
     working: "Utilizes Next.js App Router and Supabase Database for listing synchronization. Integrates Google Maps API overlays for property geolocation lookups and coordinates scheduling via database triggers to avoid slot double-booking."
   },
@@ -220,7 +220,7 @@ export const staticProjects: LocalProject[] = [
     desc: "An advanced lead scraping dashboard built for sales outreach managers and CRM administrators at Primus Leads LLC. It aggregates B2B client emails, structures marketing campaign pipelines, and provides campaign conversion graphs. It handles data cleaning scripts to remove corrupt records from campaign pools.",
     url: "https://github.com/hklogs/MarketForge",
     tech: ["React", "Node.js", "Gemini 2.0", "MongoDB"],
-    thumbnail: "/crazy_leads_thumb.jpg",
+    thumbnail: "/crazy_leads_thumb.png",
     usecase: "Helps sales leads aggregate verified contacts, cleaning formatting issues and standardizing campaign data to prevent bounced emails.",
     working: "Aggregates raw prospect records through Scrapy nodes, executes regex sanitization and validation scripts to drop empty properties, saves datasets to MongoDB, and triggers Gemini 2.0 for outreach text personalization."
   },
@@ -340,7 +340,7 @@ export const staticProjects: LocalProject[] = [
     desc: "Crazy Closers (Genius Leads LLC) — Brand Gateway lead-gen & compliance site providing high-performance landing pages and input validation tests.",
     url: "https://github.com/hklogs/crazy-closers",
     tech: ["TypeScript", "Next.js", "Tailwind CSS", "Framer Motion"],
-    thumbnail: "/primus_leads_thumb.png",
+    thumbnail: "/crazy_leads_thumb.png",
     usecase: "Generates verified B2B customer leads and automates initial outreach validation sequences for brand growth.",
     working: "Scrapes public directory listings, cleans contact data strings using local expressions, and personalizes outreach emails."
   },
@@ -394,7 +394,7 @@ export const staticProjects: LocalProject[] = [
     desc: "Advanced automated lead-routing network engine designed for B2B contractor networks, routing high-intent leads in real-time.",
     url: "https://github.com/hklogs/referral-close",
     tech: ["TypeScript", "Next.js", "Supabase", "Node.js"],
-    thumbnail: "/pricing_agent_thumb.jpg",
+    thumbnail: "/referralclose_marketplace_thumb.png",
     usecase: "Routes high-intent homeowner leads to local contractors based on proximity, trade matching, and contractor availability.",
     working: "Queries database views dynamically using geolocation coordinates, checks constraints for contractor capacity, and updates lead distribution logs."
   },
