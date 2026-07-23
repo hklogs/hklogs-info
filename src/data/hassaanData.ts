@@ -71,7 +71,7 @@ export const detailedCourses: CourseItem[] = [
 
 export const statsList = [
   { value: "40+", label: "QA Audits & Builds" },
-  { value: "20+", label: "GitHub Repositories" },
+  { value: "30+", label: "GitHub Repositories" },
   { value: "3+", label: "Years Dev Track" },
   { value: "4+", label: "Published Essays" }
 ];
