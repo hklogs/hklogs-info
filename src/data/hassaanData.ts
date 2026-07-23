@@ -158,9 +158,18 @@ export const publications: Publication[] = [
 // Ranked Projects according to: CBO on top, then ULTD, then Recruiter, then Crazy Leads, then Sentient AI, then remaining.
 export const staticProjects: LocalProject[] = [
   {
-    name: "CBO-RuralWSD (AutonAI)",
-    desc: "A Progressive Web Application engineered for rural water scheme committees and consumer billing administrators. It manages consumer records, audits payment queues, tracks water tankers, and generates monthly billing schedules. Designed with an offline-first service worker, it allows rural operators to update ledger statuses in remote zones.",
+    name: "AutonAI",
+    desc: "An autonomous agentic AI framework designed to orchestrate recursive prompt loops, validate cognitive LLM processes, and run automated script executions.",
     url: "https://github.com/hklogs/AutonAI",
+    tech: ["Python", "TypeScript", "LangChain", "Gemini API"],
+    thumbnail: "/sentient_ai_thumb.jpg",
+    usecase: "Enables developers to test autonomous AI workflows, execute local bash tasks safely, and debug agentic logic loops.",
+    working: "Deploys LangChain agent execution nodes, hooks into local OS CLI bindings, and evaluates agent performance metrics."
+  },
+  {
+    name: "CBO-RuralWSD (cboruralwater)",
+    desc: "A Progressive Web Application engineered for rural water scheme committees and consumer billing administrators. It manages consumer records, audits payment queues, tracks water tankers, and generates monthly billing schedules. Designed with an offline-first service worker, it allows rural operators to update ledger statuses in remote zones.",
+    url: "https://github.com/hklogs/cboruralwater",
     tech: ["React", "Express", "Firebase", "PostgreSQL", "PWA"],
     thumbnail: "/cbo_water_thumb.jpg",
     usecase: "Facilitates clean water administration and consumer ledger coordination for remote rural committees, preventing billing disputes and operational leakages.",
@@ -171,7 +180,7 @@ export const staticProjects: LocalProject[] = [
     desc: "A luxury real-estate listing marketplace designed for property dealers and home buyers. It showcases properties in a responsive grid, processes dynamic price filtrations, and coordinates agent tour schedules. It prevents overlapping calendar reservations and validates address listings using Google Maps API overlays.",
     url: "https://github.com/hklogs/ultd-realestate",
     tech: ["Next.js", "React", "Supabase", "Tailwind CSS"],
-    thumbnail: "/ultd_realestate_thumb.jpg",
+    thumbnail: "",
     usecase: "Allows luxury real estate brokers to showcase properties and coordinate customer visits without overlapping appointments or manual geolocation mapping.",
     working: "Utilizes Next.js App Router and Supabase Database for listing synchronization. Integrates Google Maps API overlays for property geolocation lookups and coordinates scheduling via database triggers to avoid slot double-booking."
   },
@@ -306,25 +315,25 @@ export const staticProjects: LocalProject[] = [
     working: "Executes Scrapy spiders to parse competitor product prices daily, processes updates through a FastAPI router, writes logs to SQLite, and computes optimal margin boundaries."
   },
   {
-    name: "cboruralwater",
-    desc: "A progressive billing and coordination web portal for rural water scheme distribution committees, implementing ledgers and payment schedules.",
-    url: "https://github.com/hklogs/cboruralwater",
-    tech: ["React", "Express.js", "Firebase", "PostgreSQL"],
-    thumbnail: "/cbo_water_thumb.jpg",
-    usecase: "Allows rural water committees to oversee household water bill queues and coordinate payment logs securely.",
-    working: "Logs transactions locally via offline storage service workers, synchronizing updates to PostgreSQL via webhook functions on reconnection."
-  },
-  {
-    name: "crazy-closers",
+    name: "Primus Leads",
     desc: "Crazy Closers (Genius Leads LLC) — Brand Gateway lead-gen & compliance site providing high-performance landing pages and input validation tests.",
     url: "https://github.com/hklogs/crazy-closers",
     tech: ["TypeScript", "Next.js", "Tailwind CSS", "Framer Motion"],
-    thumbnail: "/crazy_leads_thumb.jpg",
-    usecase: "Provides high-performance brand landing pages and client lead management with integrated SQA validation tests for input controls.",
-    working: "Builds on Next.js server components with complex state management for incoming lead generation forms, sending sanitized leads directly to CRM databases."
+    thumbnail: "",
+    usecase: "Generates verified B2B customer leads and automates initial outreach validation sequences for brand growth.",
+    working: "Scrapes public directory listings, cleans contact data strings using local expressions, and personalizes outreach emails."
   },
   {
-    name: "kareemiya-site",
+    name: "Primus Leads LLC",
+    desc: "Enterprise administrative dashboard managing homeowner-contractor connections, subscription tiers, and payout ledgers.",
+    url: "https://github.com/hklogs/referral-close-llc",
+    tech: ["TypeScript", "React", "PostgreSQL", "Tailwind CSS"],
+    thumbnail: "",
+    usecase: "Allows administrators of ReferralClose to monitor overall lead distributions, track payout cycles, and adjust tier parameters.",
+    working: "Collects transaction records from contractor signups, updates PostgreSQL balances, and exposes metrics in a dashboard."
+  },
+  {
+    name: "Kareemiya Site",
     desc: "Kareemiya — AI-powered BPO & career platform incorporating Motive Dark theme styling, application validation, and interactive candidate onboarding.",
     url: "https://github.com/hklogs/kareemiya-site",
     tech: ["HTML", "Tailwind CSS", "JavaScript", "GSAP"],
@@ -360,7 +369,7 @@ export const staticProjects: LocalProject[] = [
     working: "Connects to public exchange rate APIs, caches hourly values using local storage, and renders timeline charts dynamically using Chart.js."
   },
   {
-    name: "referral-close",
+    name: "ReferralClose",
     desc: "Advanced automated lead-routing network engine designed for B2B contractor networks, routing high-intent leads in real-time.",
     url: "https://github.com/hklogs/referral-close",
     tech: ["TypeScript", "Next.js", "Supabase", "Node.js"],
@@ -369,16 +378,7 @@ export const staticProjects: LocalProject[] = [
     working: "Queries database views dynamically using geolocation coordinates, checks constraints for contractor capacity, and updates lead distribution logs."
   },
   {
-    name: "referral-close-llc",
-    desc: "Enterprise administrative dashboard managing homeowner-contractor connections, subscription tiers, and payout ledgers.",
-    url: "https://github.com/hklogs/referral-close-llc",
-    tech: ["TypeScript", "React", "PostgreSQL", "Tailwind CSS"],
-    thumbnail: "/pricing_agent_thumb.jpg",
-    usecase: "Allows administrators of ReferralClose to monitor overall lead distributions, track payout cycles, and adjust tier parameters.",
-    working: "Aggregates revenue and lead counts from PostgreSQL databases, displaying stats in a responsive dashboard with chart visualizers."
-  },
-  {
-    name: "referralclose-home-service-marketplace",
+    name: "ReferralClose Home Service Marketplace",
     desc: "A customer-facing home services marketplace allowing homeowners to post project requirements, search trades, and book appointments.",
     url: "https://github.com/hklogs/referralclose-home-service-marketplace",
     tech: ["TypeScript", "Next.js", "Tailwind CSS", "Framer Motion"],
@@ -387,7 +387,7 @@ export const staticProjects: LocalProject[] = [
     working: "Builds interactive multi-step project request wizard, saves details in database, and notifies matched trades using notification webhooks."
   },
   {
-    name: "referralclose-llc-marketplace",
+    name: "ReferralClose LLC Marketplace",
     desc: "ReferralClose LLC — Home Service Marketplace. Premium homeowner lead-gen platform connecting verified local contractors with high-intent homeowners.",
     url: "https://github.com/hklogs/referralclose-llc-marketplace",
     tech: ["TypeScript", "Next.js", "Supabase", "Tailwind CSS"],
@@ -427,7 +427,7 @@ export const staticProjects: LocalProject[] = [
     desc: "Temporary deploy of UNLT LLC real estate site showcasing listing records and booking agent visits.",
     url: "https://github.com/hklogs/ultd-llc-real-estate",
     tech: ["TypeScript", "Next.js", "Supabase", "Tailwind CSS"],
-    thumbnail: "/ultd_realestate_thumb.jpg",
+    thumbnail: "",
     usecase: "Showcases luxury real estate listings for UNLT LLC, coordinating appointment requests and agent logs.",
     working: "Renders real-time listing records from Supabase tables, applying address geo-overlays and filtering properties dynamically."
   },

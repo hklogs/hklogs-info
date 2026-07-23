@@ -191,15 +191,24 @@ export default function GithubProjectsSection({
               <div className="absolute inset-0 bg-gradient-to-tr from-[#0096ff]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
               {/* Card Screenshot */}
-              <div className="relative aspect-[16/10] overflow-hidden bg-slate-950 border-b border-white/10">
-                <img 
-                  src={project.thumbnail} 
-                  alt={project.name}
-                  className="w-full h-full object-cover transition-all duration-700 ease-out group-hover:scale-105"
-                  onError={(e) => {
-                    (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80';
-                  }}
-                />
+              <div className="relative aspect-[16/10] overflow-hidden bg-slate-950 border-b border-white/10 flex items-center justify-center">
+                {project.thumbnail ? (
+                  <img 
+                    src={project.thumbnail} 
+                    alt={project.name}
+                    className="w-full h-full object-cover transition-all duration-700 ease-out group-hover:scale-105"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80';
+                    }}
+                  />
+                ) : (
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#0a1535] to-[#050a1f] flex flex-col items-center justify-center p-6 text-center group-hover:scale-105 transition-all duration-700 ease-out">
+                    <FolderGit className="w-8 h-8 text-[#0096ff]/40 mb-2 group-hover:text-[#ff3232]/60 transition-colors" />
+                    <span className="text-[10px] font-mono uppercase tracking-widest text-[#0096ff]/60 group-hover:text-[#ff3232]/80 transition-colors font-bold">
+                      {project.name}
+                    </span>
+                  </div>
+                )}
                 {/* HUD markings */}
                 <div className="absolute top-2 left-2 w-2 h-2 border-t border-l border-white/30" />
                 <div className="absolute top-2 right-2 w-2 h-2 border-t border-r border-white/30" />
@@ -263,12 +272,21 @@ export default function GithubProjectsSection({
               </DialogHeader>
 
               {/* Project Image */}
-              <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-950 border border-white/10 rounded-2xl">
-                <img 
-                  src={selectedProject.thumbnail} 
-                  alt={selectedProject.name}
-                  className="w-full h-full object-cover"
-                />
+              <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-950 border border-white/10 rounded-2xl flex items-center justify-center">
+                {selectedProject.thumbnail ? (
+                  <img 
+                    src={selectedProject.thumbnail} 
+                    alt={selectedProject.name}
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#0a1535] to-[#050a1f] flex flex-col items-center justify-center p-6 text-center">
+                    <FolderGit className="w-12 h-12 text-[#0096ff]/40 mb-2" />
+                    <span className="text-xs font-mono uppercase tracking-widest text-[#0096ff]/60 font-bold">
+                      {selectedProject.name}
+                    </span>
+                  </div>
+                )}
                 {/* HUD markings */}
                 <div className="absolute top-3 left-3 w-4 h-4 border-t-2 border-l-2 border-white/30" />
                 <div className="absolute top-3 right-3 w-4 h-4 border-t-2 border-r-2 border-white/30" />
