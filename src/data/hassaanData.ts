@@ -337,12 +337,12 @@ export const staticProjects: LocalProject[] = [
   },
   {
     name: "Primus Leads",
-    desc: "Crazy Closers (Genius Leads LLC) — Brand Gateway lead-gen & compliance site providing high-performance landing pages and input validation tests.",
-    url: "https://github.com/hklogs/crazy-closers",
-    tech: ["TypeScript", "Next.js", "Tailwind CSS", "Framer Motion"],
-    thumbnail: "/primus_leads_llc_thumb.png",
-    usecase: "Generates verified B2B customer leads and automates initial outreach validation sequences for brand growth.",
-    working: "Scrapes public directory listings, cleans contact data strings using local expressions, and personalizes outreach emails."
+    desc: "A high-performance lead generation platform for homeowners to seamlessly request and book appointments for home improvement services, renovations, remodeling, and repairs.",
+    url: "https://github.com/hklogs/Primus-Leads",
+    tech: ["TypeScript", "React", "Vite", "Tailwind CSS"],
+    thumbnail: "/primus_leads_thumb.png",
+    usecase: "Enables homeowners to browse contractor services, submit project criteria, and schedule instant consultation appointments.",
+    working: "Processes homeowner service requests, validates ZIP code coverage, routes lead criteria to verified contractors, and schedules consultation bookings."
   },
   {
     name: "Primus Leads LLC",
