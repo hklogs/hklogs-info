@@ -87,7 +87,7 @@ export default function HeroSection({ onExploreProjects }: HeroSectionProps) {
           </div>
 
           <p className="hero-fade text-[#8E8E93] text-sm sm:text-base leading-relaxed max-w-xl font-light font-sans">
-            Bridging the gap between software validation matrices and cognitive agent loops. AI Engineer at Tritanium Global and Executive R&amp;D Member at Primus Leads LLC.
+            Building and validating AI driven solutions.
           </p>
 
           <div className="hero-fade flex items-center gap-2 text-xs font-mono text-[#8E8E93] tracking-widest uppercase hover:text-white transition-colors">

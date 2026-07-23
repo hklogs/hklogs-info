@@ -40,11 +40,10 @@ export const personalInfo = {
   university: "UIIT PMAS-Arid Agriculture University, Pakistan",
   degree: "BS Software Engineering (Final Year)",
   schooling: "Army Public School and College, Jhelum Cantt",
-  tagline: "Bridging the gap between software validation matrices and cognitive agent loops.",
-  summary: "Final year Software Engineering student at UIIT PMAS-Arid. Serving as AI Engineer at Tritanium Global and R&D lead at Primus Leads LLC. Experienced in automating testing pipelines with LLMs, auditing boundary selection values, and building deep learning computer vision translations.",
+  tagline: "Building and validating AI driven solutions.",
+  summary: "Building and validating AI driven solutions.",
   bio: [
-    "I operate as an AI Engineer at Tritanium Global and an Executive R&D Member at Primus Leads LLC, specializing in developing autonomous agent loops, web architectures, and intelligent SQA validation frameworks.",
-    "My work spans manual & automated test auditing, boundary cap verification, and deploying computer vision models. I also manage student societies and represent Arid Arid Agriculture University in GDG Cloud Islamabad."
+    "Building and validating AI driven solutions."
   ],
   courses: [
     "Software Quality Assurance & Auditing",
