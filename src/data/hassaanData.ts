@@ -162,7 +162,7 @@ export const staticProjects: LocalProject[] = [
     desc: "An autonomous agentic AI framework designed to orchestrate recursive prompt loops, validate cognitive LLM processes, and run automated script executions.",
     url: "https://github.com/hklogs/AutonAI",
     tech: ["Python", "TypeScript", "LangChain", "Gemini API"],
-    thumbnail: "/sentient_ai_thumb.jpg",
+    thumbnail: "/sentient_ai_thumb.png",
     usecase: "Enables developers to test autonomous AI workflows, execute local bash tasks safely, and debug agentic logic loops.",
     working: "Deploys LangChain agent execution nodes, hooks into local OS CLI bindings, and evaluates agent performance metrics."
   },
@@ -171,7 +171,7 @@ export const staticProjects: LocalProject[] = [
     desc: "A Progressive Web Application engineered for rural water scheme committees and consumer billing administrators. It manages consumer records, audits payment queues, tracks water tankers, and generates monthly billing schedules. Designed with an offline-first service worker, it allows rural operators to update ledger statuses in remote zones.",
     url: "https://github.com/hklogs/cboruralwater",
     tech: ["React", "Express", "Firebase", "PostgreSQL", "PWA"],
-    thumbnail: "/cbo_water_thumb.jpg",
+    thumbnail: "/cbo_water_thumb.png",
     usecase: "Facilitates clean water administration and consumer ledger coordination for remote rural committees, preventing billing disputes and operational leakages.",
     working: "Leverages an offline-first service worker to cache user schemas and ledger transactions locally using IndexedDB. Enqueues API payloads and syncs them automatically to a cloud PostgreSQL database via Firebase Function webhooks once network signals are detected."
   },
@@ -180,7 +180,7 @@ export const staticProjects: LocalProject[] = [
     desc: "A luxury real-estate listing marketplace designed for property dealers and home buyers. It showcases properties in a responsive grid, processes dynamic price filtrations, and coordinates agent tour schedules. It prevents overlapping calendar reservations and validates address listings using Google Maps API overlays.",
     url: "https://github.com/hklogs/ultd-realestate",
     tech: ["Next.js", "React", "Supabase", "Tailwind CSS"],
-    thumbnail: "",
+    thumbnail: "/ultd_realestate_thumb.png",
     usecase: "Allows luxury real estate brokers to showcase properties and coordinate customer visits without overlapping appointments or manual geolocation mapping.",
     working: "Utilizes Next.js App Router and Supabase Database for listing synchronization. Integrates Google Maps API overlays for property geolocation lookups and coordinates scheduling via database triggers to avoid slot double-booking."
   },
@@ -190,7 +190,7 @@ export const staticProjects: LocalProject[] = [
     url: "https://github.com/hklogs/ai-recruitment-auditor",
     vercelUrl: "https://ai-recruitment-auditor.vercel.app",
     tech: ["Next.js", "React", "Gemini API", "Tailwind CSS"],
-    thumbnail: "/recruiter_ai_thumb.jpg",
+    thumbnail: "/recruiter_ai_thumb.png",
     usecase: "Streamlines manual CV scanning for hiring leads, matching technical skills and producing customized SQA test criteria for applicant verification.",
     working: "Parses text from resume PDFs using a server-side parser. The structured CV data is matched against target job configurations via Gemini API prompts, calculating compatibility weightings and rendering SQA test matrices."
   },
@@ -255,7 +255,7 @@ export const staticProjects: LocalProject[] = [
     desc: "A task prioritization PWA built for software engineers and project managers. By evaluating importance and difficulty inputs, it calculates task weights to organize daily workflows. Designed with a clean minimal UI, it runs offline and automatically syncs local tasks with remote cloud targets.",
     url: "https://github.com/hklogs/Prioriti",
     tech: ["HTML5", "CSS3", "JavaScript", "PWA Workers"],
-    thumbnail: "/prioriti_task_thumb.jpg",
+    thumbnail: "/prioriti_task_thumb.png",
     usecase: "Helps busy engineers organize priority lists mathematically based on urgency and complexity matrices.",
     working: "Calculates task weight using a custom mathematical formula, updates local arrays in localStorage, and triggers service worker sync queues to update remote cloud databases."
   },
@@ -264,7 +264,7 @@ export const staticProjects: LocalProject[] = [
     desc: "A financial dashboard developed for individual budget coordinators. It tracks expense categories, generates monthly saving projections, and displays interactive charts. It checks transaction inputs against budget boundary limits to prevent budget overrun exceptions.",
     url: "https://github.com/hklogs/PocketMint",
     tech: ["React", "Vite", "Chart.js", "Tailwind CSS"],
-    thumbnail: "/pocketmint_tracker_thumb.jpg",
+    thumbnail: "/pocketmint_tracker_thumb.png",
     usecase: "Allows individuals to track categorize expenses and receive warnings before exceeding monthly budgets.",
     working: "Aggregates expense inputs, renders graphical timelines via Chart.js, and validates purchase values against budget thresholds to raise boundary exception alerts."
   },
@@ -319,7 +319,7 @@ export const staticProjects: LocalProject[] = [
     desc: "Crazy Closers (Genius Leads LLC) — Brand Gateway lead-gen & compliance site providing high-performance landing pages and input validation tests.",
     url: "https://github.com/hklogs/crazy-closers",
     tech: ["TypeScript", "Next.js", "Tailwind CSS", "Framer Motion"],
-    thumbnail: "",
+    thumbnail: "/primus_leads_thumb.png",
     usecase: "Generates verified B2B customer leads and automates initial outreach validation sequences for brand growth.",
     working: "Scrapes public directory listings, cleans contact data strings using local expressions, and personalizes outreach emails."
   },
@@ -328,7 +328,7 @@ export const staticProjects: LocalProject[] = [
     desc: "Enterprise administrative dashboard managing homeowner-contractor connections, subscription tiers, and payout ledgers.",
     url: "https://github.com/hklogs/referral-close-llc",
     tech: ["TypeScript", "React", "PostgreSQL", "Tailwind CSS"],
-    thumbnail: "",
+    thumbnail: "/primus_leads_llc_thumb.png",
     usecase: "Allows administrators of ReferralClose to monitor overall lead distributions, track payout cycles, and adjust tier parameters.",
     working: "Collects transaction records from contractor signups, updates PostgreSQL balances, and exposes metrics in a dashboard."
   },
@@ -382,7 +382,7 @@ export const staticProjects: LocalProject[] = [
     desc: "A customer-facing home services marketplace allowing homeowners to post project requirements, search trades, and book appointments.",
     url: "https://github.com/hklogs/referralclose-home-service-marketplace",
     tech: ["TypeScript", "Next.js", "Tailwind CSS", "Framer Motion"],
-    thumbnail: "/recruiter_ai_thumb.jpg",
+    thumbnail: "/referralclose_marketplace_thumb.png",
     usecase: "Allows homeowners to find local contractors for repairs and renovations without manual cold calling.",
     working: "Builds interactive multi-step project request wizard, saves details in database, and notifies matched trades using notification webhooks."
   },
@@ -391,7 +391,7 @@ export const staticProjects: LocalProject[] = [
     desc: "ReferralClose LLC — Home Service Marketplace. Premium homeowner lead-gen platform connecting verified local contractors with high-intent homeowners.",
     url: "https://github.com/hklogs/referralclose-llc-marketplace",
     tech: ["TypeScript", "Next.js", "Supabase", "Tailwind CSS"],
-    thumbnail: "/recruiter_ai_thumb.jpg",
+    thumbnail: "/referralclose_llc_marketplace_thumb.png",
     usecase: "Acts as the premium core lead-generation portal for ReferralClose LLC, capturing client requirements and qualifying leads.",
     working: "Validates incoming questionnaire responses using strict client-side schemas, handles location queries using maps API, and routes leads to Supabase databases."
   },
@@ -427,7 +427,7 @@ export const staticProjects: LocalProject[] = [
     desc: "Temporary deploy of UNLT LLC real estate site showcasing listing records and booking agent visits.",
     url: "https://github.com/hklogs/ultd-llc-real-estate",
     tech: ["TypeScript", "Next.js", "Supabase", "Tailwind CSS"],
-    thumbnail: "",
+    thumbnail: "/ultd_llc_real_estate_thumb.png",
     usecase: "Showcases luxury real estate listings for UNLT LLC, coordinating appointment requests and agent logs.",
     working: "Renders real-time listing records from Supabase tables, applying address geo-overlays and filtering properties dynamically."
   },
@@ -445,7 +445,7 @@ export const staticProjects: LocalProject[] = [
     desc: "A structural UI layout compiler pipeline. Translates sequential C-style UI structs serialized from C# into modern interactive React components styled with Tailwind CSS, utilizing a Python transpiler AST parser.",
     url: "https://github.com/hklogs/UiSpecificationEngine",
     tech: ["C#", "Python", "React", "Tailwind CSS", "AST Compiler"],
-    thumbnail: "/yuck_fou_thumb.jpg",
+    thumbnail: "/yuck_fou_thumb.png",
     usecase: "Enables legacy C/C++ or C# desktop UI blueprints to be transpiled into web-based react interfaces automatically, saving manual front-end development hours.",
     working: "C# program serializes component properties; Python script builds AST nodes, processes styles, maps dynamic state variables, and generates clean React JSX files."
   }
