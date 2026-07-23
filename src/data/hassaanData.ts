@@ -385,7 +385,7 @@ export const staticProjects: LocalProject[] = [
     desc: "A foreign exchange rate analytics dashboard providing live currency updates, visual timeline trends, and price alerts.",
     url: "https://github.com/hklogs/Nexus-fx",
     tech: ["React", "TypeScript", "Chart.js", "Tailwind CSS"],
-    thumbnail: "/pocketmint_tracker_thumb.jpg",
+    thumbnail: "/nexus_fs_thumb.png",
     usecase: "Helps currency traders track exchange rates, compare historical performance, and receive notifications when values cross thresholds.",
     working: "Connects to public exchange rate APIs, caches hourly values using local storage, and renders timeline charts dynamically using Chart.js."
   },
