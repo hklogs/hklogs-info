@@ -1,17 +1,14 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { 
   Shield, 
-  Terminal, 
   Cpu, 
-  Database, 
-  Binary, 
   GraduationCap, 
-  ExternalLink, 
   Link as LinkIcon 
 } from 'lucide-react';
-import { personalInfo, linkedinSkillsList } from '../data/hassaanData';
+import { personalInfo, linkedinSkillsList, detailedCourses } from '../data/hassaanData';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -20,6 +17,7 @@ export default function TechStackSection() {
   const leftRef = useRef<HTMLDivElement>(null);
   const rightRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLDivElement>(null);
+  const [isCoursesModalOpen, setIsCoursesModalOpen] = useState(false);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -80,14 +78,14 @@ export default function TechStackSection() {
     <section
       ref={sectionRef}
       id="skills"
-      className="relative py-20 overflow-hidden border-t border-neutral-800 bg-[#0D0D0D]"
+      className="relative py-20 overflow-hidden border-t border-neutral-800 bg-[#0D0D0D] select-none"
     >
       <div className="max-w-6xl mx-auto px-6 relative z-10">
         
         {/* Title */}
         <div ref={titleRef} className="text-center mb-16">
           <h2 className="font-heading text-4xl md:text-5xl font-bold mb-3 text-white">
-            SKILLS & <span className="text-[#E50914]">COMPETENCIES</span>
+            SKILLS &amp; <span className="text-[#E50914]">COMPETENCIES</span>
           </h2>
           <p className="text-neutral-400 text-sm md:text-base font-light max-w-xl mx-auto font-sans">
             Technical credentials and course specifications indexed from LinkedIn.
@@ -119,7 +117,7 @@ export default function TechStackSection() {
               {linkedinSkillsList.map((skillGroup, idx) => (
                 <div 
                   key={idx}
-                  className="p-5 bg-[#121212] border border-neutral-800 hover:border-neutral-700 rounded-none transition-all"
+                  className="p-5 bg-[#121212] border border-neutral-800 hover:border-neutral-700 rounded-none transition-all hover:-translate-y-0.5 cursor-pointer"
                 >
                   <h4 className="font-mono text-xs font-bold text-[#E50914] border-b border-neutral-800 pb-2 mb-3 uppercase tracking-wider">
                     {skillGroup.category}
@@ -140,7 +138,7 @@ export default function TechStackSection() {
           {/* Right Column: Courses & Ecosystem tools */}
           <div ref={rightRef} className="space-y-8">
             
-            {/* Courses list */}
+            {/* Core Coursework List + Explore All Button */}
             <div className="space-y-4">
               <h3 className="font-heading text-lg font-bold text-white uppercase tracking-wider border-b border-neutral-800 pb-4 flex items-center gap-2">
                 <GraduationCap className="w-5 h-5 text-[#E50914]" />
@@ -151,13 +149,22 @@ export default function TechStackSection() {
                   {personalInfo.courses.map((course, idx) => (
                     <li 
                       key={idx} 
-                      className="p-2.5 bg-[#181818] border border-neutral-800 rounded-none text-xs text-neutral-300 font-mono flex items-center justify-between group hover:border-[#E50914]/20 transition-all"
+                      className="p-2.5 bg-[#181818] border border-neutral-800 rounded-none text-xs text-neutral-300 font-mono flex items-center justify-between group hover:border-[#E50914]/40 transition-all hover:-translate-y-0.5 cursor-pointer"
                     >
                       <span>{`> ${course}`}</span>
                       <span className="text-[9px] text-[#E50914] uppercase font-bold tracking-wider">Verified</span>
                     </li>
                   ))}
                 </ul>
+
+                {/* Explore All Courses Trigger Button */}
+                <button
+                  onClick={() => setIsCoursesModalOpen(true)}
+                  className="w-full mt-4 py-2.5 bg-[#181818] border border-neutral-800 hover:border-[#E50914]/40 text-[#E50914] hover:text-white text-xs font-mono font-bold uppercase tracking-widest transition-all hover:-translate-y-0.5 cursor-pointer flex items-center justify-center gap-2"
+                >
+                  <GraduationCap className="w-4 h-4 text-[#E50914]" />
+                  <span>EXPLORE ALL COURSES ({detailedCourses.length}) →</span>
+                </button>
               </div>
             </div>
 
@@ -179,7 +186,7 @@ export default function TechStackSection() {
                   ].map((tool, idx) => (
                     <span 
                       key={idx} 
-                      className="px-2.5 py-1 bg-[#181818] border border-neutral-800 rounded-none text-neutral-300 font-mono text-[10px] uppercase"
+                      className="px-2.5 py-1 bg-[#181818] border border-neutral-800 rounded-none text-neutral-300 font-mono text-[10px] uppercase hover:border-[#E50914] hover:text-white transition-all cursor-pointer"
                     >
                       {tool}
                     </span>
@@ -193,6 +200,47 @@ export default function TechStackSection() {
         </div>
 
       </div>
+
+      {/* Courses Popup Modal */}
+      <Dialog open={isCoursesModalOpen} onOpenChange={setIsCoursesModalOpen}>
+        <DialogContent className="bg-[#0D0D0D] border border-neutral-800 text-white max-w-4xl rounded-none p-6 sm:p-8 overflow-y-auto max-h-[85vh] shadow-[0_0_50px_rgba(0,0,0,0.9)] text-left">
+          <DialogHeader className="border-b border-neutral-800 pb-4 relative">
+            <span className="text-[10px] font-mono text-[#E50914] uppercase tracking-widest font-bold block">
+              FULL ACADEMIC TRANSCRIPT &amp; CURRICULUM
+            </span>
+            <DialogTitle className="font-heading text-3xl font-bold text-white uppercase tracking-tight mt-1">
+              ALL REGISTERED SE COURSES
+            </DialogTitle>
+            <DialogDescription className="text-xs text-neutral-400 font-sans mt-1">
+              Completed coursework at UIIT PMAS-Arid Agriculture University, Pakistan.
+            </DialogDescription>
+          </DialogHeader>
+
+          {/* All Courses Scrollable Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 pt-4 overflow-y-auto max-h-[60vh] pr-1">
+            {detailedCourses.map((course, idx) => (
+              <div 
+                key={idx}
+                className="bg-[#121212] border border-neutral-800 p-4 rounded-none space-y-3 flex flex-col justify-between hover:border-[#E50914]/40 hover:-translate-y-1 transition-all duration-300"
+              >
+                <div className="space-y-1.5">
+                  <div className="flex justify-between items-center text-[10px] font-mono">
+                    <span className="text-[#E50914] font-bold">{course.code}</span>
+                    <span className="text-neutral-500 font-bold uppercase">{course.category}</span>
+                  </div>
+                  <h4 className="font-heading font-bold text-white text-sm uppercase tracking-wide leading-snug">
+                    {course.name}
+                  </h4>
+                </div>
+
+                <div className="pt-2 border-t border-neutral-800 text-[9px] font-mono text-neutral-400">
+                  {course.university}
+                </div>
+              </div>
+            ))}
+          </div>
+        </DialogContent>
+      </Dialog>
     </section>
   );
 }

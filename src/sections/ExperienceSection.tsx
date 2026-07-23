@@ -1,19 +1,14 @@
-import { useState } from 'react';
-import { GraduationCap, HeartHandshake, Award } from 'lucide-react';
-import { detailedCourses, volunteerHistory } from '../data/hassaanData';
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
+import { HeartHandshake, Award } from 'lucide-react';
+import { volunteerHistory } from '../data/hassaanData';
 
 export default function ExperienceSection() {
-  const [isCoursesModalOpen, setIsCoursesModalOpen] = useState(false);
-  const initialCourses = detailedCourses.slice(0, 5);
-
   return (
     <section id="experience" className="py-20 border-t border-neutral-800 relative bg-[#0D0D0D] text-left select-none">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 items-start">
           
-          {/* LEFT COLUMN: Education, Core Coursework & Skills */}
+          {/* LEFT COLUMN: Education & Skills */}
           <div className="space-y-8">
             {/* EDUCATION */}
             <div className="space-y-4">
@@ -44,43 +39,6 @@ export default function ExperienceSection() {
                     Prior to 2022
                   </div>
                 </div>
-              </div>
-            </div>
-
-            {/* CORE COURSEWORK (Top 5 + Button to explore all) */}
-            <div className="space-y-3 pt-4 border-t border-neutral-800">
-              <div className="flex items-center justify-between">
-                <div className="text-[#E50914] font-mono text-xs uppercase font-bold tracking-widest">
-                  CORE COURSEWORK
-                </div>
-                <button 
-                  onClick={() => setIsCoursesModalOpen(true)}
-                  className="text-[10px] font-mono text-[#E50914] hover:text-white font-bold uppercase tracking-wider flex items-center gap-1 cursor-pointer transition-colors"
-                >
-                  <span>EXPLORE ALL ({detailedCourses.length})</span>
-                  <span>→</span>
-                </button>
-              </div>
-
-              <div className="space-y-2">
-                {initialCourses.map((course, idx) => (
-                  <div 
-                    key={idx}
-                    className="p-2.5 bg-[#121212] border border-neutral-800 hover:border-[#E50914]/40 rounded-none flex items-center justify-between text-xs transition-all hover:-translate-y-0.5 cursor-pointer"
-                  >
-                    <div className="flex flex-col">
-                      <span className="font-heading font-bold text-white uppercase text-xs">
-                        {course.name}
-                      </span>
-                      <span className="text-[9px] font-mono text-neutral-500">
-                        {course.university}
-                      </span>
-                    </div>
-                    <span className="text-[9px] font-mono text-[#E50914] font-bold px-2 py-0.5 bg-[#181818] border border-neutral-800">
-                      {course.code}
-                    </span>
-                  </div>
-                ))}
               </div>
             </div>
 
@@ -214,47 +172,6 @@ export default function ExperienceSection() {
         </div>
 
       </div>
-
-      {/* Courses Popup Modal */}
-      <Dialog open={isCoursesModalOpen} onOpenChange={setIsCoursesModalOpen}>
-        <DialogContent className="bg-[#0D0D0D] border border-neutral-800 text-white max-w-4xl rounded-none p-6 sm:p-8 overflow-y-auto max-h-[85vh] shadow-[0_0_50px_rgba(0,0,0,0.9)] text-left">
-          <DialogHeader className="border-b border-neutral-800 pb-4 relative">
-            <span className="text-[10px] font-mono text-[#E50914] uppercase tracking-widest font-bold block">
-              FULL ACADEMIC TRANSCRIPT &amp; CURRICULUM
-            </span>
-            <DialogTitle className="font-heading text-3xl font-bold text-white uppercase tracking-tight mt-1">
-              ALL REGISTERED SE COURSES
-            </DialogTitle>
-            <DialogDescription className="text-xs text-neutral-400 font-sans mt-1">
-              Completed coursework at UIIT PMAS-Arid Agriculture University, Pakistan.
-            </DialogDescription>
-          </DialogHeader>
-
-          {/* All Courses Scrollable Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 pt-4 overflow-y-auto max-h-[60vh] pr-1">
-            {detailedCourses.map((course, idx) => (
-              <div 
-                key={idx}
-                className="bg-[#121212] border border-neutral-800 p-4 rounded-none space-y-3 flex flex-col justify-between hover:border-[#E50914]/40 hover:-translate-y-1 transition-all duration-300"
-              >
-                <div className="space-y-1.5">
-                  <div className="flex justify-between items-center text-[10px] font-mono">
-                    <span className="text-[#E50914] font-bold">{course.code}</span>
-                    <span className="text-neutral-500 font-bold uppercase">{course.category}</span>
-                  </div>
-                  <h4 className="font-heading font-bold text-white text-sm uppercase tracking-wide leading-snug">
-                    {course.name}
-                  </h4>
-                </div>
-
-                <div className="pt-2 border-t border-neutral-800 text-[9px] font-mono text-neutral-400">
-                  {course.university}
-                </div>
-              </div>
-            ))}
-          </div>
-        </DialogContent>
-      </Dialog>
     </section>
   );
 }
