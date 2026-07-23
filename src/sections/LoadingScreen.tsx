@@ -67,63 +67,68 @@ export default function LoadingScreen() {
   return (
     <div
       ref={containerRef}
-      className="fixed inset-0 z-50 flex items-center justify-center overflow-hidden"
+      className="fixed inset-0 z-50 flex items-center justify-center overflow-hidden bg-[#0D0D0D] select-none"
     >
-      {/* Unified Dark Background */}
-      <div className="absolute inset-0 bg-[#050a1f]" />
+      {/* Background with subtle crimson gradient */}
+      <div className="absolute inset-0 bg-[#0D0D0D]" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#140203]/60 via-[#0D0D0D] to-[#140203]/60" />
 
-      {/* Full width gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#0a1535]/50 via-[#050a1f] to-[#1a0505]/50" />
-
-      {/* Left Panel - for animation only, transparent */}
+      {/* Left Panel - slide exit */}
       <div
         ref={leftPanelRef}
-        className="absolute left-0 top-0 w-1/2 h-full bg-[#050a1f] origin-left"
+        className="absolute left-0 top-0 w-1/2 h-full bg-[#0D0D0D] origin-left border-r border-neutral-800/40"
       />
 
-      {/* Right Panel - for animation only, transparent */}
+      {/* Right Panel - slide exit */}
       <div
         ref={rightPanelRef}
-        className="absolute right-0 top-0 w-1/2 h-full bg-[#050a1f] origin-right"
+        className="absolute right-0 top-0 w-1/2 h-full bg-[#0D0D0D] origin-right border-l border-neutral-800/40"
       />
 
       {/* Center Content */}
-      <div ref={contentRef} className="relative z-10 flex flex-col items-center gap-8">
-        {/* Loading Text */}
+      <div ref={contentRef} className="relative z-10 flex flex-col items-center gap-8 px-4 text-center">
+        
+        {/* Subtitle */}
+        <div className="flex items-center gap-2 text-xs font-mono text-[#E50914] font-bold uppercase tracking-widest">
+          <span className="w-2 h-2 rounded-full bg-[#E50914] animate-pulse" />
+          <span>SYSTEM ARCHITECTURE BOOT</span>
+        </div>
+
+        {/* Loading Text with Crimson Glow */}
         <div
           ref={textRef}
-          className="font-mono text-2xl md:text-4xl font-bold tracking-widest text-white drop-shadow-[0_0_20px_rgba(0,150,255,0.5)]"
+          className="font-heading text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white uppercase drop-shadow-[0_0_25px_rgba(229,9,20,0.6)]"
         >
           INITIALIZING
         </div>
 
         {/* Progress Bar Container */}
-        <div className="w-64 md:w-96 h-1 bg-white/10 rounded-full overflow-hidden">
-          {/* Progress Bar */}
+        <div className="w-64 sm:w-80 md:w-96 h-1.5 bg-[#181818] border border-neutral-800 rounded-none overflow-hidden">
+          {/* Crimson Progress Bar */}
           <div
             ref={barRef}
-            className="h-full w-0 rounded-full"
+            className="h-full w-0 rounded-none bg-[#E50914]"
             style={{
-              background: 'linear-gradient(90deg, #0096ff 0%, #ff3232 100%)',
-              boxShadow: '0 0 20px rgba(0, 150, 255, 0.5), 0 0 40px rgba(255, 50, 50, 0.3)',
+              boxShadow: '0 0 20px rgba(229, 9, 20, 0.8), 0 0 40px rgba(229, 9, 20, 0.4)',
             }}
           />
         </div>
 
-        {/* Percentage */}
-        <div className="font-mono text-sm text-gray-400">
-          <span className="text-[#0096ff]">SYS</span>
-          <span className="text-[#ff3232]">.BOOT</span>
-          <span className="mx-2">|</span>
-          <span className="animate-pulse">LOADING...</span>
+        {/* Status Line */}
+        <div className="font-mono text-xs text-neutral-400 uppercase tracking-widest">
+          <span className="text-[#E50914] font-bold">HKLOGS</span>
+          <span className="mx-2 text-neutral-600">•</span>
+          <span className="text-neutral-300">SQA &amp; AI ENGINE</span>
+          <span className="mx-2 text-neutral-600">|</span>
+          <span className="animate-pulse text-[#E50914]">LOADING...</span>
         </div>
       </div>
 
-      {/* Corner Decorations */}
-      <div className="absolute top-8 left-8 w-16 h-16 border-l-2 border-t-2 border-[#0096ff]/50" />
-      <div className="absolute top-8 right-8 w-16 h-16 border-r-2 border-t-2 border-[#ff3232]/50" />
-      <div className="absolute bottom-8 left-8 w-16 h-16 border-l-2 border-b-2 border-[#0096ff]/50" />
-      <div className="absolute bottom-8 right-8 w-16 h-16 border-r-2 border-b-2 border-[#ff3232]/50" />
+      {/* Sharp Crimson Corner Brackets matching main site layout */}
+      <div className="absolute top-6 left-6 w-10 h-10 border-l-2 border-t-2 border-[#E50914]/60" />
+      <div className="absolute top-6 right-6 w-10 h-10 border-r-2 border-t-2 border-[#E50914]/60" />
+      <div className="absolute bottom-6 left-6 w-10 h-10 border-l-2 border-b-2 border-[#E50914]/60" />
+      <div className="absolute bottom-6 right-6 w-10 h-10 border-r-2 border-b-2 border-[#E50914]/60" />
     </div>
   );
 }
