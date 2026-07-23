@@ -394,7 +394,7 @@ export const staticProjects: LocalProject[] = [
     desc: "Advanced automated lead-routing network engine designed for B2B contractor networks, routing high-intent leads in real-time.",
     url: "https://github.com/hklogs/referral-close",
     tech: ["TypeScript", "Next.js", "Supabase", "Node.js"],
-    thumbnail: "/referralclose_marketplace_thumb.png",
+    thumbnail: "/referral_amrketplace_thumb.png",
     usecase: "Routes high-intent homeowner leads to local contractors based on proximity, trade matching, and contractor availability.",
     working: "Queries database views dynamically using geolocation coordinates, checks constraints for contractor capacity, and updates lead distribution logs."
   },
