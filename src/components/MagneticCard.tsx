@@ -16,7 +16,7 @@ export default function MagneticCard({
   className = '',
   intensity = 20,
   speed = 0.3,
-  enableGlow = true,
+  enableGlow = false,
   glowColor = '#E50914',
   onClick,
 }: MagneticCardProps) {
