@@ -32,8 +32,8 @@ export default function HeroSection({ onExploreProjects }: HeroSectionProps) {
 
       if (containerRef.current && bgTextRef.current) {
         gsap.to(bgTextRef.current, {
-          y: -100,
-          scale: 1.15,
+          y: -80,
+          scale: 1.1,
           opacity: 0.05,
           scrollTrigger: {
             trigger: containerRef.current,
@@ -51,39 +51,50 @@ export default function HeroSection({ onExploreProjects }: HeroSectionProps) {
   return (
     <div
       ref={containerRef}
-      className="relative w-full min-h-screen overflow-hidden flex items-center justify-between px-4 sm:px-8 md:px-12 bg-[#0D0D0D] select-none pt-20 pb-12"
+      className="relative w-full h-screen min-h-[720px] bg-[#0D0D0D] overflow-hidden flex items-center justify-center px-6 md:px-16 select-none"
     >
-      {/* LAYER 1: GIANT BACKGROUND TYPOGRAPHY (z-index: 0) */}
-      <h1
-        ref={bgTextRef}
-        className="absolute inset-0 flex items-center justify-center font-bold uppercase tracking-tighter text-[#D31A21]/20 pointer-events-none select-none text-[15vw] leading-none z-0 font-heading"
-      >
-        PORTFOLIO
-      </h1>
+      {/* LAYER 1: BACKGROUND TYPOGRAPHY (z-index: 0) */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none z-0">
+        <h1
+          ref={bgTextRef}
+          className="text-[#D31A21] opacity-20 font-black uppercase tracking-tighter text-[18vw] leading-none select-none font-['Oswald']"
+        >
+          PORTFOLIO
+        </h1>
+      </div>
 
-      {/* LAYER 2: CENTER HEADSHOT PORTRAIT (z-index: 10) */}
-      <img
-        src="/hassaan-portrait.png"
-        alt={personalInfo.name}
-        className="absolute bottom-0 left-1/2 -translate-x-1/2 h-[85vh] max-w-none object-cover z-10 pointer-events-none filter contrast-[1.08] brightness-[0.98] drop-shadow-2xl"
-        style={{
-          maskImage: 'linear-gradient(to bottom, black 60%, transparent 100%)',
-          WebkitMaskImage: 'linear-gradient(to bottom, black 60%, transparent 100%)',
-        }}
-        onError={(e) => {
-          (e.target as HTMLImageElement).src =
-            'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80';
-        }}
-      />
+      {/* LAYER 2: TRANSPARENT PORTRAIT CUTOUT (z-index: 10) */}
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 h-[85%] z-10 pointer-events-none flex items-end">
+        <img
+          src="/hassaan-cutout.png"
+          alt={personalInfo.name}
+          className="h-full w-auto object-contain filter contrast-[1.05] brightness-[0.98] drop-shadow-2xl"
+          style={{
+            maskImage: 'linear-gradient(to bottom, black 70%, transparent 100%)',
+            WebkitMaskImage: 'linear-gradient(to bottom, black 70%, transparent 100%)',
+          }}
+          onError={(e) => {
+            const img = e.target as HTMLImageElement;
+            if (!img.dataset.triedFallback) {
+              img.dataset.triedFallback = 'true';
+              img.src = '/hassaan-portrait.png';
+            } else {
+              img.src = 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80';
+            }
+          }}
+        />
+      </div>
 
-      {/* LAYER 3: FOREGROUND UI OVERLAY (z-index: 20) */}
-      <div className="relative z-20 w-full max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 items-center pointer-events-auto gap-8 my-auto">
+      {/* LAYER 3: FOREGROUND TEXT & UI OVERLAY (z-index: 20) */}
+      <div className="relative z-20 w-full max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 items-center h-full pointer-events-auto gap-8 my-auto pt-16">
         
-        {/* A. LEFT COLUMN (cols 1 to 5 / md:col-span-5) */}
-        <div className="md:col-span-5 space-y-6 text-left">
+        {/* A. LEFT COLUMN (Cols 1 to 6 - Foreground Overlay) */}
+        <div className="md:col-span-6 space-y-6 text-left">
           <div className="space-y-1">
-            <span className="hero-fade font-script text-white text-3xl sm:text-4xl block -mb-2">Hello, I'm</span>
-            <h2 className="hero-fade text-white font-black text-5xl sm:text-6xl lg:text-7xl uppercase tracking-tight leading-none font-heading drop-shadow-lg">
+            <span className="hero-fade font-script text-white text-3xl sm:text-4xl block -mb-2">
+              Hello, I'm
+            </span>
+            <h2 className="hero-fade text-white font-black text-5xl sm:text-7xl lg:text-8xl uppercase tracking-tight leading-none font-heading drop-shadow-lg">
               HASSAAN<br/>ABDULLAH<br/>KIYANI
             </h2>
             <p className="hero-fade text-[#FF2E37] font-semibold text-base sm:text-lg uppercase mt-2 tracking-wider font-heading drop-shadow">
@@ -156,8 +167,8 @@ export default function HeroSection({ onExploreProjects }: HeroSectionProps) {
           </div>
         </div>
 
-        {/* B. RIGHT COLUMN (cols 9 to 12 / md:col-span-4 md:col-start-9) */}
-        <div className="md:col-span-4 md:col-start-9 space-y-6 text-left md:text-right flex flex-col justify-center items-start md:items-end">
+        {/* B. RIGHT COLUMN (Cols 7 to 12 - Unboxed Vertical Stats) */}
+        <div className="md:col-span-6 space-y-6 text-left md:text-right flex flex-col justify-center items-start md:items-end">
           {statsList.map((stat, i) => (
             <div key={i} className="hero-fade space-y-0.5 group cursor-pointer">
               <div className="text-4xl sm:text-5xl lg:text-6xl font-black font-heading text-[#FF2E37] leading-none group-hover:text-white transition-colors drop-shadow-md">
