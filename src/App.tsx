@@ -3,8 +3,6 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { MessageSquare } from 'lucide-react';
 
-import CustomCursor from './components/CustomCursor';
-
 // Import sections & pages
 import LoadingScreen from './sections/LoadingScreen';
 import Navigation from './components/Navigation';
@@ -247,9 +245,6 @@ function App() {
         isOpen={isChatOpen}
         onClose={() => setIsChatOpen(false)}
       />
-
-      {/* Custom Cinematic Cursor */}
-      <CustomCursor />
     </div>
   );
 }
