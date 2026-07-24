@@ -40,21 +40,14 @@ export default function HeroSection({ onExploreProjects }: HeroSectionProps) {
       {/* -----------------------------------------------------------------
           LAYER 2: TRANSPARENT CUTOUT PORTRAIT (EXACT FILE PATH)
          ----------------------------------------------------------------- */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 h-[88%] z-10 pointer-events-none flex items-end">
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 h-[88%] max-h-[85vh] z-10 pointer-events-none flex items-end justify-center min-w-[280px]">
         <img
           src="/ad5b9713-018f-43a6-a4c4-39ef586bba14_edit_867989541613908-removebg-preview.png"
           alt="Hassaan Abdullah Kiyani"
-          className="h-full w-auto object-contain filter contrast-[1.05] brightness-[0.98] drop-shadow-2xl"
+          className="h-full w-auto object-contain object-bottom filter contrast-[1.05] brightness-[0.98] drop-shadow-2xl"
           style={{
-            maskImage: 'linear-gradient(to bottom, black 70%, transparent 100%)',
-            WebkitMaskImage: 'linear-gradient(to bottom, black 70%, transparent 100%)',
-          }}
-          onError={(e) => {
-            const img = e.target as HTMLImageElement;
-            if (!img.dataset.triedFallback) {
-              img.dataset.triedFallback = 'true';
-              img.src = '/hassaan-cutout.png';
-            }
+            maskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)',
+            WebkitMaskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)',
           }}
         />
       </div>
