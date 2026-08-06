@@ -5,13 +5,47 @@ import {
   Shield, 
   Cpu, 
   GraduationCap, 
-  Link as LinkIcon 
+  Link as LinkIcon,
+  ExternalLink
 } from 'lucide-react';
 import { personalInfo, linkedinSkillsList, detailedCourses } from '../data/hassaanData';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import MagneticCard from '../components/MagneticCard';
 
 gsap.registerPlugin(ScrollTrigger);
+
+const toolUrls: Record<string, string> = {
+  "agy cli": "https://antigravity.google/",
+  "opencode": "https://opencode.ai/",
+  "claude code": "https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/overview",
+  "claude ai": "https://claude.ai/",
+  "kimi": "https://kimi.moonshot.cn/",
+  "google ai studio": "https://aistudio.google.com/",
+  "vertex api": "https://cloud.google.com/vertex-ai",
+  "vertex ai api": "https://cloud.google.com/vertex-ai",
+  "langgraph": "https://www.langchain.com/langgraph",
+  "langchain": "https://www.langchain.com/",
+  "github": "https://github.com/",
+  "git & github": "https://github.com/",
+  "vercel build": "https://vercel.com/",
+  "vercel": "https://vercel.com/",
+  "supabase": "https://supabase.com/",
+  "python": "https://www.python.org/",
+  "java": "https://www.java.com/",
+  "c++ core": "https://isocpp.org/",
+  "sql / databases": "https://en.wikipedia.org/wiki/SQL",
+  "typescript": "https://www.typescriptlang.org/",
+  "kotlin": "https://kotlinlang.org/",
+  "html / css": "https://developer.mozilla.org/en-US/docs/Web/HTML",
+  "tensorflow": "https://www.tensorflow.org/",
+  "opencv": "https://opencv.org/",
+  "gemini pro / flash": "https://deepmind.google/technologies/gemini/",
+  "software quality assurance": "https://en.wikipedia.org/wiki/Software_quality_assurance",
+  "manual & automated testing": "https://en.wikipedia.org/wiki/Software_testing",
+  "boundary value analysis": "https://en.wikipedia.org/wiki/Boundary-value_analysis",
+  "heuristic validation": "https://en.wikipedia.org/wiki/Heuristic_evaluation",
+  "predictive log auditing": "https://en.wikipedia.org/wiki/Log_management"
+};
 
 export default function TechStackSection() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -124,12 +158,27 @@ export default function TechStackSection() {
                     {skillGroup.category}
                   </h4>
                   <ul className="space-y-2 pt-1">
-                    {skillGroup.items.map((skill, i) => (
-                      <li key={i} className="flex items-center gap-2.5 text-xs text-neutral-300 font-light font-sans">
-                        <span className="w-1.5 h-1.5 bg-[#E50914] shrink-0" />
-                        <span>{skill}</span>
-                      </li>
-                    ))}
+                    {skillGroup.items.map((skill, i) => {
+                      const url = toolUrls[skill.toLowerCase()];
+                      return (
+                        <li key={i} className="flex items-center gap-2.5 text-xs text-neutral-300 font-light font-sans">
+                          <span className="w-1.5 h-1.5 bg-[#E50914] shrink-0" />
+                          {url ? (
+                            <a 
+                              href={url} 
+                              target="_blank" 
+                              rel="noreferrer" 
+                              className="hover:text-[#E50914] transition-colors inline-flex items-center gap-1.5 group/skill"
+                            >
+                              <span>{skill}</span>
+                              <ExternalLink className="w-3 h-3 text-[#E50914] opacity-70 group-hover/skill:opacity-100 transition-opacity" />
+                            </a>
+                          ) : (
+                            <span>{skill}</span>
+                          )}
+                        </li>
+                      );
+                    })}
                   </ul>
                 </div>
               ))}
@@ -183,14 +232,22 @@ export default function TechStackSection() {
                   {[
                     "agy cli", "opencode", "claude code", "claude AI",
                     "kimi", "google ai studio", "vertex api", "langgraph", "github"
-                  ].map((tool, idx) => (
-                    <span 
-                      key={idx} 
-                      className="px-2.5 py-1 bg-white/[0.03] border border-white/10 text-neutral-300 font-mono text-[10px] uppercase hover:border-[#E50914] hover:text-white transition-all cursor-pointer"
-                    >
-                      {tool}
-                    </span>
-                  ))}
+                  ].map((tool, idx) => {
+                    const url = toolUrls[tool.toLowerCase()] || `https://www.google.com/search?q=${encodeURIComponent(tool)}`;
+                    return (
+                      <a
+                        key={idx}
+                        href={url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-white/[0.03] border border-white/10 hover:border-[#E50914] text-neutral-300 hover:text-white font-mono text-[10px] uppercase transition-all cursor-pointer group/link shadow-sm"
+                        title={`Visit official ${tool} platform`}
+                      >
+                        <span>{tool}</span>
+                        <ExternalLink className="w-2.5 h-2.5 text-[#E50914] opacity-70 group-hover/link:opacity-100 transition-opacity" />
+                      </a>
+                    );
+                  })}
                 </div>
               </div>
             </div>
