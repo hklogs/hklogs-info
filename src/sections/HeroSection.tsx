@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { personalInfo } from '../data/hassaanData';
 
 interface HeroSectionProps {
@@ -7,6 +7,8 @@ interface HeroSectionProps {
 }
 
 export default function HeroSection({ onExploreProjects }: HeroSectionProps) {
+  const [showHireOptions, setShowHireOptions] = useState(false);
+
   const handleExplore = (e: React.MouseEvent) => {
     e.preventDefault();
     if (onExploreProjects) {
@@ -24,102 +26,96 @@ export default function HeroSection({ onExploreProjects }: HeroSectionProps) {
   };
 
   return (
-    <section className="relative w-full min-h-[100dvh] pt-20 pb-12 sm:pb-16 flex flex-col justify-between overflow-hidden bg-[#0D0D0D] px-4 sm:px-6 md:px-12 lg:px-16 select-none">
+    <section className="relative w-full h-screen min-h-[720px] bg-[#0D0D0D] overflow-hidden flex items-center justify-center px-6 md:px-16 select-none">
       
       {/* -----------------------------------------------------------------
-          1. BACKGROUND TEXT ("PORTFOLIO"): Resized for mobile (text-[26vw] sm:text-[20vw])
+          LAYER 1: BOLD CRIMSON GRADIENT BACKGROUND "PORTFOLIO" TEXT
          ----------------------------------------------------------------- */}
-      <div className="absolute inset-0 flex items-start justify-center pt-10 sm:pt-6 pointer-events-none select-none z-0">
-        <h1 className="text-transparent bg-clip-text bg-gradient-to-b from-[#9E0B0F] via-[#4A0003] to-[#0D0D0D] font-black uppercase tracking-tighter text-[26vw] sm:text-[20vw] leading-none select-none font-['Oswald']">
+      <div className="absolute inset-0 flex items-start justify-center pt-8 pointer-events-none select-none z-0">
+        <h1 className="text-transparent bg-clip-text bg-gradient-to-b from-[#B80D13] via-[#5E0004] to-[#0D0D0D] font-black uppercase tracking-tight text-[19vw] leading-none select-none font-['Oswald']">
           PORTFOLIO
         </h1>
       </div>
 
       {/* -----------------------------------------------------------------
-          2. PORTRAIT CUTOUT IMAGE: h-[50vh] sm:h-[65vh] lg:h-[88%] max-h-[85vh]
+          LAYER 2: TRANSPARENT CUTOUT PORTRAIT (EXACT FILE PATH)
          ----------------------------------------------------------------- */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 h-[50vh] sm:h-[65vh] lg:h-[88%] max-h-[85vh] z-10 pointer-events-none flex items-end justify-center min-w-[260px]">
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 h-[88%] max-h-[85vh] z-10 pointer-events-none flex items-end justify-center min-w-[280px]">
         <img
           src="/ad5b9713-018f-43a6-a4c4-39ef586bba14_edit_867989541613908-removebg-preview.png"
           alt="Hassaan Abdullah Kiyani"
-          className="h-full w-auto object-contain object-bottom filter contrast-[1.05] brightness-[0.98]"
+          className="h-full w-auto object-contain object-bottom filter contrast-[1.05] brightness-[0.98] drop-shadow-2xl"
           style={{
-            maskImage: 'linear-gradient(to bottom, black 60%, transparent 100%)',
-            WebkitMaskImage: 'linear-gradient(to bottom, black 60%, transparent 100%)',
+            maskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)',
+            WebkitMaskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)',
           }}
         />
       </div>
 
       {/* -----------------------------------------------------------------
-          3 & 4. FOREGROUND CONTENT & METRICS OVERLAY
+          LAYER 3: FOREGROUND TEXT & METRICS
          ----------------------------------------------------------------- */}
-      <div className="relative z-20 w-full max-w-7xl mx-auto grid grid-cols-12 items-center h-full pointer-events-auto my-auto py-4">
+      <div className="relative z-20 w-full max-w-7xl mx-auto grid grid-cols-12 items-center h-full pointer-events-auto">
         
-        {/* Left Side: Name, Subhead & Action Buttons */}
-        <div className="col-span-12 lg:col-span-6 flex flex-col items-start justify-center space-y-3 pt-6 lg:pt-0 text-left">
-          
-          {/* Script Subtitle */}
-          <span className="text-white text-2xl sm:text-3xl font-normal italic font-['Caveat'] -mb-1">
+        {/* Left Column: Name & Details */}
+        <div className="col-span-12 lg:col-span-6 flex flex-col items-start justify-center space-y-3 pt-12 lg:pt-0">
+          <span className="text-white text-3xl font-normal italic font-['Caveat'] -mb-2">
             Hello, I'm
           </span>
           
-          {/* Main Name: 3 Stacked Lines */}
-          <h2 className="text-white font-black text-4xl sm:text-6xl md:text-7xl uppercase tracking-tight leading-[0.95] font-['Oswald']">
+          <h2 className="text-white font-black text-5xl md:text-7xl uppercase tracking-tight leading-[0.95] font-['Oswald']">
             HASSAAN<br />
             ABDULLAH<br />
             KIYANI
           </h2>
 
-          {/* Red Subhead */}
-          <p className="text-[#FF2E37] font-bold text-xs sm:text-sm md:text-base uppercase tracking-wider">
+          <p className="text-[#FF2E37] font-bold text-sm md:text-base uppercase tracking-wider">
             AI ENGINEER &amp; SQA SPECIALIST
           </p>
 
-          {/* Paragraph & Location Tag */}
-          <p className="text-[#8E8E93] text-xs sm:text-sm max-w-md leading-relaxed">
+          <p className="text-[#8E8E93] text-xs md:text-sm max-w-md leading-relaxed">
             Building and validating autonomous AI systems with rigorous SQA auditing, 
             deterministic verification pipelines, and machine cognition architectures.
           </p>
 
-          <div className="flex items-center space-x-2 text-[#8E8E93] text-[10px] sm:text-xs uppercase tracking-widest pt-1 font-mono">
-            <span className="inline-block w-2 h-2 rounded-full bg-[#E50914] animate-pulse" />
+          <div className="flex items-center space-x-2 text-[#8E8E93] text-xs uppercase tracking-widest pt-1">
+            <span className="inline-block w-2 h-2 rounded-full bg-[#E50914] animate-pulse"></span>
             <span>PAKISTAN • AVAILABLE WORLDWIDE</span>
           </div>
 
-          {/* Action Buttons: Stack CTAs vertically on mobile (<640px) */}
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 pt-3 w-full sm:w-auto">
+          <div className="flex flex-wrap items-center gap-3 pt-3">
             <button
               onClick={handleExplore}
-              className="bg-[#E50914] hover:bg-[#b80710] text-white font-bold text-xs uppercase px-5 py-3 tracking-wider transition-colors cursor-pointer text-center w-full sm:w-auto"
+              className="bg-[#E50914] hover:bg-[#b80710] text-white font-bold text-xs uppercase px-5 py-3 tracking-wider transition-colors cursor-pointer"
             >
               EXPLORE PROJECTS &gt;
             </button>
             <a
               href={`mailto:${personalInfo.email}`}
-              className="border border-white/20 hover:border-white text-white font-bold text-xs uppercase px-5 py-3 tracking-wider transition-colors cursor-pointer text-center w-full sm:w-auto"
+              className="border border-white/20 hover:border-white text-white font-bold text-xs uppercase px-5 py-3 tracking-wider transition-colors cursor-pointer"
             >
               CONTACT ME
             </a>
           </div>
         </div>
 
-        {/* 4. Right Side: Stacked Numerical Metrics (Grid 2-cols on Mobile, Aligned Right on Desktop) */}
-        <div className="col-span-12 lg:col-span-6 grid grid-cols-2 lg:flex lg:flex-col lg:items-end justify-center gap-4 lg:gap-6 pt-8 lg:pt-0 text-center lg:text-right border-t lg:border-t-0 border-neutral-800/80 mt-6 lg:mt-0">
+        {/* Right Column: Stacked Unboxed Stats */}
+        <div className="hidden lg:flex col-span-6 flex-col items-end justify-center space-y-6 text-right">
           <div>
-            <h3 className="text-[#FF2E37] font-black text-3xl sm:text-4xl md:text-5xl leading-none font-['Oswald']">50+</h3>
-            <p className="text-[#8E8E93] text-[9px] sm:text-[10px] uppercase tracking-widest mt-1 font-mono font-bold">QA AUDITS &amp; BUILDS</p>
+            <h3 className="text-[#FF2E37] font-black text-4xl md:text-5xl leading-none font-['Oswald']">50+</h3>
+            <p className="text-[#8E8E93] text-[10px] uppercase tracking-widest mt-1 font-mono font-bold">QA AUDITS &amp; BUILDS</p>
           </div>
           <div>
-            <h3 className="text-[#FF2E37] font-black text-3xl sm:text-4xl md:text-5xl leading-none font-['Oswald']">40+</h3>
-            <p className="text-[#8E8E93] text-[9px] sm:text-[10px] uppercase tracking-widest mt-1 font-mono font-bold">GITHUB REPOSITORIES</p>
+            <h3 className="text-[#FF2E37] font-black text-4xl md:text-5xl leading-none font-['Oswald']">40+</h3>
+            <p className="text-[#8E8E93] text-[10px] uppercase tracking-widest mt-1 font-mono font-bold">GITHUB REPOSITORIES</p>
           </div>
           <div>
-            <h3 className="text-[#FF2E37] font-black text-3xl sm:text-4xl md:text-5xl leading-none font-['Oswald']">4+</h3>
-            <p className="text-[#8E8E93] text-[9px] sm:text-[10px] uppercase tracking-widest mt-1 font-mono font-bold">YEARS DEV TRACK</p>
+            <h3 className="text-[#FF2E37] font-black text-4xl md:text-5xl leading-none font-['Oswald']">4+</h3>
+            <p className="text-[#8E8E93] text-[10px] uppercase tracking-widest mt-1 font-mono font-bold">YEARS DEV TRACK</p>
           </div>
           <div>
-            <h3 className="text-[#FF2E37] font-black text-3xl sm:text-4xl md:text-5xl leading-none font-['Oswald']">4+</h3>
-            <p className="text-[#8E8E93] text-[9px] sm:text-[10px] uppercase tracking-widest mt-1 font-mono font-bold">PUBLISHED ESSAYS</p>
+            <h3 className="text-[#FF2E37] font-black text-4xl md:text-5xl leading-none font-['Oswald']">4+</h3>
+            <p className="text-[#8E8E93] text-[10px] uppercase tracking-widest mt-1 font-mono font-bold">PUBLISHED ESSAYS</p>
           </div>
         </div>
 
