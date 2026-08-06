@@ -16,82 +16,236 @@ interface ChatbotSectionProps {
 
 const PERMANENT_GEMINI_KEY = import.meta.env.VITE_GEMINI_API_KEY || (typeof window !== 'undefined' ? atob("QVEuQWI4Uk42SndaYTBtNEV5ZkVBWVI1RW1PTWhmbXYyZm5XRV9pd2FpalVILVI3dzRMTGc=") : "");
 
-// Helper component to cleanly format Markdown without raw ** symbols or unparsed URLs
+// Helper component to cleanly format Markdown: bold, italic, code, links, lists, and headings — no raw ** / []( / backticks shown
 function FormattedMessageText({ text }: { text: string }) {
-  const lines = text.split('\n');
+  // Recursive inline parser: renders **bold**, *italic*, `code`, [title](url), and raw URLs
+  const renderInline = (raw: string, keyBase: string): React.ReactNode[] => {
+    const nodes: React.ReactNode[] = [];
+    let i = 0;
+    let key = 0;
+    let plainStart = 0;
 
-  return (
-    <div className="space-y-1 text-xs leading-relaxed font-light text-neutral-200">
-      {lines.map((line, lIdx) => {
-        if (!line.trim()) return <div key={lIdx} className="h-1" />;
+    const flushPlain = (end: number) => {
+      if (end > plainStart) {
+        nodes.push(<span key={`${keyBase}-p-${key++}`}>{raw.substring(plainStart, end)}</span>);
+      }
+    };
 
-        const isBullet = line.trim().startsWith('- ') || line.trim().startsWith('* ');
-        const cleanLine = isBullet ? line.trim().slice(2) : line;
+    while (i < raw.length) {
+      const rest = raw.slice(i);
 
-        const parts: React.ReactNode[] = [];
-        const regex = /(\*\*.*?\*\*|\[.*?\]\(.*?\)|\bhttps?:\/\/[^\s<]+)/g;
-        let lastIndex = 0;
-        let match;
+      // **bold** (supports nested links/italic/code inside)
+      if (rest.startsWith('**')) {
+        const close = rest.indexOf('**', 2);
+        if (close !== -1) {
+          flushPlain(i);
+          nodes.push(
+            <strong key={`${keyBase}-b-${key++}`} className="font-bold text-white">
+              {renderInline(rest.slice(2, close), `${keyBase}-b`)}
+            </strong>
+          );
+          i += close + 2;
+          plainStart = i;
+          continue;
+        }
+      }
 
-        while ((match = regex.exec(cleanLine)) !== null) {
-          if (match.index > lastIndex) {
-            parts.push(cleanLine.substring(lastIndex, match.index));
-          }
+      // `inline code`
+      if (rest.startsWith('`')) {
+        const close = rest.indexOf('`', 1);
+        if (close !== -1) {
+          flushPlain(i);
+          nodes.push(
+            <code key={`${keyBase}-c-${key++}`} className="px-1 py-0.5 bg-neutral-800 border border-neutral-700 text-[10px] text-[#FF8A90] font-mono rounded-sm">
+              {rest.slice(1, close)}
+            </code>
+          );
+          i += close + 1;
+          plainStart = i;
+          continue;
+        }
+      }
 
-          const matchedStr = match[0];
-          if (matchedStr.startsWith('**') && matchedStr.endsWith('**')) {
-            const inner = matchedStr.slice(2, -2);
-            parts.push(
-              <strong key={match.index} className="font-bold text-white">
-                {inner}
-              </strong>
-            );
-          } else if (matchedStr.startsWith('[') && matchedStr.includes('](')) {
-            const title = matchedStr.substring(1, matchedStr.indexOf(']('));
-            const url = matchedStr.substring(matchedStr.indexOf('](') + 2, matchedStr.length - 1);
-            parts.push(
+      // [title](url)
+      if (rest.startsWith('[')) {
+        const openClose = rest.indexOf('](');
+        if (openClose !== -1) {
+          const urlEnd = rest.indexOf(')', openClose + 2);
+          if (urlEnd !== -1) {
+            const title = rest.slice(1, openClose);
+            const url = rest.slice(openClose + 2, urlEnd);
+            flushPlain(i);
+            nodes.push(
               <a
-                key={match.index}
+                key={`${keyBase}-l-${key++}`}
                 href={url}
-                target="_blank"
-                rel="noreferrer"
-                className="text-[#E50914] underline font-semibold hover:text-white transition-colors"
-              >
-                {title}
-              </a>
-            );
-          } else if (matchedStr.startsWith('http://') || matchedStr.startsWith('https://')) {
-            parts.push(
-              <a
-                key={match.index}
-                href={matchedStr}
                 target="_blank"
                 rel="noreferrer"
                 className="text-[#E50914] underline font-semibold hover:text-white transition-colors break-all"
               >
-                {matchedStr}
+                {renderInline(title, `${keyBase}-l`)}
               </a>
             );
-          } else {
-            parts.push(matchedStr);
+            i += urlEnd + 1;
+            plainStart = i;
+            continue;
           }
-
-          lastIndex = regex.lastIndex;
         }
+      }
 
-        if (lastIndex < cleanLine.length) {
-          parts.push(cleanLine.substring(lastIndex));
+      // *italic*
+      if (rest.startsWith('*')) {
+        const close = rest.indexOf('*', 1);
+        if (close !== -1) {
+          flushPlain(i);
+          nodes.push(
+            <em key={`${keyBase}-i-${key++}`} className="italic text-neutral-100">
+              {renderInline(rest.slice(1, close), `${keyBase}-i`)}
+            </em>
+          );
+          i += close + 1;
+          plainStart = i;
+          continue;
         }
+      }
 
-        return (
-          <p key={lIdx} className={isBullet ? 'pl-3 relative' : ''}>
-            {isBullet && <span className="absolute left-0 top-1.5 w-1.5 h-1.5 bg-[#E50914] rounded-full" />}
-            {parts}
-          </p>
+      // raw http(s):// URL
+      const urlMatch = /^https?:\/\/[^\s<]+/.exec(rest);
+      if (urlMatch) {
+        const url = urlMatch[0];
+        flushPlain(i);
+        nodes.push(
+          <a
+            key={`${keyBase}-u-${key++}`}
+            href={url}
+            target="_blank"
+            rel="noreferrer"
+            className="text-[#E50914] underline font-semibold hover:text-white transition-colors break-all"
+          >
+            {url}
+          </a>
         );
-      })}
-    </div>
-  );
+        i += url.length;
+        plainStart = i;
+        continue;
+      }
+
+      i += 1;
+    }
+
+    flushPlain(raw.length);
+    return nodes;
+  };
+
+  const lines = text.split('\n');
+  const blocks: React.ReactNode[] = [];
+  let inCodeBlock = false;
+  let codeBuffer: string[] = [];
+
+  const flushCodeBlock = (key: number) => {
+    if (codeBuffer.length > 0) {
+      blocks.push(
+        <pre key={`code-${key}`} className="bg-black/60 border border-neutral-800 p-3 overflow-x-auto text-[10px] font-mono text-[#9FD6FF] leading-relaxed whitespace-pre-wrap break-words">
+          {codeBuffer.join('\n')}
+        </pre>
+      );
+      codeBuffer = [];
+    }
+  };
+
+  lines.forEach((line, lIdx) => {
+    const trimmed = line.trim();
+
+    // Toggle fenced code blocks ``` ```
+    if (trimmed.startsWith('```')) {
+      if (inCodeBlock) {
+        inCodeBlock = false;
+        flushCodeBlock(lIdx);
+      } else {
+        inCodeBlock = true;
+      }
+      return;
+    }
+
+    if (inCodeBlock) {
+      codeBuffer.push(line);
+      return;
+    }
+
+    if (!trimmed) {
+      blocks.push(<div key={`sp-${lIdx}`} className="h-1" />);
+      return;
+    }
+
+    // Horizontal rule --- / *** / ___
+    if (/^([-*_])\1{2,}$/.test(trimmed)) {
+      blocks.push(<div key={`hr-${lIdx}`} className="my-2 h-px bg-neutral-700" />);
+      return;
+    }
+
+    // Headings # / ## / ###
+    const headingMatch = /^(#{1,6})\s+(.*)$/.exec(trimmed);
+    if (headingMatch) {
+      const level = headingMatch[1].length;
+      blocks.push(
+        <p
+          key={`h-${lIdx}`}
+          className={`font-bold text-white uppercase tracking-wide ${level <= 2 ? 'text-sm' : 'text-xs'}`}
+        >
+          {renderInline(headingMatch[2], `h${lIdx}`)}
+        </p>
+      );
+      return;
+    }
+
+    // Blockquote > text
+    const quoteMatch = /^>\s?(.*)$/.exec(trimmed);
+    if (quoteMatch) {
+      blocks.push(
+        <p key={`q-${lIdx}`} className="pl-3 border-l-2 border-[#E50914]/60 italic text-neutral-300">
+          {renderInline(quoteMatch[1], `q${lIdx}`)}
+        </p>
+      );
+      return;
+    }
+
+    // Bullet list - / * / •
+    const bulletMatch = /^([-*•])\s+(.*)$/.exec(trimmed);
+    if (bulletMatch) {
+      blocks.push(
+        <p key={`li-${lIdx}`} className="pl-4 relative">
+          <span className="absolute left-0 top-[7px] w-1.5 h-1.5 bg-[#E50914] rounded-full" />
+          {renderInline(bulletMatch[2], `li${lIdx}`)}
+        </p>
+      );
+      return;
+    }
+
+    // Numbered list 1. / 1)
+    const numMatch = /^(\d+)[.)]\s+(.*)$/.exec(trimmed);
+    if (numMatch) {
+      blocks.push(
+        <p key={`nl-${lIdx}`} className="pl-5 relative">
+          <span className="absolute left-0 top-0 font-mono text-[10px] text-[#E50914] font-bold">
+            {numMatch[1]}.
+          </span>
+          {renderInline(numMatch[2], `nl${lIdx}`)}
+        </p>
+      );
+      return;
+    }
+
+    // Regular paragraph
+    blocks.push(
+      <p key={`p-${lIdx}`}>
+        {renderInline(line, `p${lIdx}`)}
+      </p>
+    );
+  });
+
+  if (inCodeBlock) flushCodeBlock(lines.length);
+
+  return <div className="space-y-1 text-xs leading-relaxed font-light text-neutral-200">{blocks}</div>;
 }
 
 export default function ChatbotSection({ geminiKey, isOpen, onClose }: ChatbotSectionProps) {
@@ -101,7 +255,7 @@ export default function ChatbotSection({ geminiKey, isOpen, onClose }: ChatbotSe
   const [chatMessages, setChatMessages] = useState<ChatMessage[]>([
     {
       sender: 'bot',
-      text: "Hello! I am Hassaan's Virtual AI Representative. Ask me anything about Software Engineering, SQA, or direct hiring profiles on Fiverr & Upwork!"
+      text: "Hey there! 👋 Great to have you here. I'm Hassaan's assistant — I can walk you through his work in Software Engineering, SQA, and AI, or get you straight to the best way to reach him. What are you curious about?"
     }
   ]);
 
@@ -170,14 +324,14 @@ export default function ChatbotSection({ geminiKey, isOpen, onClose }: ChatbotSe
       console.error('Gemini call fail:', error);
       // Clean, direct fallback without fluff
       const textLower = userMsg.toLowerCase();
-      let reply = "Direct AI connection check. What would you like to verify?";
+      let reply = "I couldn't reach the AI engine just now, but I'm still here to help! Feel free to rephrase your question and try again.";
       
       if (textLower.includes('fiverr') || textLower.includes('hire') || textLower.includes('work')) {
-        reply = "Here is Hassaan's direct Fiverr profile link: https://www.fiverr.com/hassaankayani1";
+        reply = "Hassaan would love to hear from you! You can reach him directly on Fiverr here: https://www.fiverr.com/hassaankayani1";
       } else if (textLower.includes('upwork')) {
-        reply = "Here is Hassaan's direct Upwork profile link: https://www.upwork.com/freelancers/~016d3a3d2b6da309a6";
+        reply = "Happy to connect you! Hassaan is on Upwork at: https://www.upwork.com/freelancers/~016d3a3d2b6da309a6";
       } else if (textLower.includes('email') || textLower.includes('contact')) {
-        reply = "Direct Email: hassaanabdullahkayani@gmail.com";
+        reply = "You can email Hassaan directly at hassaanabdullahkayani@gmail.com — he usually replies quickly!";
       }
 
       setChatMessages(prev => [...prev, { sender: 'bot', text: reply }]);
