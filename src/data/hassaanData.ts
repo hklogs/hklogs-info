@@ -310,10 +310,10 @@ name: "Nexus-fx",
     working: "Connects to public exchange rate APIs, caches hourly values using local storage, and renders timeline charts dynamically using Chart.js."
   },
   {
-name: "Relevnt",
+    name: "Relevnt",
     desc: "A semantic search and categorization tool mapping relevant text datasets to target tax laws or compliance rules.",
     url: "https://github.com/hklogs/Relevnt",
-    vercelUrl: "https://relevnt-green.vercel.app",
+    vercelUrl: "https://relevnt.vercel.app",
     tech: ["TypeScript", "React", "Gemini API", "Tailwind CSS"],
     thumbnail: "/relevnt_thumb.png",
     usecase: "Enables corporate compliance officers to quickly locate sections of legal code that apply to their product operations.",
