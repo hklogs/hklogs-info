@@ -99,23 +99,23 @@ export default function HeroSection({ onExploreProjects }: HeroSectionProps) {
           </div>
         </div>
 
-        {/* Right Column: Stacked Unboxed Stats */}
-        <div className="hidden lg:flex col-span-6 flex-col items-end justify-center space-y-6 text-right">
+        {/* Right Column: Stacked Stats (2-column grid on mobile/tablet, right-aligned flex column on desktop) */}
+        <div className="col-span-12 lg:col-span-6 grid grid-cols-2 lg:flex lg:flex-col lg:items-end justify-center gap-4 lg:gap-6 pt-6 lg:pt-0 text-center lg:text-right border-t lg:border-t-0 border-neutral-800/80 mt-6 lg:mt-0">
           <div>
-            <h3 className="text-[#FF2E37] font-black text-4xl md:text-5xl leading-none font-['Oswald']">50+</h3>
-            <p className="text-[#8E8E93] text-[10px] uppercase tracking-widest mt-1 font-mono font-bold">QA AUDITS &amp; BUILDS</p>
+            <h3 className="text-[#FF2E37] font-black text-3xl sm:text-4xl md:text-5xl leading-none font-['Oswald']">50+</h3>
+            <p className="text-[#8E8E93] text-[9px] sm:text-[10px] uppercase tracking-widest mt-1 font-mono font-bold">QA AUDITS &amp; BUILDS</p>
           </div>
           <div>
-            <h3 className="text-[#FF2E37] font-black text-4xl md:text-5xl leading-none font-['Oswald']">40+</h3>
-            <p className="text-[#8E8E93] text-[10px] uppercase tracking-widest mt-1 font-mono font-bold">GITHUB REPOSITORIES</p>
+            <h3 className="text-[#FF2E37] font-black text-3xl sm:text-4xl md:text-5xl leading-none font-['Oswald']">40+</h3>
+            <p className="text-[#8E8E93] text-[9px] sm:text-[10px] uppercase tracking-widest mt-1 font-mono font-bold">GITHUB REPOSITORIES</p>
           </div>
           <div>
-            <h3 className="text-[#FF2E37] font-black text-4xl md:text-5xl leading-none font-['Oswald']">4+</h3>
-            <p className="text-[#8E8E93] text-[10px] uppercase tracking-widest mt-1 font-mono font-bold">YEARS DEV TRACK</p>
+            <h3 className="text-[#FF2E37] font-black text-3xl sm:text-4xl md:text-5xl leading-none font-['Oswald']">4+</h3>
+            <p className="text-[#8E8E93] text-[9px] sm:text-[10px] uppercase tracking-widest mt-1 font-mono font-bold">YEARS DEV TRACK</p>
           </div>
           <div>
-            <h3 className="text-[#FF2E37] font-black text-4xl md:text-5xl leading-none font-['Oswald']">4+</h3>
-            <p className="text-[#8E8E93] text-[10px] uppercase tracking-widest mt-1 font-mono font-bold">PUBLISHED ESSAYS</p>
+            <h3 className="text-[#FF2E37] font-black text-3xl sm:text-4xl md:text-5xl leading-none font-['Oswald']">4+</h3>
+            <p className="text-[#8E8E93] text-[9px] sm:text-[10px] uppercase tracking-widest mt-1 font-mono font-bold">PUBLISHED ESSAYS</p>
           </div>
         </div>
 
