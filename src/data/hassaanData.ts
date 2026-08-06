@@ -493,7 +493,7 @@ export const linkedinSkillsList = [
   { category: "Core Software Engineering", items: ["Software Quality Assurance", "Manual & Automated Testing", "Boundary Value Analysis", "Heuristic Validation", "Predictive Log Auditing"] },
   { category: "Programming Languages", items: ["Python", "Java", "C++ Core", "SQL / Databases", "TypeScript", "Kotlin", "HTML / CSS"] },
   { category: "Advanced AI & Frameworks", items: ["Google AI Studio", "Vertex AI API", "LangGraph", "LangChain", "Gemini Pro / Flash", "TensorFlow", "OpenCV"] },
-  { category: "Ecosystem Tools", items: ["agy cli", "Claude Code", "Claude AI", "Kimo", "Kilcode", "Kimi", "Mimo", "Git & GitHub", "Vercel Build", "Supabase"] }
+  { category: "Ecosystem Tools", items: ["agy cli", "Claude Code", "Claude AI", "Kimi", "Git & GitHub", "Vercel Build", "Supabase"] }
 ];
 
 export const SYSTEM_INSTRUCTION = `

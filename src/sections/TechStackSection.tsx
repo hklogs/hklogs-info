@@ -182,8 +182,7 @@ export default function TechStackSection() {
                 <div className="flex flex-wrap gap-2 pt-2">
                   {[
                     "agy cli", "opencode", "claude code", "claude AI",
-                    "kimo", "kilcode", "kimi", "mimo",
-                    "google ai studio", "vertex api", "langgraph", "github"
+                    "kimi", "google ai studio", "vertex api", "langgraph", "github"
                   ].map((tool, idx) => (
                     <span 
                       key={idx} 
