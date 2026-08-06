@@ -240,16 +240,6 @@ name: "ultd-realestate",
     working: "Utilizes Next.js App Router and Supabase Database for listing synchronization. Integrates Google Maps API overlays for property geolocation lookups and coordinates scheduling via database triggers to avoid slot double-booking."
   },
   {
-name: "ultd-llc-real-estate",
-    desc: "Temporary deploy of UNLT LLC real estate site showcasing listing records and booking agent visits.",
-    url: "https://github.com/hklogs/ultd-llc-real-estate",
-    vercelUrl: "https://ultdllc.com/",
-    tech: ["TypeScript", "Next.js", "Supabase", "Tailwind CSS"],
-    thumbnail: "/ultd_llc_real_estate_thumb.png",
-    usecase: "Showcases luxury real estate listings for UNLT LLC, coordinating appointment requests and agent logs.",
-    working: "Renders real-time listing records from Supabase tables, applying address geo-overlays and filtering properties dynamically."
-  },
-  {
 name: "CBO-RuralWSD (cboruralwater)",
     desc: "A Progressive Web Application engineered for rural water scheme committees and consumer billing administrators. It manages consumer records, audits payment queues, tracks water tankers, and generates monthly billing schedules. Designed with an offline-first service worker, it allows rural operators to update ledger statuses in remote zones.",
     url: "https://github.com/hklogs/cboruralwater",
