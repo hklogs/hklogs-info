@@ -260,6 +260,16 @@ name: "ai-recruitment-auditor",
     working: "Parses text from resume PDFs using a server-side parser. The structured CV data is matched against target job configurations via Gemini API prompts, calculating compatibility weightings and rendering SQA test matrices."
   },
   {
+name: "PDS Website",
+    desc: "Official web portal for Pakistan Debating Society (Rawalpindi Division), coordinating debate tournaments, speaker registrations, and bilingual speech motion archives.",
+    url: "https://github.com/hklogs/pds-website",
+    vercelUrl: "https://pds-website-swart.vercel.app/",
+    tech: ["TypeScript", "React", "Vite", "Tailwind CSS"],
+    thumbnail: "/pds_website_thumb.png",
+    usecase: "Manages regional debating competitions, student registrations, motion archives, and bilingual debate event announcements.",
+    working: "Built as a high-performance SPA with React & Vite, storing event rosters and tournament schedules with instant client-side rendering."
+  },
+  {
 name: "sentient-ai-multimodal-hub",
     desc: "A multimodal AI interface built for software developers to interact with text, images, and audio concurrently. Driven by Google Gemini models, it performs image recognition, voice transcriptions, and source code auditing. It features an interactive retro-futuristic terminal UI designed for high developer productivity.",
     url: "https://github.com/hklogs/sentient-ai-multimodal-hub",
@@ -288,16 +298,6 @@ name: "Bridgebot Code Migrator",
     thumbnail: "/code_migration_thumb.jpg",
     usecase: "Automates code upgrades from legacy Python 2 or JavaScript files to clean Python 3 or type-safe TypeScript.",
     working: "Parses incoming codebase files into Abstract Syntax Trees (ASTs), flags syntax differences, sends code segments to Gemini API to translate patterns, and outputs clean target files."
-  },
-  {
-name: "PDS Website",
-    desc: "Official web portal for Pakistan Debating Society (Rawalpindi Division), coordinating debate tournaments, speaker registrations, and bilingual speech motion archives.",
-    url: "https://github.com/hklogs/pds-website",
-    vercelUrl: "https://pds-website.vercel.app",
-    tech: ["TypeScript", "React", "Vite", "Tailwind CSS"],
-    thumbnail: "/pds_website_thumb.png",
-    usecase: "Manages regional debating competitions, student registrations, motion archives, and bilingual debate event announcements.",
-    working: "Built as a high-performance SPA with React & Vite, storing event rosters and tournament schedules with instant client-side rendering."
   },
   {
 name: "Nexus-fx",
