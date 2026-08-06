@@ -193,7 +193,7 @@ export const staticProjects: LocalProject[] = [
     url: "https://github.com/hklogs/cboruralwater",
     vercelUrl: "https://cboruralwater.vercel.app",
     tech: ["React", "Express", "Firebase", "PostgreSQL", "PWA"],
-    thumbnail: "/cbo_water_thumb.png",
+    thumbnail: "/cborural_new_thumb.png",
     usecase: "Facilitates clean water administration and consumer ledger coordination for remote rural committees, preventing billing disputes and operational leakages.",
     working: "Leverages an offline-first service worker to cache user schemas and ledger transactions locally using IndexedDB. Enqueues API payloads and syncs them automatically to a cloud PostgreSQL database via Firebase Function webhooks once network signals are detected."
   },
@@ -386,7 +386,7 @@ export const staticProjects: LocalProject[] = [
     desc: "AI-powered assistant platform for remote customer service coordination, ticketing systems, and customer sentiment diagnostics.",
     url: "https://github.com/hklogs/liberty-assist",
     tech: ["JavaScript", "React", "Node.js", "Express"],
-    thumbnail: "/code_migration_thumb.jpg",
+    thumbnail: "/liberty_assist_new_thumb.png",
     usecase: "Enables customer support agents to resolve tickets faster by highlighting priority issues and categorizing user sentiment.",
     working: "Processes customer email tokens via local classifier nodes and maps them to support tickets in a dashboard dashboard."
   },
@@ -396,7 +396,7 @@ export const staticProjects: LocalProject[] = [
     url: "https://github.com/hklogs/Nexus-fx",
     vercelUrl: "https://nexus-fx-six.vercel.app",
     tech: ["React", "TypeScript", "Chart.js", "Tailwind CSS"],
-    thumbnail: "/nexus_fs_thumb.png",
+    thumbnail: "/nexus_fs_new_thumb.png",
     usecase: "Helps currency traders track exchange rates, compare historical performance, and receive notifications when values cross thresholds.",
     working: "Connects to public exchange rate APIs, caches hourly values using local storage, and renders timeline charts dynamically using Chart.js."
   },
@@ -406,7 +406,7 @@ export const staticProjects: LocalProject[] = [
     url: "https://github.com/hklogs/referral-close-llc",
     vercelUrl: "https://referral-close-llc.vercel.app",
     tech: ["TypeScript", "Next.js", "Supabase", "Tailwind CSS"],
-    thumbnail: "/referralclose_llc_marketplace_thumb.png",
+    thumbnail: "/referralclose_llc_new_thumb.png",
     usecase: "Enables administrators and contractor networks to manage lead distribution, audit payout ledgers, and handle client matching.",
     working: "Connects to Supabase database clusters, executes real-time lead routing algorithms based on location and trade parameters, and exposes system analytics."
   },
@@ -416,7 +416,7 @@ export const staticProjects: LocalProject[] = [
     url: "https://github.com/hklogs/referral-close",
     vercelUrl: "https://app-sable-sigma-44.vercel.app",
     tech: ["TypeScript", "Next.js", "Tailwind CSS", "Framer Motion"],
-    thumbnail: "/referralclose_home_service_marketplace_thumb.png",
+    thumbnail: "/home_referralclose_new_thumb.png",
     usecase: "Allows homeowners to browse trade services, submit home improvement project criteria, and get connected with verified local contractors.",
     working: "Features an interactive multi-step project request wizard, processes geographical service coverage checks, and routes lead payloads to backend APIs."
   },
@@ -426,7 +426,7 @@ export const staticProjects: LocalProject[] = [
     url: "https://github.com/hklogs/pds-website",
     vercelUrl: "https://pds-website.vercel.app",
     tech: ["TypeScript", "React", "Vite", "Tailwind CSS"],
-    thumbnail: "/prioriti_task_thumb.jpg",
+    thumbnail: "/pds_website_thumb.png",
     usecase: "Manages regional debating competitions, student registrations, motion archives, and bilingual debate event announcements.",
     working: "Built as a high-performance SPA with React & Vite, storing event rosters and tournament schedules with instant client-side rendering."
   },
@@ -436,7 +436,7 @@ export const staticProjects: LocalProject[] = [
     url: "https://github.com/hklogs/Relevnt",
     vercelUrl: "https://relevnt-green.vercel.app",
     tech: ["TypeScript", "React", "Gemini API", "Tailwind CSS"],
-    thumbnail: "/legal_assistant_thumb.jpg",
+    thumbnail: "/relevnt_thumb.png",
     usecase: "Enables corporate compliance officers to quickly locate sections of legal code that apply to their product operations.",
     working: "Parses text chunks, extracts keywords, maps them to reference indexes, and queries the Gemini API to describe matching legal sections."
   },
@@ -445,7 +445,7 @@ export const staticProjects: LocalProject[] = [
     desc: "An agentic research orchestrator that scans research documents, extracts citations, summarizes theories, and builds literature reviews.",
     url: "https://github.com/hklogs/scientific-research-synthesis-agent",
     tech: ["TypeScript", "Python", "Gemini 2.5 Flash", "LangChain"],
-    thumbnail: "/podcast_agent_thumb.jpg",
+    thumbnail: "/research_synthesis_agent_thumb.png",
     usecase: "Helps academic researchers and students synthesize research papers, highlighting contradictions and key findings.",
     working: "Ingests pdf files, extracts text tokens, utilizes LangChain vectors to find matching sections, and uses Gemini 2.5 Flash to summarize findings."
   },
