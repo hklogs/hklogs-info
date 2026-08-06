@@ -498,12 +498,38 @@ export default function GithubProjectsSection({
                       </p>
                     </div>
 
-                    <div className="flex flex-wrap gap-1.5 pt-3 border-t border-neutral-800">
-                      {project.tech.map((t, i) => (
-                        <span key={i} className="px-2 py-0.5 bg-[#181818] rounded-none font-mono text-[9px] text-neutral-300 border border-neutral-800 uppercase">
-                          {t}
-                        </span>
-                      ))}
+                    <div className="flex items-center justify-between gap-2 pt-3 border-t border-neutral-800" onClick={(e) => e.stopPropagation()}>
+                      <div className="flex flex-wrap gap-1.5">
+                        {project.tech.slice(0, 3).map((t, i) => (
+                          <span key={i} className="px-2 py-0.5 bg-[#181818] rounded-none font-mono text-[9px] text-neutral-300 border border-neutral-800 uppercase">
+                            {t}
+                          </span>
+                        ))}
+                      </div>
+
+                      <div className="flex items-center gap-1.5 shrink-0">
+                        <a
+                          href={project.url}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="p-1.5 bg-neutral-900 border border-neutral-800 hover:border-white/40 text-neutral-400 hover:text-white transition-colors"
+                          title="View GitHub Repository"
+                        >
+                          <Github className="w-3.5 h-3.5" />
+                        </a>
+                        {project.vercelUrl && (
+                          <a
+                            href={project.vercelUrl}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="px-2.5 py-1 bg-[#E50914] hover:bg-[#b01e1e] text-white text-[10px] font-mono font-bold flex items-center gap-1.5 transition-all shadow-[0_0_12px_rgba(229,9,20,0.3)] cursor-pointer"
+                            title="View Live Web Console"
+                          >
+                            <ExternalLink className="w-3.5 h-3.5" />
+                            <span>LIVE CONSOLE</span>
+                          </a>
+                        )}
+                      </div>
                     </div>
                   </div>
                 </div>

@@ -193,10 +193,11 @@ export default function ProjectsVaultPage({ onBack }: ProjectsVaultPageProps) {
                       target="_blank"
                       rel="noreferrer"
                       onClick={(e) => e.stopPropagation()}
-                      className="p-2.5 bg-[#E50914]/20 border border-[#E50914]/40 hover:bg-[#E50914] text-white transition-colors"
+                      className="px-3 py-2 bg-[#E50914] hover:bg-[#b01e1e] text-white text-xs font-mono font-bold flex items-center gap-1.5 transition-all shadow-[0_0_15px_rgba(229,9,20,0.3)] cursor-pointer"
                       title="View Live Web Console"
                     >
-                      <ExternalLink className="w-4 h-4" />
+                      <ExternalLink className="w-3.5 h-3.5" />
+                      <span>LIVE CONSOLE</span>
                     </a>
                   )}
                 </div>
@@ -268,10 +269,11 @@ export default function ProjectsVaultPage({ onBack }: ProjectsVaultPageProps) {
                           href={project.vercelUrl}
                           target="_blank"
                           rel="noreferrer"
-                          className="p-1.5 bg-[#E50914]/20 border border-[#E50914]/40 hover:bg-[#E50914] text-white transition-colors"
-                          title="View Live Vercel Deployment"
+                          className="px-2.5 py-1 bg-[#E50914] hover:bg-[#b01e1e] text-white text-[10px] font-mono font-bold flex items-center gap-1.5 transition-all shadow-[0_0_12px_rgba(229,9,20,0.3)] cursor-pointer"
+                          title="View Live Web Console"
                         >
                           <ExternalLink className="w-3.5 h-3.5" />
+                          <span>LIVE CONSOLE</span>
                         </a>
                       )}
                     </div>
