@@ -183,7 +183,7 @@ export const staticProjects: LocalProject[] = [
     desc: "An autonomous agentic AI framework designed to orchestrate recursive prompt loops, validate cognitive LLM processes, and run automated script executions.",
     url: "https://github.com/hklogs/AutonAI",
     tech: ["Python", "TypeScript", "LangChain", "Gemini API"],
-    thumbnail: "/sentient_ai_thumb.png",
+    thumbnail: "/auton_ai_new_thumb.png",
     usecase: "Enables developers to test autonomous AI workflows, execute local bash tasks safely, and debug agentic logic loops.",
     working: "Deploys LangChain agent execution nodes, hooks into local OS CLI bindings, and evaluates agent performance metrics."
   },
