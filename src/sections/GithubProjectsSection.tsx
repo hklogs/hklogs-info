@@ -237,15 +237,40 @@ export default function GithubProjectsSection({
                 </div>
               </div>
 
-              <div className="flex flex-wrap gap-1.5 pt-4 border-t border-white/10">
-                {project.tech.map((t, i) => (
-                  <span 
-                    key={i} 
-                    className="px-2 py-0.5 bg-white/[0.03] font-mono text-[9px] text-neutral-300 border border-white/10 uppercase group-hover:border-[#FF2E37]/40 transition-colors"
+              <div className="flex items-center justify-between gap-2 pt-4 border-t border-white/10">
+                <div className="flex flex-wrap gap-1.5">
+                  {project.tech.slice(0, 3).map((t, i) => (
+                    <span 
+                      key={i} 
+                      className="px-2 py-0.5 bg-white/[0.03] font-mono text-[9px] text-neutral-300 border border-white/10 uppercase group-hover:border-[#FF2E37]/40 transition-colors"
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="flex items-center gap-2 shrink-0" onClick={(e) => e.stopPropagation()}>
+                  <a
+                    href={project.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="p-1.5 bg-neutral-900 border border-neutral-800 hover:border-white/40 text-neutral-400 hover:text-white transition-colors"
+                    title="View GitHub Repository"
                   >
-                    {t}
-                  </span>
-                ))}
+                    <Github className="w-3.5 h-3.5" />
+                  </a>
+                  {project.vercelUrl && (
+                    <a
+                      href={project.vercelUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="p-1.5 bg-[#FF2E37]/20 border border-[#FF2E37]/40 hover:bg-[#FF2E37] text-white transition-colors"
+                      title="View Live Vercel Deployment"
+                    >
+                      <ExternalLink className="w-3.5 h-3.5" />
+                    </a>
+                  )}
+                </div>
               </div>
 
             </div>
