@@ -46,27 +46,38 @@ export const personalInfo = {
     "Building and validating AI driven solutions."
   ],
   courses: [
-    "Software Quality Assurance & Auditing",
-    "Human-Computer Interaction (HCI)",
-    "Database Management Systems (SQL & MongoDB)",
-    "Object-Oriented Programming & Software Design",
-    "Deep Learning & Computer Vision Application"
+    "Advance Database Management Systems (CSC-303)",
+    "Software Quality Engineering (CSC-323)",
+    "Software Design & Architecture (CSC-320)",
+    "Artificial Intelligence (CSC-203)",
+    "Data Structures & Algorithms (CSC-110)",
+    "Web Technologies (CSC-251)"
   ]
 };
 
 export const detailedCourses: CourseItem[] = [
-  { code: "SE-301", name: "Software Quality Assurance & Auditing", university: "UIIT PMAS-Arid Agriculture University", category: "Core SQA" },
-  { code: "CS-402", name: "Human-Computer Interaction (HCI)", university: "UIIT PMAS-Arid Agriculture University", category: "UX Architecture" },
-  { code: "DB-201", name: "Database Management Systems (SQL & MongoDB)", university: "UIIT PMAS-Arid Agriculture University", category: "Data Systems" },
-  { code: "SE-102", name: "Object-Oriented Programming & Software Design", university: "UIIT PMAS-Arid Agriculture University", category: "Software Engineering" },
-  { code: "AI-405", name: "Deep Learning & Computer Vision Application", university: "UIIT PMAS-Arid Agriculture University", category: "Artificial Intelligence" },
-  { code: "CS-101", name: "Programming Fundamentals (C++ / Python)", university: "UIIT PMAS-Arid Agriculture University", category: "Computer Science" },
-  { code: "SE-204", name: "Software Requirement Engineering", university: "UIIT PMAS-Arid Agriculture University", category: "Software Engineering" },
-  { code: "CS-303", name: "Data Structures & Algorithm Analysis", university: "UIIT PMAS-Arid Agriculture University", category: "Computer Science" },
-  { code: "SE-308", name: "Software Architecture & Design Patterns", university: "UIIT PMAS-Arid Agriculture University", category: "Software Engineering" },
-  { code: "AI-301", name: "Artificial Intelligence & Expert Systems", university: "UIIT PMAS-Arid Agriculture University", category: "Artificial Intelligence" },
-  { code: "CS-205", name: "Operating Systems & Linux Kernel Basics", university: "UIIT PMAS-Arid Agriculture University", category: "Systems" },
-  { code: "SE-401", name: "Software Project Management", university: "UIIT PMAS-Arid Agriculture University", category: "Management" }
+  { code: "CSC-303", name: "Advance Database Management Systems", university: "Arid Agriculture University", category: "Database & Data" },
+  { code: "CSC-252", name: "Advanced Programming", university: "Arid Agriculture University", category: "Programming" },
+  { code: "CSC-100", name: "Application Of Information & Communication Technologies", university: "Arid Agriculture University", category: "ICT & Fundamentals" },
+  { code: "CSC-203", name: "Artificial Intelligence", university: "Arid Agriculture University", category: "Artificial Intelligence" },
+  { code: "CSC-204", name: "Computer Networks", university: "Arid Agriculture University", category: "Networking & Security" },
+  { code: "CSC-211", name: "Computer Organization & Assembly Language", university: "Arid Agriculture University", category: "Computer Architecture" },
+  { code: "CSC-110", name: "Data Structures & Algorithms", university: "Arid Agriculture University", category: "Core CS & Algorithms" },
+  { code: "CSC-103", name: "Database Systems", university: "Arid Agriculture University", category: "Database & Data" },
+  { code: "CSC-313", name: "HCI & Computer Graphics", university: "Arid Agriculture University", category: "HCI & Graphics" },
+  { code: "CSC-202", name: "Information Security", university: "Arid Agriculture University", category: "Networking & Security" },
+  { code: "CSC-353", name: "Mobile Application Development I", university: "Arid Agriculture University", category: "Software Development" },
+  { code: "CSC-325", name: "Object Oriented Analysis & Design", university: "Arid Agriculture University", category: "Software Engineering" },
+  { code: "CSC-102", name: "Object Oriented Programming", university: "Arid Agriculture University", category: "Programming" },
+  { code: "CSC-301", name: "Operating Systems", university: "Arid Agriculture University", category: "Systems" },
+  { code: "CSC-314", name: "Parallel & Distributed Computing", university: "Arid Agriculture University", category: "Systems & Distributed" },
+  { code: "CSC-321", name: "Software Construction & Development", university: "Arid Agriculture University", category: "Software Engineering" },
+  { code: "CSC-320", name: "Software Design & Architecture", university: "Arid Agriculture University", category: "Software Engineering" },
+  { code: "CSC-205", name: "Software Engineering", university: "Arid Agriculture University", category: "Software Engineering" },
+  { code: "CSC-322", name: "Software Project Management", university: "Arid Agriculture University", category: "Software Engineering & SQA" },
+  { code: "CSC-323", name: "Software Quality Engineering", university: "Arid Agriculture University", category: "Software Engineering & SQA" },
+  { code: "CSC-324", name: "Software Requirement Engineering", university: "Arid Agriculture University", category: "Software Engineering & SQA" },
+  { code: "CSC-251", name: "Web Technologies", university: "Arid Agriculture University", category: "Web Technologies" }
 ];
 
 export const statsList = [
