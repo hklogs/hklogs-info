@@ -106,15 +106,15 @@ export default function HeroSection({ onExploreProjects }: HeroSectionProps) {
         {/* 4. Right Side: Stacked Numerical Metrics (Grid 2-cols on Mobile, Aligned Right on Desktop) */}
         <div className="col-span-12 lg:col-span-6 grid grid-cols-2 lg:flex lg:flex-col lg:items-end justify-center gap-4 lg:gap-6 pt-8 lg:pt-0 text-center lg:text-right border-t lg:border-t-0 border-neutral-800/80 mt-6 lg:mt-0">
           <div>
-            <h3 className="text-[#FF2E37] font-black text-3xl sm:text-4xl md:text-5xl leading-none font-['Oswald']">40+</h3>
+            <h3 className="text-[#FF2E37] font-black text-3xl sm:text-4xl md:text-5xl leading-none font-['Oswald']">50+</h3>
             <p className="text-[#8E8E93] text-[9px] sm:text-[10px] uppercase tracking-widest mt-1 font-mono font-bold">QA AUDITS &amp; BUILDS</p>
           </div>
           <div>
-            <h3 className="text-[#FF2E37] font-black text-3xl sm:text-4xl md:text-5xl leading-none font-['Oswald']">30+</h3>
+            <h3 className="text-[#FF2E37] font-black text-3xl sm:text-4xl md:text-5xl leading-none font-['Oswald']">40+</h3>
             <p className="text-[#8E8E93] text-[9px] sm:text-[10px] uppercase tracking-widest mt-1 font-mono font-bold">GITHUB REPOSITORIES</p>
           </div>
           <div>
-            <h3 className="text-[#FF2E37] font-black text-3xl sm:text-4xl md:text-5xl leading-none font-['Oswald']">3+</h3>
+            <h3 className="text-[#FF2E37] font-black text-3xl sm:text-4xl md:text-5xl leading-none font-['Oswald']">4+</h3>
             <p className="text-[#8E8E93] text-[9px] sm:text-[10px] uppercase tracking-widest mt-1 font-mono font-bold">YEARS DEV TRACK</p>
           </div>
           <div>
