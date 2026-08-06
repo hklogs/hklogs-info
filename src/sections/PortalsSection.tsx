@@ -1,153 +1,136 @@
-import { Mail, Github, Linkedin, FileText, MapPin, Globe, ArrowRight, Link2, MessageSquare } from 'lucide-react';
+import { Mail, Github, Linkedin, FileText, MapPin, ArrowUpRight } from 'lucide-react';
 import { personalInfo } from '../data/hassaanData';
 
 export default function PortalsSection() {
   return (
-    <section id="gateway" className="py-24 border-t border-white/10 relative bg-[#0D0D0D] text-left select-none">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
+    <section id="gateway" className="py-16 px-4 sm:px-6 md:px-12 lg:px-16 bg-[#0D0D0D] border-t border-neutral-900 text-left select-none overflow-hidden">
+      <div className="max-w-7xl mx-auto">
         
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start divide-y lg:divide-y-0 lg:divide-x divide-white/10 border-t border-b border-white/10 py-8">
+        {/* 2-COLUMN GRID: LEFT (HEADING & STATUS) | RIGHT (DIRECT CONTACT LIST) */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
-          {/* Left Side: LET'S WORK TOGETHER headline + primary contact pills */}
-          <div className="lg:col-span-6 space-y-6 p-0 lg:pr-8 flex flex-col justify-center">
-            <div className="space-y-2">
-              <span className="text-xs font-mono text-[#E50914] uppercase tracking-widest font-bold block">
-                CONTACT &amp; COLLABORATION
-              </span>
-              <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl font-bold text-white uppercase tracking-tight">
-                LET'S WORK <span className="text-[#E50914]">TOGETHER</span>
-              </h2>
-              <p className="text-[#A1A1AA] text-xs sm:text-sm leading-relaxed font-light font-sans max-w-lg pt-1">
-                Currently open for SQA Auditing, AI Agent Architecture, and Full-Stack Collaborations.
-              </p>
-            </div>
+          {/* LEFT COLUMN (Cols 1 to 6 - Heading & Status) */}
+          <div className="lg:col-span-6 flex flex-col justify-center text-left space-y-4">
+            <h2 className="font-['Oswald'] text-4xl md:text-6xl font-black uppercase tracking-tight text-white leading-none">
+              LET'S WORK <br />
+              <span className="text-[#E50914]">TOGETHER</span>
+            </h2>
+            
+            <p className="text-[#8E8E93] text-sm md:text-base max-w-md mt-4 font-sans font-light leading-relaxed">
+              Currently open for SQA Auditing, AI Agent Architecture, and Full-Stack Collaborations.
+            </p>
 
-            {/* Stacked dark pill rows with subtle circular icons */}
-            <div className="space-y-3 pt-2 font-mono text-xs w-full">
-              
-              {/* Email Direct */}
-              <a 
-                href={`mailto:${personalInfo.email}`}
-                className="flex items-center gap-3.5 p-3.5 bg-white/[0.02] border border-white/10 hover:border-[#E50914] text-white rounded-full transition-all group cursor-pointer"
-              >
-                <div className="w-8 h-8 rounded-full bg-neutral-900 border border-white/10 flex items-center justify-center text-[#E50914]">
-                  <Mail className="w-4 h-4" />
-                </div>
-                <div className="flex flex-col flex-1">
-                  <span className="text-[10px] text-[#A1A1AA] uppercase font-bold tracking-widest">Email / Direct</span>
-                  <span className="text-xs text-white truncate font-medium">{personalInfo.email}</span>
-                </div>
-                <ArrowRight className="w-4 h-4 text-[#A1A1AA] group-hover:text-[#E50914] group-hover:translate-x-1 transition-all mr-2" />
-              </a>
-
-              {/* Linktree */}
-              <a 
-                href="https://linktr.ee/hklogs"
-                target="_blank"
-                rel="noreferrer"
-                className="flex items-center gap-3.5 p-3.5 bg-white/[0.02] border border-white/10 hover:border-[#E50914] text-white rounded-full transition-all group cursor-pointer"
-              >
-                <div className="w-8 h-8 rounded-full bg-neutral-900 border border-white/10 flex items-center justify-center text-[#E50914]">
-                  <Link2 className="w-4 h-4" />
-                </div>
-                <div className="flex flex-col flex-1">
-                  <span className="text-[10px] text-[#A1A1AA] uppercase font-bold tracking-widest">Linktree Hub</span>
-                  <span className="text-xs text-white truncate font-medium">linktr.ee/hklogs</span>
-                </div>
-                <ArrowRight className="w-4 h-4 text-[#A1A1AA] group-hover:text-[#E50914] group-hover:translate-x-1 transition-all mr-2" />
-              </a>
-
-              {/* Discord ID */}
-              <div className="flex items-center gap-3.5 p-3.5 bg-white/[0.02] border border-white/10 text-white rounded-full">
-                <div className="w-8 h-8 rounded-full bg-neutral-900 border border-white/10 flex items-center justify-center text-[#E50914]">
-                  <MessageSquare className="w-4 h-4" />
-                </div>
-                <div className="flex flex-col flex-1">
-                  <span className="text-[10px] text-[#A1A1AA] uppercase font-bold tracking-widest">Discord User ID</span>
-                  <span className="text-xs text-white truncate font-mono">1527688400419819673 (@hklogs)</span>
-                </div>
+            {/* Minimal Pill Tag Status Badge */}
+            <div className="pt-2">
+              <div className="px-3.5 py-1.5 border border-[#E50914] text-[#E50914] bg-[#E50914]/5 rounded-full font-mono text-xs font-bold uppercase tracking-wider flex items-center gap-2 w-fit">
+                <span className="w-2 h-2 rounded-full bg-[#E50914] animate-ping" />
+                <span>AVAILABLE FOR FREELANCE &amp; AUDITS</span>
               </div>
-
             </div>
           </div>
 
-          {/* Right Side: Additional Social & Platform Links */}
-          <div className="lg:col-span-6 space-y-3 p-0 lg:pl-8 font-mono text-xs w-full pt-8 lg:pt-0">
+          {/* RIGHT COLUMN (Cols 7 to 12 - Direct Contact List) */}
+          <div className="lg:col-span-6 space-y-3 font-mono text-xs w-full pt-4 lg:pt-0">
             
-            {/* GitHub */}
+            {/* 1. EMAIL / DIRECT */}
+            <a 
+              href={`mailto:${personalInfo.email}`}
+              className="w-full flex items-center justify-between p-4 bg-[#121212] border border-neutral-800 hover:border-[#E50914] text-white transition-all group cursor-pointer"
+            >
+              <div className="flex items-center gap-3.5">
+                <div className="w-8 h-8 rounded-full bg-neutral-900 border border-neutral-800 flex items-center justify-center text-[#FF2E37] group-hover:border-[#E50914] transition-colors shrink-0">
+                  <Mail className="w-4 h-4 text-[#FF2E37]" />
+                </div>
+                <div className="flex flex-col text-left truncate">
+                  <span className="text-[10px] text-[#8E8E93] uppercase font-bold tracking-widest font-mono">EMAIL / DIRECT</span>
+                  <span className="text-xs sm:text-sm text-white font-semibold truncate font-mono">{personalInfo.email}</span>
+                </div>
+              </div>
+              <ArrowUpRight className="w-4 h-4 text-[#8E8E93] group-hover:text-[#E50914] transition-all shrink-0" />
+            </a>
+
+            {/* 2. GITHUB REPOSITORY */}
             <a 
               href={personalInfo.github}
               target="_blank"
               rel="noreferrer"
-              className="flex items-center gap-3.5 p-3.5 bg-white/[0.02] border border-white/10 hover:border-[#E50914] text-white rounded-full transition-all group cursor-pointer"
+              className="w-full flex items-center justify-between p-4 bg-[#121212] border border-neutral-800 hover:border-[#E50914] text-white transition-all group cursor-pointer"
             >
-              <div className="w-8 h-8 rounded-full bg-neutral-900 border border-white/10 flex items-center justify-center text-[#E50914]">
-                <Github className="w-4 h-4" />
+              <div className="flex items-center gap-3.5">
+                <div className="w-8 h-8 rounded-full bg-neutral-900 border border-neutral-800 flex items-center justify-center text-[#FF2E37] group-hover:border-[#E50914] transition-colors shrink-0">
+                  <Github className="w-4 h-4 text-[#FF2E37]" />
+                </div>
+                <div className="flex flex-col text-left truncate">
+                  <span className="text-[10px] text-[#8E8E93] uppercase font-bold tracking-widest font-mono">GITHUB REPOSITORY</span>
+                  <span className="text-xs sm:text-sm text-white font-semibold truncate font-mono">github.com/hklogs</span>
+                </div>
               </div>
-              <div className="flex flex-col flex-1">
-                <span className="text-[10px] text-[#A1A1AA] uppercase font-bold tracking-widest">GitHub Repository</span>
-                <span className="text-xs text-white truncate font-medium">github.com/hklogs</span>
-              </div>
-              <ArrowRight className="w-4 h-4 text-[#A1A1AA] group-hover:text-[#E50914] group-hover:translate-x-1 transition-all mr-2" />
+              <ArrowUpRight className="w-4 h-4 text-[#8E8E93] group-hover:text-[#E50914] transition-all shrink-0" />
             </a>
 
-            {/* LinkedIn */}
+            {/* 3. LINKEDIN PROFILE */}
             <a 
               href={personalInfo.linkedin}
               target="_blank"
               rel="noreferrer"
-              className="flex items-center gap-3.5 p-3.5 bg-white/[0.02] border border-white/10 hover:border-[#E50914] text-white rounded-full transition-all group cursor-pointer"
+              className="w-full flex items-center justify-between p-4 bg-[#121212] border border-neutral-800 hover:border-[#E50914] text-white transition-all group cursor-pointer"
             >
-              <div className="w-8 h-8 rounded-full bg-neutral-900 border border-white/10 flex items-center justify-center text-[#E50914]">
-                <Linkedin className="w-4 h-4" />
+              <div className="flex items-center gap-3.5">
+                <div className="w-8 h-8 rounded-full bg-neutral-900 border border-neutral-800 flex items-center justify-center text-[#FF2E37] group-hover:border-[#E50914] transition-colors shrink-0">
+                  <Linkedin className="w-4 h-4 text-[#FF2E37]" />
+                </div>
+                <div className="flex flex-col text-left truncate">
+                  <span className="text-[10px] text-[#8E8E93] uppercase font-bold tracking-widest font-mono">LINKEDIN PROFILE</span>
+                  <span className="text-xs sm:text-sm text-white font-semibold truncate font-mono">Hassaan Abdullah Kiyani</span>
+                </div>
               </div>
-              <div className="flex flex-col flex-1">
-                <span className="text-[10px] text-[#A1A1AA] uppercase font-bold tracking-widest">LinkedIn Profile</span>
-                <span className="text-xs text-white truncate font-medium">Hassaan Abdullah Kiyani</span>
-              </div>
-              <ArrowRight className="w-4 h-4 text-[#A1A1AA] group-hover:text-[#E50914] group-hover:translate-x-1 transition-all mr-2" />
+              <ArrowUpRight className="w-4 h-4 text-[#8E8E93] group-hover:text-[#E50914] transition-all shrink-0" />
             </a>
 
-            {/* Medium */}
+            {/* 4. MEDIUM ESSAYS */}
             <a 
               href={personalInfo.medium}
               target="_blank"
               rel="noreferrer"
-              className="flex items-center gap-3.5 p-3.5 bg-white/[0.02] border border-white/10 hover:border-[#E50914] text-white rounded-full transition-all group cursor-pointer"
+              className="w-full flex items-center justify-between p-4 bg-[#121212] border border-neutral-800 hover:border-[#E50914] text-white transition-all group cursor-pointer"
             >
-              <div className="w-8 h-8 rounded-full bg-neutral-900 border border-white/10 flex items-center justify-center text-[#E50914]">
-                <FileText className="w-4 h-4" />
+              <div className="flex items-center gap-3.5">
+                <div className="w-8 h-8 rounded-full bg-neutral-900 border border-neutral-800 flex items-center justify-center text-[#FF2E37] group-hover:border-[#E50914] transition-colors shrink-0">
+                  <FileText className="w-4 h-4 text-[#FF2E37]" />
+                </div>
+                <div className="flex flex-col text-left truncate">
+                  <span className="text-[10px] text-[#8E8E93] uppercase font-bold tracking-widest font-mono">MEDIUM ESSAYS</span>
+                  <span className="text-xs sm:text-sm text-white font-semibold truncate font-mono">medium.com/@hklogs</span>
+                </div>
               </div>
-              <div className="flex flex-col flex-1">
-                <span className="text-[10px] text-[#A1A1AA] uppercase font-bold tracking-widest">Medium Essays</span>
-                <span className="text-xs text-white truncate font-medium">medium.com/@hklogs</span>
-              </div>
-              <ArrowRight className="w-4 h-4 text-[#A1A1AA] group-hover:text-[#E50914] group-hover:translate-x-1 transition-all mr-2" />
+              <ArrowUpRight className="w-4 h-4 text-[#8E8E93] group-hover:text-[#E50914] transition-all shrink-0" />
             </a>
 
-            {/* Location Badge */}
-            <div className="flex items-center gap-3.5 p-3.5 bg-white/[0.02] border border-white/10 text-white rounded-full">
-              <div className="w-8 h-8 rounded-full bg-neutral-900 border border-white/10 flex items-center justify-center text-[#E50914]">
-                <MapPin className="w-4 h-4" />
+            {/* 5. BASE LOCATION */}
+            <div className="w-full flex items-center justify-between p-4 bg-[#121212] border border-neutral-800 text-white">
+              <div className="flex items-center gap-3.5">
+                <div className="w-8 h-8 rounded-full bg-neutral-900 border border-neutral-800 flex items-center justify-center text-[#FF2E37] shrink-0">
+                  <MapPin className="w-4 h-4 text-[#FF2E37]" />
+                </div>
+                <div className="flex flex-col text-left truncate">
+                  <span className="text-[10px] text-[#8E8E93] uppercase font-bold tracking-widest font-mono">BASE LOCATION</span>
+                  <span className="text-xs sm:text-sm text-white font-semibold truncate font-mono">Rawalpindi / Islamabad, Pakistan</span>
+                </div>
               </div>
-              <div className="flex flex-col flex-1">
-                <span className="text-[10px] text-[#A1A1AA] uppercase font-bold tracking-widest">Base Location</span>
-                <span className="text-xs text-white truncate font-medium">Rawalpindi / Islamabad, Pakistan</span>
-              </div>
+              <span className="w-2 h-2 rounded-full bg-[#E50914] animate-ping mr-1 shrink-0" />
             </div>
 
           </div>
 
         </div>
 
-        {/* Footer Copyright Line */}
-        <div className="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center text-xs font-mono text-[#A1A1AA] gap-4">
+        {/* BOTTOM FOOTER STRIP */}
+        <div className="mt-16 pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-[#8E8E93] text-xs uppercase tracking-widest font-mono gap-4">
           <div>
             &copy; 2026 Hassaan Abdullah Kiyani &bull; Intelligent Software Engineering
           </div>
-          <div className="flex items-center gap-2">
-            <Globe className="w-3.5 h-3.5 text-[#E50914]" />
-            <span>RAWALPINDI / ISLAMABAD, PAKISTAN</span>
+          <div>
+            RAWALPINDI / ISLAMABAD, PAKISTAN
           </div>
         </div>
 

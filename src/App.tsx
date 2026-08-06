@@ -178,9 +178,9 @@ function App() {
       <Navigation />
       
       {/* Main Content */}
-      <main ref={mainRef} className="relative z-10 pt-16">
+      <main ref={mainRef} className="relative z-10 pt-16 overflow-x-hidden w-full max-w-full">
         
-        {/* 1. Basic Profile (Hero Section) */}
+        {/* 1. HERO SECTION (With background cutout & giant gradient text) */}
         <section id="about" className="relative z-10">
           <HeroSection
             onExploreProjects={() => {
@@ -196,12 +196,7 @@ function App() {
           />
         </section>
 
-        {/* 2. Experience, Education, Coursework & Volunteer Track */}
-        <section id="experience" className="relative z-15">
-          <ExperienceSection />
-        </section>
-        
-        {/* 3. Engineered Architectures & Projects */}
+        {/* 2. SELECTED PROJECTS (Directly below Hero — NOT Education/Work Track!) */}
         <section id="projects" className="relative z-20">
           <GithubProjectsSection
             geminiKey={geminiKey}
@@ -212,17 +207,12 @@ function App() {
           />
         </section>
 
-        {/* 4. Skills & Workspace Tools */}
-        <section id="skills" className="relative z-25">
-          <TechStackSection />
+        {/* 3. 2-COLUMN SPLIT SECTION (LEFT: EDUCATION & SKILLS | RIGHT: WORK PROCESS / EXPERIENCE & QUOTE CARD) */}
+        <section id="experience" className="relative z-25">
+          <ExperienceSection />
         </section>
         
-        {/* 5. Medium Publications */}
-        <section id="publications" className="relative z-30">
-          <PublicationsSection />
-        </section>
-        
-        {/* 6. Contact Gateway & Linktree Footer */}
+        {/* 4. LET'S WORK TOGETHER (Contact & Linktree Footer) */}
         <section id="gateway" className="relative z-35">
           <PortalsSection />
         </section>

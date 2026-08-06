@@ -161,87 +161,86 @@ export default function GithubProjectsSection({
       ref={containerRef} 
       id="projects" 
       className="py-20 border-t border-neutral-800 relative overflow-hidden bg-[#0D0D0D]"
-      style={{ perspective: '1200px' }}
     >
-      {/* Visual background details */}
-      <div className="absolute top-1/4 left-0 w-80 h-80 bg-[#E50914]/5 rounded-full blur-[120px] pointer-events-none" />
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
         
-        {/* Top Bar */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-10 pb-4 border-b border-neutral-800 text-left">
-          <h2 className="font-heading text-4xl md:text-5xl font-bold text-white uppercase tracking-tight">
-            ENGINEERED <span className="text-[#E50914]">ARCHITECTURES</span>
+        {/* Top Header Line: Left-aligned "SELECTED PROJECTS", extending horizontal rule, right-aligned link */}
+        <div className="flex items-center justify-between mb-12 text-left">
+          <h2 className="font-heading text-2xl sm:text-4xl font-bold text-white uppercase tracking-wider shrink-0">
+            SELECTED <span className="text-[#E50914]">PROJECTS</span>
           </h2>
           
+          <div className="hidden sm:block flex-1 h-px bg-neutral-800 mx-6" />
+
           <button 
             onClick={() => onOpenVault ? onOpenVault() : setIsAllProjectsOpen(true)}
-            className="text-xs font-mono uppercase text-[#E50914] hover:text-white tracking-widest font-bold transition-all hover:-translate-y-0.5 cursor-pointer flex items-center gap-1.5 w-fit"
+            className="text-xs font-mono uppercase text-[#E50914] hover:text-white tracking-widest font-bold transition-all cursor-pointer flex items-center gap-1.5 shrink-0"
           >
-            <span>EXPLORE ALL {staticProjects.length} ARCHITECTURES</span>
-            <span>→</span>
+            <span>VIEW ALL PROJECTS</span>
+            <span>—&gt;</span>
           </button>
         </div>
 
-        {/* Monolithic Horizontal Grid (Separated ONLY by 1px hairline dark borders) */}
-        <div ref={cardsRef} className="grid grid-cols-1 md:grid-cols-3 border border-white/10 divide-y md:divide-y-0 md:divide-x divide-white/10 bg-transparent">
-          {topProjects.map((project, idx) => (
+        {/* Layout Grid: 1-column stacked list on mobile (grid-cols-1), 3 columns on desktop (md:grid-cols-3) */}
+        <div ref={cardsRef} className="grid grid-cols-1 md:grid-cols-3 border border-neutral-800 divide-y md:divide-y-0 md:divide-x divide-neutral-800 bg-[#0D0D0D]">
+          {topProjects.slice(0, 3).map((project, idx) => (
             <div
               key={idx}
               onClick={() => setSelectedProject(project)}
-              className="group relative bg-[#0D0D0D] hover:bg-neutral-900/60 transition-all duration-300 flex flex-col justify-between w-full text-left cursor-pointer p-6 space-y-6"
+              className="group relative bg-[#0D0D0D] hover:bg-neutral-900/60 transition-all duration-300 flex flex-col justify-between w-full text-left cursor-pointer p-4 sm:p-6 space-y-4"
             >
-              <div className="space-y-4">
-                <div className="flex justify-between items-start">
-                  <div className="flex flex-col">
-                    <span className="text-3xl font-black font-heading text-[#FF2E37] leading-none mb-1">
-                      0{idx + 1}
+              {/* TOP: Full width responsive image thumbnail */}
+              <div className="relative w-full h-48 sm:h-56 md:h-auto aspect-[16/10] overflow-hidden bg-neutral-950 border border-neutral-800">
+                {project.thumbnail ? (
+                  <img 
+                    src={project.thumbnail} 
+                    alt={project.name}
+                    className="w-full h-full object-cover rounded-none transition-transform duration-500 ease-out group-hover:scale-105"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80';
+                    }}
+                  />
+                ) : (
+                  <div className="absolute inset-0 bg-neutral-900 flex flex-col items-center justify-center p-6 text-center">
+                    <FolderGit className="w-8 h-8 text-neutral-700 mb-2 group-hover:text-[#FF2E37] transition-colors" />
+                    <span className="text-[10px] font-mono uppercase tracking-widest text-neutral-500 font-bold">
+                      {project.name}
                     </span>
-                    <span className="text-[9px] font-mono text-neutral-500 uppercase tracking-widest leading-none font-bold pt-1">
+                  </div>
+                )}
+              </div>
+
+              {/* BOTTOM: Red number (01, 02, 03), stacked Project Name above Category tag, right arrow —> */}
+              <div className="flex items-center justify-between gap-3 pt-1">
+                <div className="flex items-center gap-3">
+                  {/* Red Number */}
+                  <span className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-[#FF2E37] leading-none shrink-0">
+                    0{idx + 1}
+                  </span>
+
+                  {/* Stacked Project Name above Category tag */}
+                  <div className="flex flex-col text-left">
+                    <h3 className="font-heading font-bold text-white text-base sm:text-lg md:text-xl tracking-wide uppercase leading-tight group-hover:text-[#FF2E37] transition-colors duration-300">
+                      {project.name}
+                    </h3>
+                    <span className="text-[10px] font-mono text-[#8E8E93] uppercase tracking-wider font-medium line-clamp-1">
                       {getProjectSubtitle(project.name)}
                     </span>
                   </div>
-                  <span className="text-lg text-[#FF2E37] group-hover:translate-x-1 transition-transform duration-300 font-bold">
-                    →
-                  </span>
                 </div>
 
-                <div className="relative aspect-video overflow-hidden bg-neutral-950 border border-white/10 flex items-center justify-center">
-                  {project.thumbnail ? (
-                    <img 
-                      src={project.thumbnail} 
-                      alt={project.name}
-                      className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
-                      onError={(e) => {
-                        (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80';
-                      }}
-                    />
-                  ) : (
-                    <div className="absolute inset-0 bg-neutral-900 flex flex-col items-center justify-center p-6 text-center">
-                      <FolderGit className="w-8 h-8 text-neutral-700 mb-2 group-hover:text-[#FF2E37] transition-colors" />
-                      <span className="text-[10px] font-mono uppercase tracking-widest text-neutral-500 font-bold">
-                        {project.name}
-                      </span>
-                    </div>
-                  )}
-                </div>
-
-                <div className="space-y-2 pt-2">
-                  <h3 className="font-heading font-bold text-white text-2xl tracking-wide uppercase leading-tight group-hover:text-[#FF2E37] transition-colors duration-300">
-                    {project.name}
-                  </h3>
-
-                  <p className="text-xs text-[#A1A1AA] leading-relaxed font-light font-sans line-clamp-3">
-                    {project.desc}
-                  </p>
-                </div>
+                {/* Right Arrow —> Positioned on Far Right */}
+                <span className="text-lg sm:text-xl text-[#FF2E37] group-hover:translate-x-1 transition-transform duration-300 font-bold shrink-0">
+                  —&gt;
+                </span>
               </div>
 
-              <div className="flex flex-wrap gap-1.5 pt-4 border-t border-white/10">
-                {project.tech.map((t, i) => (
+              {/* Tech Tags */}
+              <div className="flex flex-wrap gap-1.5 pt-3 border-t border-neutral-800">
+                {project.tech.slice(0, 4).map((t, i) => (
                   <span 
                     key={i} 
-                    className="px-2 py-0.5 bg-white/[0.03] font-mono text-[9px] text-neutral-300 border border-white/10 uppercase group-hover:border-[#FF2E37]/40 transition-colors"
+                    className="px-2 py-0.5 bg-white/[0.03] font-mono text-[9px] text-neutral-300 border border-neutral-800 uppercase group-hover:border-[#FF2E37]/40 transition-colors"
                   >
                     {t}
                   </span>
@@ -252,15 +251,14 @@ export default function GithubProjectsSection({
           ))}
         </div>
 
-        {/* See All Projects Trigger Button */}
-        <div className="mt-12 text-center flex flex-col items-center">
-          <div className="w-full max-w-md h-px bg-gradient-to-r from-transparent via-neutral-800 to-transparent mb-8" />
+        {/* View All Vault Link Trigger */}
+        <div className="mt-10 text-center flex flex-col items-center">
           <button
-            onClick={() => setIsAllProjectsOpen(true)}
+            onClick={() => onOpenVault ? onOpenVault() : setIsAllProjectsOpen(true)}
             className="px-8 py-3.5 bg-[#121212] border border-neutral-800 hover:border-[#E50914]/50 text-white font-bold font-mono text-xs uppercase tracking-widest rounded-none transition-all shadow-[0_0_30px_rgba(0,0,0,0.3)] hover:shadow-[0_0_35px_rgba(229,9,20,0.15)] hover:scale-105 cursor-pointer flex items-center gap-2 group"
           >
             <LayoutGrid className="w-4 h-4 text-[#E50914] group-hover:text-white transition-colors" />
-            <span>Explore All {staticProjects.length} Projects</span>
+            <span>BROWSE ALL {staticProjects.length} PROJECTS IN VAULT —&gt;</span>
           </button>
         </div>
 
