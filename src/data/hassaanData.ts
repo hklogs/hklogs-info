@@ -310,7 +310,7 @@ name: "Nexus-fx",
     working: "Connects to public exchange rate APIs, caches hourly values using local storage, and renders timeline charts dynamically using Chart.js."
   },
   {
-    name: "Relevnt",
+name: "Relevnt",
     desc: "A semantic search and categorization tool mapping relevant text datasets to target tax laws or compliance rules.",
     url: "https://github.com/hklogs/Relevnt",
     vercelUrl: "https://relevnt.vercel.app",
@@ -330,7 +330,7 @@ name: "support-escalation-hub",
     working: "Intercepts error logs from production, maps them to specific ticket levels, and simulates system alerts in a local test suite dashboard."
   },
   {
-    name: "Crazy Leads (NexLeed CRM / MarketForge)",
+name: "Crazy Leads (NexLeed CRM / MarketForge)",
     desc: "An advanced lead scraping dashboard built for sales outreach managers and CRM administrators at Primus Leads LLC. It aggregates B2B client emails, structures marketing campaign pipelines, and provides campaign conversion graphs. It handles data cleaning scripts to remove corrupt records from campaign pools.",
     url: "https://github.com/hklogs/MarketForge",
     vercelUrl: "https://crazy-closers.vercel.app",
@@ -340,16 +340,7 @@ name: "support-escalation-hub",
     working: "Aggregates raw prospect records through Scrapy nodes, executes regex sanitization and validation scripts to drop empty properties, saves datasets to MongoDB, and triggers Gemini 2.0 for outreach text personalization."
   },
   {
-    name: "GetAuto Car Rental",
-    desc: "An offline-first vehicle rental marketplace PWA designed for tourists and rental vendors. Featuring car/bike listings, secure email-OTP sign-ins, and a custom booking calendar, it syncs transactions locally with IndexedDB to allow offline scheduling in remote cellular zones.",
-    url: "https://github.com/hklogs/GetAuto",
-    tech: ["React", "Vite", "Dexie.js", "Tailwind CSS"],
-    thumbnail: "/getauto_rental_thumb.jpg",
-    usecase: "Enables tourists to search for vehicles and place rental reservations in remote areas without cellular connectivity.",
-    working: "Saves rental inventory schemas in browser IndexedDB via Dexie.js. Caches UI routes using a service worker, and logs reservations locally to push to Firebase once connection returns."
-  },
-  {
-    name: "Prioriti Task Manager",
+name: "Prioriti Task Manager",
     desc: "A task prioritization PWA built for software engineers and project managers. By evaluating importance and difficulty inputs, it calculates task weights to organize daily workflows. Designed with a clean minimal UI, it runs offline and automatically syncs local tasks with remote cloud targets.",
     url: "https://github.com/hklogs/Prioriti",
     vercelUrl: "https://prioriti.vercel.app",
@@ -359,7 +350,7 @@ name: "support-escalation-hub",
     working: "Calculates task weight using a custom mathematical formula, updates local arrays in localStorage, and triggers service worker sync queues to update remote cloud databases."
   },
   {
-    name: "PocketMint Expense Tracker",
+name: "PocketMint Expense Tracker",
     desc: "A financial dashboard developed for individual budget coordinators. It tracks expense categories, generates monthly saving projections, and displays interactive charts. It checks transaction inputs against budget boundary limits to prevent budget overrun exceptions.",
     url: "https://github.com/hklogs/PocketMint",
     vercelUrl: "https://pocket-mint.vercel.app",
@@ -369,7 +360,7 @@ name: "support-escalation-hub",
     working: "Aggregates expense inputs, renders graphical timelines via Chart.js, and validates purchase values against budget thresholds to raise boundary exception alerts."
   },
   {
-    name: "geoengineai",
+name: "geoengineai",
     desc: "A geographic information analyzer designed for environmental surveyors. It processes satellite imagery layers, maps terrain coordinates, and identifies geological anomalies. Utilizing Gemini semantic descriptions, it generates text reports based on spatial coordinates.",
     url: "https://github.com/hklogs/geoengineai",
     vercelUrl: "https://geoengine-ai.vercel.app",
@@ -379,11 +370,30 @@ name: "support-escalation-hub",
     working: "Integrates Leaflet Maps to render geo-referenced imagery layers. Users mark coordinates, sending terrain vectors to Gemini API to yield geo-location description logs."
   },
   {
+name: "optimared-ai-pricing-agent",
+    desc: "A retail pricing optimizer built for retail managers. It scrapes competitor catalog costs, runs predictive margin algorithms, and proposes price updates. It avoids price collisions and complies with retail tax caps to maximize merchant earnings.",
+    url: "https://github.com/hklogs/optimared-ai-pricing-agent",
+    vercelUrl: "https://ai-dynamic-pricing-agent.vercel.app",
+    tech: ["Python", "Scrapy", "FastAPI", "SQLite"],
+    thumbnail: "/pricing_agent_thumb.jpg",
+    usecase: "Helps e-commerce merchants track competitor catalog prices and automate pricing adjustments to maintain margins.",
+    working: "Executes Scrapy spiders to parse competitor product prices daily, processes updates through a FastAPI router, writes logs to SQLite, and computes optimal margin boundaries."
+  },
+  {
+name: "AI-powered-Podcast-Agent",
+    desc: "An autonomous research and audio editing orchestrator designed for media creators. Controlled by LangGraph agent loops, it executes web research, writes segment transcripts, runs content refinement critique checks, and integrates Text-to-Speech (TTS) models to output finished audio episodes.",
+    url: "https://github.com/hklogs/AI-powered-Podcast-Agent",
+    vercelUrl: "https://ai-podcast-agent.vercel.app",
+    tech: ["LangGraph", "Python", "Gemini API", "TTS Engines"],
+    thumbnail: "/podcast_agent_thumb.jpg",
+    usecase: "Allows content creators to outline topics and output complete, synthesized multi-speaker podcasts without manual editing or voice actors.",
+    working: "Runs a multi-agent LangGraph workflow: researcher agent searches the web, scriptwriter drafts dialogues, critique agent ensures consistency, and voice generator synthesizes speech via Edge TTS."
+  },
+  {
 name: "Kareemiya Site",
     desc: "Kareemiya — AI-powered BPO & career platform incorporating Motive Dark theme styling, application validation, and interactive candidate onboarding.",
     url: "https://github.com/hklogs/kareemiya-site",
-    vercelUrl: "https://kareemiya-site.vercel.app",
-    tech: ["HTML", "Tailwind CSS", "JavaScript", "GSAP"],
+        tech: ["HTML", "Tailwind CSS", "JavaScript", "GSAP"],
     thumbnail: "/pocketmint_tracker_thumb.jpg",
     usecase: "Enables interactive BPO service recruitment and career portal submissions with sleek dark styling and smooth entry animations.",
     working: "Uses structured HTML5 and custom CSS layouts with GSAP animations to manage responsive views, validating application forms with local sanitizers."
@@ -407,15 +417,6 @@ name: "Agentic-Legal-Assistant",
     working: "Extracts clause tokens from legal text files using PyPDF. Executes Gemini 2.5 Flash function calling to map clauses against a rigid JSON schema, producing detailed audit logs of missing sections."
   },
   {
-name: "AI-powered-Podcast-Agent",
-    desc: "An autonomous research and audio editing orchestrator designed for media creators. Controlled by LangGraph agent loops, it executes web research, writes segment transcripts, runs content refinement critique checks, and integrates Text-to-Speech (TTS) models to output finished audio episodes.",
-    url: "https://github.com/hklogs/AI-powered-Podcast-Agent",
-    tech: ["LangGraph", "Python", "Gemini API", "TTS Engines"],
-    thumbnail: "/podcast_agent_thumb.jpg",
-    usecase: "Allows content creators to outline topics and output complete, synthesized multi-speaker podcasts without manual editing or voice actors.",
-    working: "Runs a multi-agent LangGraph workflow: researcher agent searches the web, scriptwriter drafts dialogues, critique agent ensures consistency, and voice generator synthesizes speech via Edge TTS."
-  },
-  {
 name: "AppointmentBookingApp",
     desc: "An Android application designed to coordinate meetings between scheduling leads and service providers. Integrated with a Firebase Realtime Database, it synchronizes booking requests, tracks location pins, and issues real-time notifications to prevent scheduling overlap errors.",
     url: "https://github.com/hklogs/AppointmentBookingApp",
@@ -434,13 +435,13 @@ name: "AatendenceAPP",
     working: "Stores student arrays in a local SQLite database on the Android device. Handles attendance state toggles offline and synchronizes sheets with the web portal via REST APIs on connectivity."
   },
   {
-name: "optimared-ai-pricing-agent",
-    desc: "A retail pricing optimizer built for retail managers. It scrapes competitor catalog costs, runs predictive margin algorithms, and proposes price updates. It avoids price collisions and complies with retail tax caps to maximize merchant earnings.",
-    url: "https://github.com/hklogs/optimared-ai-pricing-agent",
-    tech: ["Python", "Scrapy", "FastAPI", "SQLite"],
-    thumbnail: "/pricing_agent_thumb.jpg",
-    usecase: "Helps e-commerce merchants track competitor catalog prices and automate pricing adjustments to maintain margins.",
-    working: "Executes Scrapy spiders to parse competitor product prices daily, processes updates through a FastAPI router, writes logs to SQLite, and computes optimal margin boundaries."
+name: "GetAuto Car Rental",
+    desc: "An offline-first vehicle rental marketplace PWA designed for tourists and rental vendors. Featuring car/bike listings, secure email-OTP sign-ins, and a custom booking calendar, it syncs transactions locally with IndexedDB to allow offline scheduling in remote cellular zones.",
+    url: "https://github.com/hklogs/GetAuto",
+    tech: ["React", "Vite", "Dexie.js", "Tailwind CSS"],
+    thumbnail: "/getauto_rental_thumb.jpg",
+    usecase: "Enables tourists to search for vehicles and place rental reservations in remote areas without cellular connectivity.",
+    working: "Saves rental inventory schemas in browser IndexedDB via Dexie.js. Caches UI routes using a service worker, and logs reservations locally to push to Firebase once connection returns."
   },
   {
 name: "Legal-AI-Assistant",
