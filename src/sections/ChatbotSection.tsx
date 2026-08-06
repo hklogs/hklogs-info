@@ -309,7 +309,9 @@ export default function ChatbotSection({ geminiKey, isOpen, onClose }: ChatbotSe
       });
 
       if (!response.ok) {
-        throw new Error('Gemini API return error status');
+        const err = new Error(`Gemini API return error status: ${response.status}`);
+        (err as Error & { status?: number }).status = response.status;
+        throw err;
       }
 
       const data = await response.json();
@@ -322,8 +324,18 @@ export default function ChatbotSection({ geminiKey, isOpen, onClose }: ChatbotSe
       }
     } catch (error) {
       console.error('Gemini call fail:', error);
-      // Clean, direct fallback without fluff
       const textLower = userMsg.toLowerCase();
+      const status = (error as Error & { status?: number }).status;
+
+      // Quota / rate-limit reached — keep the visitor converting instead of seeing a dead end
+      if (status === 429) {
+        setChatMessages(prev => [...prev, {
+          sender: 'bot',
+          text: "I'm temporarily at message capacity, but Hassaan is very much available! 😊 Feel free to reach him directly — he usually replies fast:\n\n- [Fiverr Profile](https://www.fiverr.com/hassaankayani1)\n- [Upwork Profile](https://www.upwork.com/freelancers/~016d3a3d2b6da309a6)\n- [LinkedIn](https://www.linkedin.com/in/hassaan-abdullah-kiyani/)\n- [Email](mailto:hassaanabdullahkayani@gmail.com)"
+        }]);
+        return;
+      }
+
       let reply = "I couldn't reach the AI engine just now, but I'm still here to help! Feel free to rephrase your question and try again.";
       
       if (textLower.includes('fiverr') || textLower.includes('hire') || textLower.includes('work')) {
